@@ -19,8 +19,7 @@ public class MainActivity extends ActionBarActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
-
-    //Callense
+    
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
