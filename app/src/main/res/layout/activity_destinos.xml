@@ -4,12 +4,24 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="@mipmap/bk_destinos"
     tools:context="com.example.prog2.eurotravelplanner.Destinos">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textCalculadoraMonetaria"
+        android:text="Calculadora Monetaria"
+        android:layout_centerHorizontal="true"
+        android:textSize="20dp"
+        android:textColor="@color/SandyBrown"
+        android:textStyle="bold"
+        />
     <Button
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:id="@+id/btnCalc"
+        android:layout_below="@+id/textCalculadoraMonetaria"
         android:background="@mipmap/currency_icon"
         android:layout_alignParentRight="true"
         />
@@ -17,11 +29,73 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/textCalculadoraMonetaria"
         android:text="Convertidor de\nMonedas:"
         android:layout_toLeftOf="@+id/btnCalc"
         android:textStyle="bold"
         android:layout_marginTop="5dp"
         android:textSize="18dp"
+        />
+
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/textCalculadoraMonetaria"
+        android:layout_marginTop="5dp"
+        android:text="RD$ 1.00 =\nUS$ 45.00"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:textColor="@color/blue"
+        />
+
+    <Button
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:id="@+id/btn_paris"
+        android:layout_marginLeft="30dp"
+        android:background="@mipmap/button_paris_eiffel"
+        android:layout_marginTop="105dp"
+        />
+
+    <Button
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:id="@+id/btn_roma"
+        android:layout_marginLeft="30dp"
+        android:layout_toRightOf="@+id/btn_paris"
+        android:background="@mipmap/btn_roma"
+        android:layout_marginTop="105dp"
+        />
+
+    <Button
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:id="@+id/btn_londres"
+        android:layout_marginLeft="30dp"
+        android:background="@mipmap/btn_londres"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/btn_paris"
+        />
+
+    <Button
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:id="@+id/btn_moscu"
+        android:layout_marginLeft="30dp"
+        android:layout_toRightOf="@+id/btn_londres"
+        android:layout_below="@+id/btn_roma"
+        android:background="@mipmap/btn_moscu"
+        android:layout_marginTop="15dp"
+        />
+
+    <Button
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:id="@+id/btn_madrid"
+        android:layout_marginLeft="30dp"
+        android:background="@mipmap/btn_madrid"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/btn_londres"
         />
 
 </RelativeLayout>
