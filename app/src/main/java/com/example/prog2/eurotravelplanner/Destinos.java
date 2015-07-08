@@ -34,7 +34,65 @@ public class Destinos extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 // en este intent abra el activity donde esta la lista de opciones, gracias
+
                 Intent intent_ListaOpciones = new Intent(Destinos.this,Opciones.class);
+                intent_ListaOpciones.putExtra("id_cuidades",1);
+                // aqui le mando un intent con el id de la cuidad para con ese id insertar el banner en el activity lista de opciones
+                startActivity(intent_ListaOpciones);
+            }
+        });
+
+        btn_venecia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // en este intent abra el activity donde esta la lista de opciones, gracias
+                Intent intent_ListaOpciones = new Intent(Destinos.this,Opciones.class);
+                intent_ListaOpciones.putExtra("id_cuidades",2);
+                // aqui le mando un intent con el id de la cuidad para con ese id insertar el banner en el activity lista de opciones
+                startActivity(intent_ListaOpciones);
+            }
+        });
+
+        btn_madrid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // en este intent abra el activity donde esta la lista de opciones, gracias
+                Intent intent_ListaOpciones = new Intent(Destinos.this,Opciones.class);
+                intent_ListaOpciones.putExtra("id_cuidades",3);
+                // aqui le mando un intent con el id de la cuidad para con ese id insertar el banner en el activity lista de opciones
+                startActivity(intent_ListaOpciones);
+            }
+        });
+
+        btn_roma.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // en este intent abra el activity donde esta la lista de opciones, gracias
+                Intent intent_ListaOpciones = new Intent(Destinos.this,Opciones.class);
+                intent_ListaOpciones.putExtra("id_cuidades",4);
+                // aqui le mando un intent con el id de la cuidad para con ese id insertar el banner en el activity lista de opciones
+                startActivity(intent_ListaOpciones);
+            }
+        });
+
+        btn_berlin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // en este intent abra el activity donde esta la lista de opciones, gracias
+                Intent intent_ListaOpciones = new Intent(Destinos.this,Opciones.class);
+                intent_ListaOpciones.putExtra("id_cuidades",5);
+                // aqui le mando un intent con el id de la cuidad para con ese id insertar el banner en el activity lista de opciones
+                startActivity(intent_ListaOpciones);
+            }
+        });
+
+        btn_londres.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // en este intent abra el activity donde esta la lista de opciones, gracias
+                Intent intent_ListaOpciones = new Intent(Destinos.this,Opciones.class);
+                intent_ListaOpciones.putExtra("id_cuidades",6);
+                // aqui le mando un intent con el id de la cuidad para con ese id insertar el banner en el activity lista de opciones
                 startActivity(intent_ListaOpciones);
             }
         });
