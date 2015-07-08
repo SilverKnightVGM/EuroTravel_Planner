@@ -1,15 +1,15 @@
 package com.example.prog2.eurotravelplanner;
 
+import android.os.PersistableBundle;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.facebook.FacebookSdk;
 import android.view.View;
 import android.widget.Button;
-//Comment
-
-
 
 public class MainActivity extends ActionBarActivity {
     Button btnRegister, btnLogin;
@@ -18,6 +18,9 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        // Initialize the SDK before executing any other operations,
+        // especially, if you're using Facebook UI elements.
 
         btnRegister = (Button) findViewById(R.id.btnRegistrarse);
         btnLogin = (Button) findViewById(R.id.btnlogin);
@@ -28,8 +31,6 @@ public class MainActivity extends ActionBarActivity {
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this, Destinos.class);
                 startActivity(i);
-
-
             }
         });
 
