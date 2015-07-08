@@ -7,6 +7,21 @@
     android:background="@mipmap/bk_destinos1"
     tools:context="com.example.prog2.eurotravelplanner.Destinos">
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></LinearLayout>
+
     <Button
         android:layout_width="120dp"
         android:layout_height="120dp"
@@ -121,12 +136,10 @@
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:id="@+id/btn_berlin"
-        android:layout_marginLeft="30dp"
-        android:layout_toRightOf="@+id/btn_londres"
-        android:layout_below="@+id/txtVenecia"
         android:background="@mipmap/btn_berlin"
-        android:layout_marginTop="15dp"
-        />
+        android:layout_alignTop="@+id/btn_madrid"
+        android:layout_alignLeft="@+id/txtVenecia"
+        android:layout_alignStart="@+id/txtVenecia" />
     <TextView
         android:layout_width="120dp"
         android:layout_height="wrap_content"
