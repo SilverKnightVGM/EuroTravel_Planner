@@ -8,150 +8,233 @@
     tools:context="com.example.prog2.eurotravelplanner.Destinos">
 
     <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></LinearLayout>
+        android:layout_height="match_parent"
+        android:weightSum="3">
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/Fila1_Paris_Roma"
+            android:layout_weight="1"
+            android:weightSum="100">
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/Paris"
+                android:layout_weight="50">
 
-    <Button
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:id="@+id/btn_paris"
-        android:layout_marginLeft="30dp"
-        android:background="@mipmap/button_paris_eiffel"
-        android:layout_marginTop="10dp"
-        />
-    <TextView
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtParis"
-        android:layout_below="@+id/btn_paris"
-        android:layout_alignLeft="@+id/btn_paris"
-        android:layout_alignStart="@+id/btn_paris"
-        android:text="Paris"
-        android:textSize="20dp"
-        android:gravity="center_horizontal"
-        android:textColor="@color/Brown"
-        android:textStyle="bold"/>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btn_paris"
+                    android:background="@mipmap/button_paris_eiffel"
+                    android:scaleType="fitXY"
+                    android:maxWidth="120dp"
+                    android:maxHeight="120dp"
+                    android:layout_span="2"
+                    android:layout_gravity="center"
+                    android:layout_row="0"
+                    android:adjustViewBounds="true"
+                    android:layout_columnSpan="1"
+                    android:layout_column="3" />
 
-    <Button
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:id="@+id/btn_roma"
-        android:layout_marginLeft="30dp"
-        android:layout_toRightOf="@+id/btn_paris"
-        android:background="@mipmap/btn_roma"
-        android:layout_marginTop="10dp"
-        />
-    <TextView
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtRoma"
-        android:layout_below="@+id/btn_roma"
-        android:layout_alignLeft="@+id/btn_roma"
-        android:layout_alignStart="@+id/btn_roma"
-        android:text="Roma"
-        android:textSize="20dp"
-        android:gravity="center_horizontal"
-        android:textColor="@color/Brown"
-        android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtParis"
+                    android:layout_below="@+id/btn_paris"
+                    android:layout_alignLeft="@+id/btn_paris"
+                    android:layout_alignStart="@+id/btn_paris"
+                    android:text="Paris"
+                    android:textSize="20sp"
+                    android:textColor="@color/Brown"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_span="4"
+                    android:layout_row="1"
+                    android:layout_column="0"
+                    android:layout_columnSpan="4" />
+            </LinearLayout>
 
-    <Button
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:id="@+id/btn_londres"
-        android:layout_marginLeft="30dp"
-        android:background="@mipmap/btn_londres"
-        android:layout_marginTop="15dp"
-        android:layout_below="@+id/txtParis"
-        />
-    <TextView
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtLondres"
-        android:layout_below="@+id/btn_londres"
-        android:layout_alignLeft="@+id/btn_londres"
-        android:layout_alignStart="@+id/btn_londres"
-        android:text="Londres"
-        android:textSize="20dp"
-        android:gravity="center_horizontal"
-        android:textColor="@color/Brown"
-        android:textStyle="bold"/>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/Roma"
+                android:layout_weight="50">
 
-    <Button
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:id="@+id/btn_venecia"
-        android:layout_marginLeft="30dp"
-        android:layout_toRightOf="@+id/btn_londres"
-        android:layout_below="@+id/txtRoma"
-        android:background="@mipmap/btn_venecia"
-        android:layout_marginTop="15dp"
-        />
-    <TextView
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtVenecia"
-        android:layout_below="@+id/btn_venecia"
-        android:layout_alignLeft="@+id/btn_venecia"
-        android:layout_alignStart="@+id/btn_venecia"
-        android:text="Venecia"
-        android:textSize="20dp"
-        android:gravity="center_horizontal"
-        android:textColor="@color/Brown"
-        android:textStyle="bold"/>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btn_roma"
+                    android:layout_toRightOf="@+id/btn_paris"
+                    android:background="@mipmap/btn_roma"
+                    android:layout_gravity="center" />
 
-    <Button
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:id="@+id/btn_madrid"
-        android:layout_marginLeft="30dp"
-        android:background="@mipmap/btn_madrid"
-        android:layout_marginTop="15dp"
-        android:layout_below="@+id/txtLondres"
-        />
-    <TextView
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtMadrid"
-        android:layout_below="@+id/btn_madrid"
-        android:layout_alignLeft="@+id/btn_madrid"
-        android:layout_alignStart="@+id/btn_madrid"
-        android:text="Madrid"
-        android:textSize="20dp"
-        android:gravity="center_horizontal"
-        android:textColor="@color/Brown"
-        android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtRoma"
+                    android:layout_below="@+id/btn_roma"
+                    android:layout_alignLeft="@+id/btn_roma"
+                    android:layout_alignStart="@+id/btn_roma"
+                    android:text="Roma"
+                    android:textSize="20sp"
+                    android:textColor="@color/Brown"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:gravity="center" />
+            </LinearLayout>
 
-    <Button
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:id="@+id/btn_berlin"
-        android:background="@mipmap/btn_berlin"
-        android:layout_alignTop="@+id/btn_madrid"
-        android:layout_alignLeft="@+id/txtVenecia"
-        android:layout_alignStart="@+id/txtVenecia" />
-    <TextView
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtBerlin"
-        android:layout_below="@+id/btn_berlin"
-        android:layout_alignLeft="@+id/btn_berlin"
-        android:layout_alignStart="@+id/btn_berlin"
-        android:text="Berlin"
-        android:textSize="20dp"
-        android:gravity="center_horizontal"
-        android:textColor="@color/Brown"
-        android:textStyle="bold"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/Fila2_Londres_Venecia"
+            android:layout_weight="1"
+            android:weightSum="100">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/Londres"
+                android:layout_weight="50">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btn_londres"
+                    android:background="@mipmap/btn_londres"
+                    android:layout_below="@+id/txtParis"
+                    android:layout_gravity="center" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtLondres"
+                    android:layout_below="@+id/btn_londres"
+                    android:layout_alignLeft="@+id/btn_londres"
+                    android:layout_alignStart="@+id/btn_londres"
+                    android:text="Londres"
+                    android:textSize="20sp"
+                    android:textColor="@color/Brown"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:gravity="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/Venecia"
+                android:layout_weight="50">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btn_venecia"
+                    android:layout_toRightOf="@+id/btn_londres"
+                    android:layout_below="@+id/txtRoma"
+                    android:background="@mipmap/btn_venecia"
+                    android:layout_gravity="center" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtVenecia"
+                    android:layout_below="@+id/btn_venecia"
+                    android:layout_alignLeft="@+id/btn_venecia"
+                    android:layout_alignStart="@+id/btn_venecia"
+                    android:text="Venecia"
+                    android:textSize="20sp"
+                    android:gravity="center"
+                    android:textColor="@color/Brown"
+                    android:textStyle="bold"
+                    android:layout_gravity="center" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/Fila3_Madrid_Berlin"
+            android:layout_weight="1"
+            android:weightSum="100">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/Madrid"
+                android:layout_weight="50">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btn_madrid"
+                    android:background="@mipmap/btn_madrid"
+                    android:layout_below="@+id/txtLondres"
+                    android:layout_gravity="center" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtMadrid"
+                    android:layout_below="@+id/btn_madrid"
+                    android:layout_alignLeft="@+id/btn_madrid"
+                    android:layout_alignStart="@+id/btn_madrid"
+                    android:text="Madrid"
+                    android:textSize="20sp"
+                    android:gravity="center"
+                    android:textColor="@color/Brown"
+                    android:textStyle="bold"
+                    android:layout_gravity="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/Berlin"
+                android:layout_weight="50">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btn_berlin"
+                    android:background="@mipmap/btn_berlin"
+                    android:layout_alignTop="@+id/btn_madrid"
+                    android:layout_alignLeft="@+id/txtVenecia"
+                    android:layout_alignStart="@+id/txtVenecia"
+                    android:layout_gravity="center" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtBerlin"
+                    android:layout_below="@+id/btn_berlin"
+                    android:layout_alignLeft="@+id/btn_berlin"
+                    android:layout_alignStart="@+id/btn_berlin"
+                    android:text="Berlin"
+                    android:textSize="20sp"
+                    android:textColor="@color/Brown"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:gravity="center" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
 
 
 </RelativeLayout>
