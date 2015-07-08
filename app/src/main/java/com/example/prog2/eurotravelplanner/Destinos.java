@@ -14,19 +14,19 @@ import android.widget.Button;
 
 public class Destinos extends ActionBarActivity {
 
-    final Button convertirMoneda=(Button)findViewById(R.id.btnCalc);
+    //final Button convertirMoneda=(Button)findViewById(R.id.btnCalc);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_destinos);
 
-        convertirMoneda.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
+//        convertirMoneda.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//            }
+//        });
 
     }
 

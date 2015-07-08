@@ -71,9 +71,9 @@ public class Opciones extends ActionBarActivity {
         miCategoria.add(new clase_categorias("Datos Generales",R.drawable.icon_info));
         miCategoria.add(new clase_categorias("Transporte",R.drawable.icon_maleta));
         miCategoria.add(new clase_categorias("Hospedaje",R.drawable.icon_hospedaje));
-        miCategoria.add(new clase_categorias("Gastronomía",R.drawable.icon_gastronomia));
+        miCategoria.add(new clase_categorias("Gastronomï¿½a",R.drawable.icon_gastronomia));
         miCategoria.add(new clase_categorias("Entretenimiento",R.drawable.icon_entretenimiento));
-        miCategoria.add(new clase_categorias("Lugares de interés",R.drawable.icon_interes));
+        miCategoria.add(new clase_categorias("Lugares de interï¿½s",R.drawable.icon_interes));
         miCategoria.add(new clase_categorias("Compras",R.drawable.icon_compras));
     }
 
