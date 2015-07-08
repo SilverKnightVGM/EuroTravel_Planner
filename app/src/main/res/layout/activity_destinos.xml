@@ -89,7 +89,7 @@
         android:layout_below="@+id/btn_venecia"
         android:layout_alignLeft="@+id/btn_venecia"
         android:layout_alignStart="@+id/btn_venecia"
-        android:text="Vennecia"
+        android:text="Venecia"
         android:textSize="20dp"
         android:gravity="center_horizontal"
         android:textColor="@color/Brown"
