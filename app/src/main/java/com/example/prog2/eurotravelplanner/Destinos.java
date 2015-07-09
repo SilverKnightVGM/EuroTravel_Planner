@@ -36,7 +36,7 @@ public class Destinos extends ActionBarActivity {
                 // en este intent abra el activity donde esta la lista de opciones, gracias
 
                 Intent intent_ListaOpciones = new Intent(Destinos.this,Opciones.class);
-                intent_ListaOpciones.putExtra("id_cuidades",1);
+                intent_ListaOpciones.putExtra("id_cuidades","paris");
                 // aqui le mando un intent con el id de la cuidad para con ese id insertar el banner en el activity lista de opciones
                 startActivity(intent_ListaOpciones);
             }
@@ -47,7 +47,7 @@ public class Destinos extends ActionBarActivity {
             public void onClick(View v) {
                 // en este intent abra el activity donde esta la lista de opciones, gracias
                 Intent intent_ListaOpciones = new Intent(Destinos.this,Opciones.class);
-                intent_ListaOpciones.putExtra("id_cuidades",2);
+                intent_ListaOpciones.putExtra("id_cuidades","venecia");
                 // aqui le mando un intent con el id de la cuidad para con ese id insertar el banner en el activity lista de opciones
                 startActivity(intent_ListaOpciones);
             }
@@ -58,7 +58,7 @@ public class Destinos extends ActionBarActivity {
             public void onClick(View v) {
                 // en este intent abra el activity donde esta la lista de opciones, gracias
                 Intent intent_ListaOpciones = new Intent(Destinos.this,Opciones.class);
-                intent_ListaOpciones.putExtra("id_cuidades",3);
+                intent_ListaOpciones.putExtra("id_cuidades","madrid");
                 // aqui le mando un intent con el id de la cuidad para con ese id insertar el banner en el activity lista de opciones
                 startActivity(intent_ListaOpciones);
             }
@@ -69,7 +69,7 @@ public class Destinos extends ActionBarActivity {
             public void onClick(View v) {
                 // en este intent abra el activity donde esta la lista de opciones, gracias
                 Intent intent_ListaOpciones = new Intent(Destinos.this,Opciones.class);
-                intent_ListaOpciones.putExtra("id_cuidades",4);
+                intent_ListaOpciones.putExtra("id_cuidades","roma");
                 // aqui le mando un intent con el id de la cuidad para con ese id insertar el banner en el activity lista de opciones
                 startActivity(intent_ListaOpciones);
             }
@@ -80,7 +80,7 @@ public class Destinos extends ActionBarActivity {
             public void onClick(View v) {
                 // en este intent abra el activity donde esta la lista de opciones, gracias
                 Intent intent_ListaOpciones = new Intent(Destinos.this,Opciones.class);
-                intent_ListaOpciones.putExtra("id_cuidades",5);
+                intent_ListaOpciones.putExtra("id_cuidades","berlin");
                 // aqui le mando un intent con el id de la cuidad para con ese id insertar el banner en el activity lista de opciones
                 startActivity(intent_ListaOpciones);
             }
@@ -91,7 +91,7 @@ public class Destinos extends ActionBarActivity {
             public void onClick(View v) {
                 // en este intent abra el activity donde esta la lista de opciones, gracias
                 Intent intent_ListaOpciones = new Intent(Destinos.this,Opciones.class);
-                intent_ListaOpciones.putExtra("id_cuidades",6);
+                intent_ListaOpciones.putExtra("id_cuidades","londres");
                 // aqui le mando un intent con el id de la cuidad para con ese id insertar el banner en el activity lista de opciones
                 startActivity(intent_ListaOpciones);
             }

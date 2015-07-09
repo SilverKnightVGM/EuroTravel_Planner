@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.provider.MediaStore;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -31,6 +32,7 @@ public class Opciones extends ActionBarActivity {
     private final static int ALERT_DIALOG=1;
     private List<clase_categorias> miCategoria = new ArrayList<clase_categorias>();
     List<String> template = new ArrayList<String>();
+    ImageView imageView_banner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +51,7 @@ public class Opciones extends ActionBarActivity {
 
         populateListCategoria();
         populateListView();
+        inserto_banner();
     }
 
     @Override
@@ -112,9 +115,9 @@ public class Opciones extends ActionBarActivity {
         miCategoria.add(new clase_categorias("Datos Generales",R.drawable.icon_info));
         miCategoria.add(new clase_categorias("Transporte",R.drawable.icon_maleta));
         miCategoria.add(new clase_categorias("Hospedaje",R.drawable.icon_hospedaje));
-        miCategoria.add(new clase_categorias("Gastronom�a",R.drawable.icon_gastronomia));
+        miCategoria.add(new clase_categorias("Gastronomía",R.drawable.icon_gastronomia));
         miCategoria.add(new clase_categorias("Entretenimiento",R.drawable.icon_entretenimiento));
-        miCategoria.add(new clase_categorias("Lugares de inter�s",R.drawable.icon_interes));
+        miCategoria.add(new clase_categorias("Lugares de interés",R.drawable.icon_interes));
         miCategoria.add(new clase_categorias("Compras",R.drawable.icon_compras));
     }
 
@@ -149,5 +152,19 @@ public class Opciones extends ActionBarActivity {
 
             return itemView;
         }
+    }
+
+    public void inserto_banner(){
+
+        Intent recupero_id = getIntent();
+        String recupero_idBanner = recupero_id.getStringExtra("id_cuidades");
+
+        if (recupero_idBanner.equals("paris")){
+            imageView_banner = (ImageView)findViewById(R.id.imageView_banner);
+            imageView_banner.setImageResource(R.drawable.banner_paris);
+        }
+
+        //Log.i("Debug 1",""+recupero_idBanner);
+
     }
 }
