@@ -48,10 +48,10 @@ public class Opciones extends ActionBarActivity {
                  Opciones.this.showDialog(ALERT_DIALOG);//Llama al metodo que crea el AlertDialog para los Tips
             }
         });
-
+        inserto_banner();
         populateListCategoria();
         populateListView();
-        inserto_banner();
+
     }
 
     @Override
