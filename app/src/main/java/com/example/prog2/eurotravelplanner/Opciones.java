@@ -164,7 +164,31 @@ public class Opciones extends ActionBarActivity {
             imageView_banner.setImageResource(R.drawable.banner_paris);
         }
 
-        //Log.i("Debug 1",""+recupero_idBanner);
+        if (recupero_idBanner.equals("venecia")){
+            imageView_banner = (ImageView)findViewById(R.id.imageView_banner);
+            imageView_banner.setImageResource(R.drawable.banner_venecia);
+        }
+
+        if (recupero_idBanner.equals("madrid")){
+            imageView_banner = (ImageView)findViewById(R.id.imageView_banner);
+            imageView_banner.setImageResource(R.drawable.banner_madrid);
+        }
+
+        if (recupero_idBanner.equals("roma")){
+            imageView_banner = (ImageView)findViewById(R.id.imageView_banner);
+            imageView_banner.setImageResource(R.drawable.banner_roma);
+        }
+
+        if (recupero_idBanner.equals("berlin")){
+            imageView_banner = (ImageView)findViewById(R.id.imageView_banner);
+            imageView_banner.setImageResource(R.drawable.banner_berlin);
+        }
+
+        if (recupero_idBanner.equals("londres")){
+            imageView_banner = (ImageView)findViewById(R.id.imageView_banner);
+            imageView_banner.setImageResource(R.drawable.banner_londres);
+        }
+
 
     }
 }
