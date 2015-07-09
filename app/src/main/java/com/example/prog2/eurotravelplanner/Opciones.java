@@ -1,16 +1,25 @@
 package com.example.prog2.eurotravelplanner;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
+import android.provider.MediaStore;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +27,8 @@ import java.util.List;
 public class Opciones extends ActionBarActivity {
 
     ListView categorias;
+    Button tips;
+    private final static int ALERT_DIALOG=1;
     private List<clase_categorias> miCategoria = new ArrayList<clase_categorias>();
     List<String> template = new ArrayList<String>();
 
@@ -27,14 +38,42 @@ public class Opciones extends ActionBarActivity {
         setContentView(R.layout.activity_opciones);
 
         categorias = (ListView) findViewById(R.id.listView_opciones);
+        tips = (Button) findViewById(R.id.buttonTips);
+        tips.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v){
+                 Opciones.this.showDialog(ALERT_DIALOG);
+            }
+        });
 
         populateListCategoria();
         populateListView();
     }
 
+    @Override
+    protected Dialog onCreateDialog(int id) {
+        Dialog dialog=null;
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        switch (id){
+            case ALERT_DIALOG:
+                builder.setMessage("Hola").setPositiveButton("Ok", new DialogInterface.OnClickListener(){
+                public void onClick(DialogInterface dialog, int id) {
+
+                }
+
+            })
+                        .setCancelable(false);
+            dialog=builder.create();
+                break;
+            default:
+
+        }
+        return dialog;
+    }
 
 
-   /* public AdapterView.OnItemClickListener onListClick=new AdapterView.OnItemClickListener() {
+    /* public AdapterView.OnItemClickListener onListClick=new AdapterView.OnItemClickListener() {
 
         public void onItemClick(AdapterView<?> arg0, View v, int pos, long id) {
             Intent intent = new Intent(getApplicationContext(), Detalles.class);
@@ -44,6 +83,8 @@ public class Opciones extends ActionBarActivity {
         }
 
     };*/
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
