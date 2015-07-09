@@ -45,7 +45,7 @@ public class Opciones extends ActionBarActivity {
 
             @Override
             public void onClick(View v){
-                 Opciones.this.showDialog(ALERT_DIALOG);
+                 Opciones.this.showDialog(ALERT_DIALOG);//Llama al metodo que crea el AlertDialog para los Tips
             }
         });
 
@@ -57,17 +57,17 @@ public class Opciones extends ActionBarActivity {
     @Override
     protected Dialog onCreateDialog(int id) {
         Dialog dialog=null;
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);// Constructor para el AlertDialog de los Tips
         switch (id){
             case ALERT_DIALOG:
-                builder.setMessage("Hola").setPositiveButton("Ok", new DialogInterface.OnClickListener(){
+                builder.setMessage("Hola").setPositiveButton("Ok", new DialogInterface.OnClickListener(){ //Se establece el mensage y el label del boton para el AlertDialog
                 public void onClick(DialogInterface dialog, int id) {
 
                 }
 
             })
                         .setCancelable(false);
-            dialog=builder.create();
+            dialog=builder.create(); //Ejecuta el constructor del AlertDialog de los tips para crearlo
                 break;
             default:
 
