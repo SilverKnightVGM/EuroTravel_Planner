@@ -14,11 +14,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -51,6 +53,30 @@ public class Opciones extends ActionBarActivity {
         inserto_banner();
         populateListCategoria();
         populateListView();
+
+        //aqui hago el click en algun item del listview
+        categorias.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                //Intent recupero_id = getIntent();
+                //String recupero_idBanner = recupero_id.getStringExtra("id_cuidades");
+                // idcategoria_clikeada en esta variable guardo la categoria que clikee, ej. Datos Generales, Enretenimieto, Transporte etc
+                String idcategoria_clikeada = miCategoria.get(position).getCategoria();
+
+                if(idcategoria_clikeada.equals("Datos Generales")){
+
+                    Toast.makeText(Opciones.this, "You Clicked at " + miCategoria.get(position).getCategoria(), Toast.LENGTH_SHORT).show();
+
+                }else {
+
+                    Intent i = new Intent(Opciones.this, subdiviciones_opciones.class);
+                    i.putExtra("idcategoria_clikeada",idcategoria_clikeada);
+                    startActivity(i);                }
+
+
+            }
+        });
 
     }
 

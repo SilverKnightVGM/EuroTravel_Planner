@@ -1,6 +1,5 @@
 package com.example.prog2.eurotravelplanner;
 
-import android.os.PersistableBundle;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -11,7 +10,7 @@ import com.facebook.FacebookSdk;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends ActionBarActivity {
+public class Context extends ActionBarActivity {
     Button btnRegister, btnLogin;
 
     @Override
@@ -29,15 +28,18 @@ public class MainActivity extends ActionBarActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, Destinos.class);
+                Intent i = new Intent(Context.this, Destinos.class);
                 startActivity(i);
             }
         });
 
 
+
+
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
 
             }
         });
