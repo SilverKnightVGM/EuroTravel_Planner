@@ -18,6 +18,19 @@ public class subdiviciones_opciones extends ActionBarActivity {
     public static Integer [] Images_SubTransporte={R.drawable.rent_car,R.drawable.taxi,R.drawable.bus,R.drawable.underground};
     public static String [] Texto_SubTransporte={"Renta de Autos","Taxi","Transporte Publico","Trenes"};
 
+    public static Integer [] Images_SubHospedaje={R.drawable.hotel,R.drawable.hostel,R.drawable.acampar};
+    public static String [] Texto_SubHospedaje={"Hoteles","Hostel","Lugares de Acampar"};
+
+    public static Integer [] Images_SubGastronomia={R.drawable.restaurant,R.drawable.pasteleria,R.drawable.fast_food,R.drawable.comida_tipica};
+    public static String [] Texto_SubGastronomia={"Restaurantes","Pasteleria y Panaderia","Comida Rapida","Comida Típicas"};
+
+    public static Integer [] Images_SubEntretenimiento={R.drawable.bares,R.drawable.discoteca,R.drawable.club,R.drawable.parque_diversion};
+    public static String [] Texto_SubEntretenimiento={"Bares","Discotecas","Clubes","Parques de Diversión"};
+
+    public static Integer [] Images_SubLugaresInteres={R.drawable.lugares_historicos,R.drawable.museos,R.drawable.playas,R.drawable.tour};
+    public static String [] Texto_SubLugaresInteres={"Lugares Historicos","Museos","Playas","Tour por la ciudad"};
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,15 +57,42 @@ public class subdiviciones_opciones extends ActionBarActivity {
             listView_subdiviciones.setAdapter(adapter);
         }
 
-        if (tipo_categoria.equals("Gastronomía")){}
+        if (tipo_categoria.equals("Gastronomía")){
 
-        if (tipo_categoria.equals("Hospedaje")){}
+            CustomList adapter = new CustomList(subdiviciones_opciones.this, Texto_SubGastronomia, Images_SubGastronomia);
 
-        if (tipo_categoria.equals("Entretenimiento")){}
+            listView_subdiviciones=(ListView) findViewById(R.id.listView_subdiviciones);
 
-        if (tipo_categoria.equals("Lugares de interés")){}
+            listView_subdiviciones.setAdapter(adapter);
+        }
 
-        if (tipo_categoria.equals("Compras")){}
+        if (tipo_categoria.equals("Hospedaje")){
+
+            CustomList adapter = new CustomList(subdiviciones_opciones.this, Texto_SubHospedaje, Images_SubHospedaje);
+
+            listView_subdiviciones=(ListView) findViewById(R.id.listView_subdiviciones);
+
+            listView_subdiviciones.setAdapter(adapter);
+        }
+
+        if (tipo_categoria.equals("Entretenimiento")){
+
+            CustomList adapter = new CustomList(subdiviciones_opciones.this, Texto_SubEntretenimiento, Images_SubEntretenimiento);
+
+            listView_subdiviciones=(ListView) findViewById(R.id.listView_subdiviciones);
+
+            listView_subdiviciones.setAdapter(adapter);
+        }
+
+        if (tipo_categoria.equals("Lugares de interés")){
+
+            CustomList adapter = new CustomList(subdiviciones_opciones.this, Texto_SubLugaresInteres, Images_SubLugaresInteres);
+
+            listView_subdiviciones=(ListView) findViewById(R.id.listView_subdiviciones);
+
+            listView_subdiviciones.setAdapter(adapter);
+        }
+
     }
 
     @Override

@@ -68,11 +68,16 @@ public class Opciones extends ActionBarActivity {
 
                     Toast.makeText(Opciones.this, "You Clicked at " + miCategoria.get(position).getCategoria(), Toast.LENGTH_SHORT).show();
 
-                }else {
+                }else if (idcategoria_clikeada.equals("Compras")){
 
+                    Toast.makeText(Opciones.this, "You Clicked at " + miCategoria.get(position).getCategoria(), Toast.LENGTH_SHORT).show();
+
+
+                } else {
                     Intent i = new Intent(Opciones.this, subdiviciones_opciones.class);
                     i.putExtra("idcategoria_clikeada",idcategoria_clikeada);
-                    startActivity(i);                }
+                    startActivity(i);
+                }
 
 
             }
