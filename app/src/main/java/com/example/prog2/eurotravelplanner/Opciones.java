@@ -4,12 +4,8 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.Uri;
-import android.provider.MediaStore;
-import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,7 +18,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,6 +31,7 @@ public class Opciones extends ActionBarActivity {
     List<String> template = new ArrayList<String>();
     ImageView imageView_banner;
 
+    public static String pais_actual=null; // variable para saber en que pais se realiza la busqueda
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,18 +60,20 @@ public class Opciones extends ActionBarActivity {
                 // idcategoria_clikeada en esta variable guardo la categoria que clikee, ej. Datos Generales, Enretenimieto, Transporte etc
                 String idcategoria_clikeada = miCategoria.get(position).getCategoria();
 
-                if(idcategoria_clikeada.equals("Datos Generales")){
+                if (idcategoria_clikeada.equals("Datos Generales")) {
 
-                    Toast.makeText(Opciones.this, "You Clicked at " + miCategoria.get(position).getCategoria(), Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(Opciones.this, DatosGenerales.class);
+                    //i.putExtra("idcategoria_clikeada", idcategoria_clikeada);
+                    startActivity(i);
 
-                }else if (idcategoria_clikeada.equals("Compras")){
+                } else if (idcategoria_clikeada.equals("Compras")) {
 
                     Toast.makeText(Opciones.this, "You Clicked at " + miCategoria.get(position).getCategoria(), Toast.LENGTH_SHORT).show();
 
 
                 } else {
                     Intent i = new Intent(Opciones.this, subdiviciones_opciones.class);
-                    i.putExtra("idcategoria_clikeada",idcategoria_clikeada);
+                    i.putExtra("idcategoria_clikeada", idcategoria_clikeada);
                     startActivity(i);
                 }
 
@@ -189,6 +187,7 @@ public class Opciones extends ActionBarActivity {
 
         Intent recupero_id = getIntent();
         String recupero_idBanner = recupero_id.getStringExtra("id_cuidades");
+        pais_actual = recupero_idBanner;
 
         if (recupero_idBanner.equals("paris")){
             imageView_banner = (ImageView)findViewById(R.id.imageView_banner);

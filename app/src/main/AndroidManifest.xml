@@ -35,6 +35,10 @@
             android:name=".subdiviciones_opciones"
             android:label="@string/title_activity_subdiviciones_opciones" >
         </activity>
+        <activity
+            android:name=".DatosGenerales"
+            android:label="Datos Generales" >
+        </activity>
     </application>
 
 </manifest>
