@@ -6,7 +6,8 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:weightSum="100">
 
         <ImageView
             android:layout_width="wrap_content"
@@ -15,17 +16,15 @@
             android:src="@drawable/images3"
             android:maxWidth="70dp"
             android:maxHeight="70dp"
-            android:adjustViewBounds="true"
-            android:layout_weight="1" />
+            android:adjustViewBounds="true" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Large Text"
             android:id="@+id/textView_nombreCategoria"
-            android:layout_gravity="center"
-            android:layout_weight="10" />
+            android:layout_gravity="center" />
     </LinearLayout>
 
 </LinearLayout>

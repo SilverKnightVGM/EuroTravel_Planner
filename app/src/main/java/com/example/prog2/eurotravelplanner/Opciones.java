@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -39,16 +40,17 @@ public class Opciones extends ActionBarActivity {
 
         categorias = (ListView) findViewById(R.id.listView_opciones);
         tips = (Button) findViewById(R.id.buttonTips);
-        tips.setOnClickListener(new View.OnClickListener(){
+        tips.setOnClickListener(new View.OnClickListener() {
 
             @Override
-            public void onClick(View v){
-                 Opciones.this.showDialog(ALERT_DIALOG);//Llama al metodo que crea el AlertDialog para los Tips
+            public void onClick(View v) {
+                Opciones.this.showDialog(ALERT_DIALOG);//Llama al metodo que crea el AlertDialog para los Tips
             }
         });
         inserto_banner();
         populateListCategoria();
         populateListView();
+
 
         //aqui hago el click en algun item del listview
         categorias.setOnItemClickListener(new AdapterView.OnItemClickListener() {
