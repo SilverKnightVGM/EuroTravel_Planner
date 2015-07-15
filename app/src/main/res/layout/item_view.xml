@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Titulo"
+        android:id="@+id/tv_titulo"
+        android:textColor="#ff0d0d0d"
+        android:layout_marginLeft="36dp"
+        android:layout_marginStart="36dp"
+        android:layout_alignBaseline="@+id/tv_dato"
+        android:layout_alignBottom="@+id/tv_dato"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_x="29dp"
+        android:layout_y="2dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/tv_dato"
+        android:layout_marginTop="49dp"
+        android:layout_below="@+id/iv_escudo"
+        android:layout_centerHorizontal="true"
+        android:layout_x="17dp"
+        android:layout_y="28dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/iv_escudo"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/tv_dato"
+        android:layout_toEndOf="@+id/tv_dato"
+        android:layout_marginLeft="34dp"
+        android:layout_marginStart="34dp"
+        android:layout_x="12dp"
+        android:layout_y="14dp"
+        android:maxHeight="20dp"
+        android:maxWidth="20dp" />
+
+</AbsoluteLayout>
