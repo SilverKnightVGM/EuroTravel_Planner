@@ -19,10 +19,5 @@
         android:orderInCategory="0"
         app:showAsAction="always|withText"/>
 
-    <item
-        android:id="@+id/menu_Lista"
-        android:title="Lista"
-        android:icon="@drawable/lista"
-        android:orderInCategory="0"
-        app:showAsAction="always|withText"/>
+
 </menu>

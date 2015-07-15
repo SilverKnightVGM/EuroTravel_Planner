@@ -130,14 +130,25 @@ public class Opciones extends ActionBarActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
 
-        return super.onOptionsItemSelected(item);
+        // aqui se ponen las funciones de los botones del action bar
+      switch(item.getItemId()){
+          case R.id.menu_Home:
+
+              Intent i = new Intent(Opciones.this, Destinos.class);
+              startActivity(i);
+              return true;
+
+          case R.id.menu_Calculator:
+              Toast.makeText(getApplicationContext(), "Calculadora", Toast.LENGTH_SHORT).show();
+              return true;
+
+
+          default:
+              break;
+      }
+        return true;
     }
 
     private void populateListCategoria(){
