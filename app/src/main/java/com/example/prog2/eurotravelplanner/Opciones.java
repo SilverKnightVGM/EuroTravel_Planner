@@ -130,7 +130,7 @@ public class Opciones extends ActionBarActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-
+//h
 
         // aqui se ponen las funciones de los botones del action bar
       switch(item.getItemId()){
