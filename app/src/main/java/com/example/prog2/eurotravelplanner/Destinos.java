@@ -15,6 +15,7 @@ import android.widget.Button;
 
 public class Destinos extends ActionBarActivity {
 
+    //hola
     //final Button convertirMoneda=(Button)findViewById(R.id.btnCalc);
     Button btn_paris,btn_venecia,btn_madrid,btn_roma,btn_berlin,btn_londres;
 
