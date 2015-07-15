@@ -1,7 +1,10 @@
 package com.example.prog2.eurotravelplanner;
 
+import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -48,6 +51,9 @@ public class subdiviciones_opciones extends ActionBarActivity {
 
     private void inserto_ListViewSubdivisiones(String tipo_categoria){
 
+        // en este método yo valido cual opcion fue lo que clikee (Entretenimiento, hospedaje etc) y luego que valido
+        // inserto en el listview las subdivisiones de cada opciones
+
         if (tipo_categoria.equals("Transporte")){
 
             CustomList adapter = new CustomList(subdiviciones_opciones.this, Texto_SubTransporte, Images_SubTransporte);
@@ -55,6 +61,9 @@ public class subdiviciones_opciones extends ActionBarActivity {
             listView_subdiviciones=(ListView) findViewById(R.id.listView_subdiviciones);
 
             listView_subdiviciones.setAdapter(adapter);
+
+            getSupportActionBar().setTitle("Transporte");
+
         }
 
         if (tipo_categoria.equals("Gastronomía")){
@@ -64,6 +73,8 @@ public class subdiviciones_opciones extends ActionBarActivity {
             listView_subdiviciones=(ListView) findViewById(R.id.listView_subdiviciones);
 
             listView_subdiviciones.setAdapter(adapter);
+
+            getSupportActionBar().setTitle("Gastronomía");
         }
 
         if (tipo_categoria.equals("Hospedaje")){
@@ -73,6 +84,8 @@ public class subdiviciones_opciones extends ActionBarActivity {
             listView_subdiviciones=(ListView) findViewById(R.id.listView_subdiviciones);
 
             listView_subdiviciones.setAdapter(adapter);
+
+            getSupportActionBar().setTitle("Hospedaje");
         }
 
         if (tipo_categoria.equals("Entretenimiento")){
@@ -82,6 +95,8 @@ public class subdiviciones_opciones extends ActionBarActivity {
             listView_subdiviciones=(ListView) findViewById(R.id.listView_subdiviciones);
 
             listView_subdiviciones.setAdapter(adapter);
+
+            getSupportActionBar().setTitle("Entretenimiento");
         }
 
         if (tipo_categoria.equals("Lugares de interés")){
@@ -91,6 +106,8 @@ public class subdiviciones_opciones extends ActionBarActivity {
             listView_subdiviciones=(ListView) findViewById(R.id.listView_subdiviciones);
 
             listView_subdiviciones.setAdapter(adapter);
+
+            getSupportActionBar().setTitle("Lugares de interés");
         }
 
     }

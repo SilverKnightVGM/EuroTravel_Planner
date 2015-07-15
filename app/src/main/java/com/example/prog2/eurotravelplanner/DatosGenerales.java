@@ -61,7 +61,7 @@ public class DatosGenerales extends ActionBarActivity {
         String text;
         int contPos = 0;
         int bucle = 0;
-
+        // mostramos datos en la list view
         if (Opciones.pais_actual.equals("paris"))
         {
             bucle = 7;
@@ -86,7 +86,7 @@ public class DatosGenerales extends ActionBarActivity {
             helper.where = helper.ID_ciudad +" = 'venecia'";
         }
         if (Opciones.pais_actual.equals("berlin"))
-        {   bucle = 6;
+        {   bucle = 5;
             helper.where = helper.ID_ciudad +" = 'berlin'";
         }
 
@@ -97,9 +97,10 @@ public class DatosGenerales extends ActionBarActivity {
             } else {
                 text = cl.getString(contPos);
 
-                if (!text.isEmpty()) {
+                if (text != null && !text.toString().isEmpty()) {
                     DatosGList.add(new Constructor_Datos(text));
                 }
+                else{bucle++;}
 
             }
             contPos++;
@@ -172,6 +173,39 @@ public class DatosGenerales extends ActionBarActivity {
                 }
             }
 
+
+            if (Opciones.pais_actual.equals("venecia")){
+                if (position == 0) {
+                    TituloText.setText("Info General");
+                }
+                if (position == 1) {
+                    TituloText.setText("Otros nombres");
+                }
+                if (position == 2) {
+                    TituloText.setText("Clima");
+                }
+                if (position == 3) {
+                    TituloText.setText("Moneda");
+                }
+                if (position == 4) {
+                    TituloText.setText("Demografia");
+                }
+            }
+
+            if (Opciones.pais_actual.equals("berlin")){
+                if (position == 0) {
+                    TituloText.setText("Info General");
+                }
+                if (position == 1) {
+                    TituloText.setText("Clima");
+                }
+                if (position == 2) {
+                    TituloText.setText("Moneda");
+                }
+                if (position == 3) {
+                    TituloText.setText("Demografia");
+                }
+            }
 
             return  itemView;
         }

@@ -11,7 +11,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DbHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME="DB_EuroTravel";
-    private static final int DB_SCHEMA_VESION= 3;
+    private static final int DB_SCHEMA_VESION= 4;
     SQLiteDatabase db;
 
     public static final String TABLE_NAME = "Datos_Generales";
@@ -53,7 +53,7 @@ public class DbHelper extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO "+TABLE_NAME+" ("+ID_ciudad+", "+CN_info+", "+CN_segundo_nombre+", "+CN_lema+", "+CN_clima+", "+CN_moneda+", "+CN_demografia+") " +
                 "values('roma', 'Es la ciudad con la más alta concentración de bienes históricos y arquitectónicos del mundo su centro histórico delimitado por el perímetro que marcan las murallas aurelianas, superposición de huellas de tres milenios, es la expresión del patrimonio histórico, artístico y cultural del mundo occidental europeo.', 'La ciudad eterna', '«Senatus Populusque Romanus», El Senado y el Pueblo de Roma', 'El clima de Roma es mediterráneo y suave, lo que hace que cualquier época sea buena para conocer la ciudad.', 'Euro', '2,874,038 hab')");
 
-        db.execSQL("INSERT INTO "+TABLE_NAME+" ("+ID_ciudad+", "+CN_clima+", "+CN_info+", "+CN_moneda+", "+CN_demografia+") " +
+        db.execSQL("INSERT INTO "+TABLE_NAME+" ("+ID_ciudad+", "+CN_info+", "+CN_clima+", "+CN_moneda+", "+CN_demografia+") " +
                 "values('berlin', 'Es una ciudad mundial y un centro cultural y artístico de primer nivel. Es una de las ciudades más influyentes en el ámbito político de la Unión Europea y en 2006 fue elegida Ciudad Creativa por la Unesco.', 'Generalmente, junio, julio y agosto son los meses más cálidos, aunque no podemos hablar de un calor sofocante en ningún momento del año. Durante el verano hay una temperatura media de 24°C, llegándose a alcanzar máximas de 30ºC', 'Euro', '3,421,829 hab.')");
 
         this.db = db;
