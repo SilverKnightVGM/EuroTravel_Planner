@@ -86,7 +86,7 @@ public class DatosGenerales extends ActionBarActivity {
             helper.where = helper.ID_ciudad +" = 'venecia'";
         }
         if (Opciones.pais_actual.equals("berlin"))
-        {   bucle = 6;
+        {   bucle = 5;
             helper.where = helper.ID_ciudad +" = 'berlin'";
         }
 
