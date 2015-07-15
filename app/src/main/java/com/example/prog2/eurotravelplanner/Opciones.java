@@ -64,18 +64,33 @@ public class Opciones extends ActionBarActivity {
 
                 if (idcategoria_clikeada.equals("Datos Generales")) {
 
+                    Intent recupero_id = getIntent();
+                    String recupero_idBanner = recupero_id.getStringExtra("id_cuidades");
+                    pais_actual = recupero_idBanner;
+
                     Intent i = new Intent(Opciones.this, DatosGenerales.class);
                     //i.putExtra("idcategoria_clikeada", idcategoria_clikeada);
+                    i.putExtra("id_cuidades",pais_actual);
                     startActivity(i);
 
                 } else if (idcategoria_clikeada.equals("Compras")) {
+
+                    Intent recupero_id = getIntent();
+                    String recupero_idBanner = recupero_id.getStringExtra("id_cuidades");
+                    pais_actual = recupero_idBanner;
 
                     Toast.makeText(Opciones.this, "You Clicked at " + miCategoria.get(position).getCategoria(), Toast.LENGTH_SHORT).show();
 
 
                 } else {
+
+                    Intent recupero_id = getIntent();
+                    String recupero_idBanner = recupero_id.getStringExtra("id_cuidades");
+                    pais_actual = recupero_idBanner;
+
                     Intent i = new Intent(Opciones.this, subdiviciones_opciones.class);
                     i.putExtra("idcategoria_clikeada", idcategoria_clikeada);
+                    i.putExtra("id_cuidades",pais_actual);
                     startActivity(i);
                 }
 
