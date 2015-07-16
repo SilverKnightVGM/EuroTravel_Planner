@@ -55,7 +55,7 @@ public class DatosGenerales extends ActionBarActivity {
                 return true;
 
             case R.id.menu_Calculator:
-                Toast.makeText(getApplicationContext(), "Calculadora", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(DatosGenerales.this, CalculadoraPopUp.class));
                 return true;
 
             case R.id.menu_Lista:

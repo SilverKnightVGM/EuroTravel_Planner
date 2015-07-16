@@ -11,12 +11,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 
 public class Destinos extends ActionBarActivity {
 
-    //hola
+    private final static int ALERT_DIALOG=1;
+
+
     //final Button convertirMoneda=(Button)findViewById(R.id.btnCalc);
+
     Button btn_paris,btn_venecia,btn_madrid,btn_roma,btn_berlin,btn_londres;
 
     @Override
@@ -30,6 +34,16 @@ public class Destinos extends ActionBarActivity {
         btn_roma=(Button)findViewById(R.id.btn_roma);
         btn_berlin=(Button)findViewById(R.id.btn_berlin);
         btn_londres=(Button)findViewById(R.id.btn_londres);
+        /*calculadora=(Button) findViewById(R.id.btnCalc);
+        calculadora.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Destinos.this, CalculadoraPopUp.class));
+            }
+
+
+        });*/
+
 
         btn_paris.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,6 +122,7 @@ public class Destinos extends ActionBarActivity {
 
     }
 
+
     /*public class CurrentMoneyDialogFragment extends DialogFragment {
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -141,13 +156,19 @@ public class Destinos extends ActionBarActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+        switch (item.getItemId()){
+            case R.id.action_settings:
+                return true;
+            case R.id.menu_Calculator:
+                startActivity(new Intent(Destinos.this, CalculadoraPopUp.class));
+               return true;
+
+            }
 
         return super.onOptionsItemSelected(item);
     }
+
 }

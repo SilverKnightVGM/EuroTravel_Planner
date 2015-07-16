@@ -200,6 +200,7 @@
                     android:textColor="@color/Brown"
                     android:textStyle="bold"
                     android:layout_gravity="center" />
+
             </LinearLayout>
 
             <LinearLayout

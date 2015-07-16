@@ -21,19 +21,19 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="5"
-            android:id="@+id/editText"
+            android:id="@+id/monto"
+            android:layout_marginTop="81dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="31dp" />
+            android:layout_alignParentStart="true" />
 
         <Spinner
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/monedas1"
-            android:layout_alignBottom="@+id/editText"
-            android:layout_toRightOf="@+id/editText"
-            android:layout_toEndOf="@+id/editText" />
+            android:layout_alignBottom="@+id/monto"
+            android:layout_toRightOf="@+id/monto"
+            android:layout_toEndOf="@+id/monto" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -43,62 +43,72 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true">
 
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/calcularButton"
-                android:src="@drawable/flecha2"
-                android:adjustViewBounds="true"
-                android:maxHeight="50dp"
-                android:maxWidth="50dp"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true" />
-
-            <GridLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@+id/calcularButton"
-                android:layout_marginTop="32dp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true">
+                android:layout_toStartOf="@+id/calcularbutton"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true">
 
                 <Spinner
-                    android:layout_width="245dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/monedas2"
                     android:layout_row="0"
-                    android:layout_column="12" />
-            </GridLayout>
+                    android:layout_column="12"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginLeft="100dp" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/monedas2"
+                    android:layout_marginTop="1dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Calcular"
+                        android:id="@+id/calcularbutton"
+                        android:layout_row="7"
+                        android:layout_column="16"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Total"
+                        android:id="@+id/Total"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginStart="50dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_toRightOf="@+id/calcularbutton"
+                        android:layout_toEndOf="@+id/calcularbutton" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
 
         </RelativeLayout>
-    </RelativeLayout>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignTop="@+id/relativeLayout"
-        android:layout_marginTop="210dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true">
-
-        <TextView
-            android:layout_width="wrap_content"
+        <Spinner
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Total"
-            android:id="@+id/Total"
-            android:layout_marginTop="32dp"
+            android:id="@+id/cambios"
+            android:layout_marginTop="2dp"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="$"
-            android:id="@+id/textView2"
-            android:layout_alignTop="@+id/Total"
-            android:layout_toLeftOf="@+id/Total"
-            android:layout_toStartOf="@+id/Total" />
     </RelativeLayout>
+
 </RelativeLayout>

@@ -158,7 +158,7 @@ public class Opciones extends ActionBarActivity {
               return true;
 
           case R.id.menu_Calculator:
-              Toast.makeText(getApplicationContext(), "Calculadora", Toast.LENGTH_SHORT).show();
+              startActivity(new Intent(Opciones.this, CalculadoraPopUp.class));
               return true;
 
 

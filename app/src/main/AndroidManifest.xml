@@ -39,6 +39,11 @@
             android:name=".DatosGenerales"
             android:label="Datos Generales" >
         </activity>
+        <activity
+            android:name=".CalculadoraPopUp"
+            android:theme="@style/AppTheme.CustomTheme"
+            android:label="Calculadora" >
+        </activity>
     </application>
 
 </manifest>
