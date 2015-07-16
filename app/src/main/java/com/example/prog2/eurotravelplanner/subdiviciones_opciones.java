@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class subdiviciones_opciones extends ActionBarActivity {
@@ -121,14 +123,29 @@ public class subdiviciones_opciones extends ActionBarActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch(item.getItemId()){
+            case R.id.menu_Home:
+
+                Intent i = new Intent(subdiviciones_opciones.this, Destinos.class);
+                startActivity(i);
+                return true;
+
+            case R.id.menu_Calculator:
+                Toast.makeText(getApplicationContext(), "Calculadora", Toast.LENGTH_SHORT).show();
+                return true;
+
+            case R.id.menu_Lista:
+                Intent recupero_id = getIntent();
+                String recupero_idBanner = recupero_id.getStringExtra("id_cuidades");
+
+                Intent r = new Intent(subdiviciones_opciones.this, Opciones.class);
+                r.putExtra("id_cuidades",recupero_idBanner);
+                startActivity(r);
+                return true;
+
+            default:
+                break;
         }
 
         return super.onOptionsItemSelected(item);
