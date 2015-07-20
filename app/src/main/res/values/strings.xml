@@ -19,4 +19,5 @@
         <item>Comprar</item>
         <item>Vender</item>
     </string-array>
+    <string name="title_activity_gallery">gallery</string>
 </resources>

@@ -9,6 +9,8 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,12 +44,51 @@ public class subdiviciones_opciones extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_subdiviciones_opciones);
 
+        listView_subdiviciones=(ListView) findViewById(R.id.listView_subdiviciones);
+
         // en este intent recupero la categoria que clikee, ej. Datos Generales, Enretenimieto, Transporte etc
-        Intent tipo_categoria = getIntent();
-        String tipo_categoriaa = tipo_categoria.getStringExtra("idcategoria_clikeada");
+        final Intent tipo_categoria = getIntent();
+        final String tipo_categoriaa = tipo_categoria.getStringExtra("idcategoria_clikeada");
 
         //creo el metodo para buscar cual categoria clikee para insertar el imagen que deseo de la subdivision.
         inserto_ListViewSubdivisiones(tipo_categoriaa);
+
+
+// aqui esta el metodo de cuando clikee un item del listview de las subdiviciones
+        listView_subdiviciones.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                // aqui recupero el id de la ciudad en que estoy investigando
+                Intent recupero_id = getIntent();
+                String id_cuidad = recupero_id.getStringExtra("id_cuidades");
+
+                // en este objecto recupero al item que clikee ej. (Renta de Autos si estoy en Transporte, Hoteles si estoy en Hospedate, etc)
+                Object listItem = listView_subdiviciones.getItemAtPosition(position);
+                String texto_clikeado = listItem.toString();
+                Intent e = new Intent(subdiviciones_opciones.this,gallery.class);
+
+                //Toast.makeText(subdiviciones_opciones.this, "You Clicked at " + texto_clikeado, Toast.LENGTH_SHORT).show();
+
+
+                    // aqui abro el activity donde va a estar la galeria con la lista desplegable
+                    // le mando un intent con el id de la ciudad en que estamos y un intent con el tipo de categoria
+                    /*osea si estamos en la ciudad paris y en transporte le mandara esos dos string para en el activity
+                    de la galeria saber que mostrar en la galeria y el la lista desplegable*/
+
+                    // en el putExtra tipo_subdivicion le mando el item que clikee ej. (Renta de Autos si estoy en Transporte, Hoteles si estoy en Hospedate, etc)
+
+                    e.putExtra("id_cuidades",id_cuidad);
+                    e.putExtra("tipo_categoria",tipo_categoriaa);
+                    e.putExtra("tipo_subdivision",texto_clikeado);
+
+                    startActivity(e);
+
+
+            }
+
+        });
+
 
     }
 

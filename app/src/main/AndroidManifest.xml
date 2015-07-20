@@ -41,8 +41,12 @@
         </activity>
         <activity
             android:name=".CalculadoraPopUp"
-            android:theme="@style/AppTheme.CustomTheme"
-            android:label="Calculadora" >
+            android:label="Calculadora"
+            android:theme="@style/AppTheme.CustomTheme" >
+        </activity>
+        <activity
+            android:name=".gallery"
+            android:label="@string/title_activity_gallery" >
         </activity>
     </application>
 
