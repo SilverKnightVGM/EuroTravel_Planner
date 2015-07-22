@@ -11,13 +11,12 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_alignParentTop="true"
         android:id="@+id/linearLayout"
         android:gravity="top">
 
         <Gallery
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="150dp"
             android:id="@+id/gallery"
             android:layout_alignParentTop="true"
             android:gravity="bottom"
@@ -25,18 +24,24 @@
             />
     </LinearLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="270dp"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/linearLayout">
+        android:weightSum="1"
+        android:layout_above="@+id/listView">
 
-        <ListView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/listView"
-            android:layout_gravity="center_horizontal" />
-    </LinearLayout>
+    </RelativeLayout>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="270dp"
+        android:id="@+id/listView"
+        android:layout_weight="0.92"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/linearLayout" />
 
 </RelativeLayout>
