@@ -34,15 +34,7 @@ public class Destinos extends ActionBarActivity {
         btn_roma=(Button)findViewById(R.id.btn_roma);
         btn_berlin=(Button)findViewById(R.id.btn_berlin);
         btn_londres=(Button)findViewById(R.id.btn_londres);
-        /*calculadora=(Button) findViewById(R.id.btnCalc);
-        calculadora.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Destinos.this, CalculadoraPopUp.class));
-            }
 
-
-        });*/
 
 
         btn_paris.setOnClickListener(new View.OnClickListener() {

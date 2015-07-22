@@ -39,7 +39,6 @@ public class gallery extends ActionBarActivity {
         // create adapter gallery
         gallery.setAdapter(new ImageAdapter(this));
 
-        inserto_List();
 
 
 
@@ -48,16 +47,17 @@ public class gallery extends ActionBarActivity {
 
     // este metodo es para insertar el listview de prueba
 
-    private void inserto_List(){
+  /*  private void inserto_List(){
 
         CustomList adapter = new CustomList(gallery.this, Texto_Lista, Images_Lista);
 
-        listView_prueba =(ListView) findViewById(R.id.listView);
+        listView_prueba =(ListView) findViewById(R.id.listViewExpadible);
 
-        listView_prueba.setAdapter(adapter);
+    listView_prueba.setAdapter(adapter);
 
 
-    }
+}
+*/
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

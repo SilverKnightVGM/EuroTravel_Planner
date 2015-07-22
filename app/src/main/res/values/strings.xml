@@ -6,18 +6,14 @@
     <string name="title_activity_destinos">Destinos</string>
     <string name="title_activity_menu">Menu</string>
     <string name="facebook_app_id">1629678493985822</string>
+    <string name="title_activity_gallery">Gallery</string>
     <string name="title_activity_subdiviciones_opciones">subdiviciones_opciones</string>
-    <string-array name="monedas1">
+    <string-array name="monedas">
         <item>Peso Dominicano(DOP)</item>
         <item>Dolares Estadounidense(USD)</item>
-    </string-array>
-    <string-array name="monedas2">
         <item>Euro(EUR)</item>
         <item>Libras Esterlinas (GBP)</item>
     </string-array>
-    <string-array name="cambios">
-        <item>Comprar</item>
-        <item>Vender</item>
-    </string-array>
-    <string name="title_activity_gallery">gallery</string>
+
+
 </resources>

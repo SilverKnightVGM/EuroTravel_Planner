@@ -42,8 +42,16 @@ public class CalculadoraPopUp extends Activity {
                 public void onClick(View v) {
                     CambioMoneda cambioMoneda=new CambioMoneda();
                     monto2= Double.parseDouble(monto4.getText().toString());
-                    total.setText(cambioMoneda.cambioM(monto2,mnd1, mnd2, cmb));
+                    if(monto4.getText().toString().isEmpty()){
+                        Toast.makeText(getApplicationContext(), "Introducir un monto", Toast.LENGTH_LONG).show();
+                        return;
+                    }
+                    if(mnd1.equals(mnd2)){
+                        Toast.makeText(getApplicationContext(), "Ha seleccionado el mismo tipo de monedad", Toast.LENGTH_LONG).show();
 
+                    }else {
+                        total.setText(cambioMoneda.cambioM(monto2, mnd1, mnd2, cmb));
+                    }
 
                 }
             });
@@ -58,14 +66,12 @@ public class CalculadoraPopUp extends Activity {
 
             monedas1 = (Spinner) findViewById(R.id.monedas1);
             monedas2 = (Spinner) findViewById(R.id.monedas2);
-            cambio= (Spinner) findViewById(R.id.cambios);
-            adapter1 = ArrayAdapter.createFromResource(this, R.array.monedas1, android.R.layout.simple_spinner_item);
-            adapter2 = ArrayAdapter.createFromResource(this, R.array.monedas2, android.R.layout.simple_spinner_item);
-            adapter3=ArrayAdapter.createFromResource(this, R.array.cambios, android.R.layout.simple_spinner_item);
+            adapter1 = ArrayAdapter.createFromResource(this, R.array.monedas, android.R.layout.simple_spinner_item);
+            adapter2 = ArrayAdapter.createFromResource(this, R.array.monedas, android.R.layout.simple_spinner_item);
+
             adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            cambio.setAdapter(adapter3);
+
 
                 monedas1.setAdapter(adapter1);
                 monedas2.setAdapter(adapter2);
@@ -102,31 +108,6 @@ public class CalculadoraPopUp extends Activity {
 
 
             });
-            cambio.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-
-                @Override
-                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-                    cmb = (String) parent.getItemAtPosition(position);
-
-                    if(cmb.equals("Comprar")) {
-                        monedas1.setAdapter(adapter1);
-                        monedas2.setAdapter(adapter2);
-                    }
-                    if(cmb.equals("Vender")) {
-                        monedas2.setAdapter(adapter1);
-                        monedas1.setAdapter(adapter2);
-                    }
-
-                }
-
-                @Override
-                public void onNothingSelected(AdapterView<?> parent) {
-
-                }
-
-            });
-
 
         }
 

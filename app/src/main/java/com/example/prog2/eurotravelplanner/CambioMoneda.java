@@ -10,31 +10,6 @@ public class CambioMoneda {
     String moneda1, moneda2;
 
 
-
-    public String getMoneda1() {
-        return moneda1;
-    }
-
-    public String getMoneda2() {
-        return moneda2;
-    }
-
-    public Double getMonto() {
-        return monto;
-    }
-
-    public void setMoneda1(String moneda1) {
-        this.moneda1 = moneda1;
-    }
-
-    public void setMoneda2(String moneda2) {
-        this.moneda2 = moneda2;
-    }
-
-    public void setMonto(Double monto) {
-        this.monto = monto;
-    }
-
     public double redondear(double numero) {
 
         int cifras = (int) Math.pow(10, 2);
@@ -50,46 +25,65 @@ public class CambioMoneda {
 
     public String cambioM(double monto, String moneda1, String moneda2, String cmd){
         String total=null;
-        if(cmd.equals("Comprar")) {
+
             if (moneda1.equals("Peso Dominicano(DOP)")) {
+                if (moneda2.equals("Dolares Estadounidense(USD)")) {
+
+                    total = "USD$ "+Double.toString(redondear(monto * 0.02));
+                }
                 if (moneda2.equals("Euro(EUR)")) {
 
-                    total = ("EUR$ "+Double.toString(redondear(monto/49.47)));
+                    total = ("EUR$ "+Double.toString(redondear(monto*0.02)));
                 }
                 if (moneda2.equals("Libras Esterlinas (GBP)")) {
-                    total = ("GBP$ "+Double.toString(redondear(monto/70.29)));
+                    total = ("GBP$ "+Double.toString(redondear(monto*0.01)));
                 }
             }
 
             if (moneda1.equals("Dolares Estadounidense(USD)")) {
-                if (moneda2.equals("Euro(EUR)")) {
-                    total = ("EUR$ "+Double.toString(redondear(monto/1.09)));
-                }
-                if (moneda2.equals("Libras Esterlinas (GBP)")) {
-                    total = ("GBP$ "+Double.toString(redondear(monto/0.64)));
-                }
-            }
-        }
-        if(cmd.equals("Vender")) {
-            if (moneda1.equals("Peso Dominicano(DOP)")) {
-                if (moneda2.equals("Euro(EUR)")) {
+                if (moneda2.equals("Peso Dominicano(DOP)")) {
 
-                    total = "EUR$ "+Double.toString(redondear(monto * 50.60));
+                    total = "DOP$ "+Double.toString(redondear(monto * 45.03));
+                }
+                if (moneda2.equals("Euro(EUR)")) {
+                    total = ("EUR$ "+Double.toString(redondear(monto*0.91)));
                 }
                 if (moneda2.equals("Libras Esterlinas (GBP)")) {
-                    total = "GBP$ "+Double.toString(monto*0.014);
+                    total = ("GBP$ "+Double.toString(redondear(monto*0.64)));
                 }
             }
 
-            if (moneda1.equals("Dolares Estadounidense(USD)")) {
-                if (moneda2.equals("Euro(EUR)")) {
-                    total = "EUR$ "+Double.toString(monto*0.91);
+
+            if (moneda1.equals("Euro(EUR)")) {
+                if (moneda2.equals("Peso Dominicano(DOP)")) {
+
+                    total = "DOP$ "+Double.toString(redondear(monto * 49.27));
+                }
+                if (moneda2.equals("Dolares Estadounidense(USD)")) {
+
+                    total = "USD$ "+Double.toString(redondear(monto * 1.09));
                 }
                 if (moneda2.equals("Libras Esterlinas (GBP)")) {
-                    total = "GBP$ "+Double.toString(monto*0.64);
+                    total = "GBP$ "+Double.toString(redondear(monto*0.70));
                 }
             }
-        }
+
+            if (moneda1.equals("Libras Esterlinas (GBP)")) {
+                if (moneda2.equals("Peso Dominicano(DOP)")) {
+
+                    total = "DOP$ "+Double.toString(redondear(monto * 70.1));
+                }
+                if (moneda2.equals("Dolares Estadounidense(USD)")) {
+
+                    total = "USD$ "+Double.toString(redondear(monto * 1.56));
+                }
+                if (moneda2.equals("Euro(EUR)")) {
+                    total = "EUR$ "+Double.toString(redondear(monto*1.42));
+                }
+
+            }
+
+
 
     return total;
     }
