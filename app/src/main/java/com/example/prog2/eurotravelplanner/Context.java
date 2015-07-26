@@ -16,12 +16,10 @@ public class Context extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        FacebookSdk.sdkInitialize(getApplicationContext());
-        // Initialize the SDK before executing any other operations,
-        // especially, if you're using Facebook UI elements.
 
-        btnRegister = (Button) findViewById(R.id.btnRegistrarse);
+        setContentView(R.layout.activity_main);
+
+//        btnRegister = (Button) findViewById(R.id.btnRegistrarse);
         btnLogin = (Button) findViewById(R.id.btnlogin);
 
 
@@ -33,18 +31,11 @@ public class Context extends ActionBarActivity {
             }
         });
 
-
-
-
-        btnRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-            }
-        });
-
-
+//        btnRegister.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//            }
+//        });
     }
 
     @Override
@@ -53,8 +44,6 @@ public class Context extends ActionBarActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
-
-
 
 
     @Override
@@ -71,5 +60,5 @@ public class Context extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
-    
+
 }

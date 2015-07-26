@@ -4,10 +4,6 @@ android {
     compileSdkVersion 22
     buildToolsVersion "22.0.1"
 
-    repositories {
-        mavenCentral()
-    }
-
     defaultConfig {
         applicationId "com.example.prog2.eurotravelplanner"
         minSdkVersion 15
@@ -21,6 +17,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+}
+
+repositories {
+    mavenCentral()
 }
 
 dependencies {

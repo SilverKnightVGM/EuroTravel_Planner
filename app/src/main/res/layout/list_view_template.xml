@@ -24,7 +24,8 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Large Text"
             android:id="@+id/textView_nombreCategoria"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp" />
     </LinearLayout>
 
 </LinearLayout>

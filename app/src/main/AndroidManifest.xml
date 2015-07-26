@@ -4,15 +4,18 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <!--android:name=".FbEcryption"-->
+
     <application
-        android:name=".FbEcryption"
+        android:name=".FacebookInit"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id" />
+            android:value="@string/facebook_app_id"
+            />
 
         <activity
             android:name=".Context"
@@ -23,31 +26,44 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".Destinos"
             android:label="Destinos" >
         </activity>
+
         <activity
             android:name=".Opciones"
             android:label="Opciones" >
         </activity>
+
         <activity
             android:name=".subdiviciones_opciones"
             android:label="@string/title_activity_subdiviciones_opciones" >
         </activity>
+
         <activity
             android:name=".DatosGenerales"
             android:label="Datos Generales" >
         </activity>
+
         <activity
             android:name=".CalculadoraPopUp"
             android:label="Calculadora"
             android:theme="@style/AppTheme.CustomTheme" >
         </activity>
+
         <activity
             android:name=".gallery"
             android:label="@string/title_activity_gallery" >
         </activity>
+
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+
     </application>
 
 </manifest>
