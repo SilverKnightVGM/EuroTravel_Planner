@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">EuroTravel Planner</string>
+    <string name="title_activity_destinos">Destinos</string>
+    <string name="title_activity_gallery">Galería</string>
+    <string name="title_activity_menu">Menú</string>
+    <string name="action_settings">Preferencias</string>
+    <string name="text_berlin">Berlín</string>
+    <string name="text_londres">Londres</string>
+    <string name="text_madrid">Madrid</string>
+    <string name="text_paris">París</string>
+    <string name="text_roma">Roma</string>
+    <string name="text_total">Total</string>
+    <string name="text_venecia">Venecia</string>
+    <string name="boton_calcular">Calcular</string>
+    <string name="title_activity_calculadora">Calculadora</string>
+    <string name="title_activity_datosGenerales">Datos Generales</string>
+    <string name="title_activity_opciones">Opciones</string>
+    <string name="text_compras">Compras</string>
+    <string name="text_entretenimiento">Entretenimiento</string>
+    <string name="text_gastronomia">Gastronomía</string>
+    <string name="text_hospedaje">Hospedaje</string>
+    <string name="text_lugarInteres">Lugares de interés</string>
+    <string name="text_transporte">Transporte</string>
+</resources>

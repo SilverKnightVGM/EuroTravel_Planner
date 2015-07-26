@@ -1,13 +1,30 @@
 <resources>
     <string name="app_name">EuroTravel Planner</string>
 
-    <string name="hello_world">Hello world!</string>
+    <string name="hello_world" translatable="false">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_destinos">Destinos</string>
     <string name="title_activity_menu">Menu</string>
-    <string name="facebook_app_id">1629678493985822</string>
+    <string name="facebook_app_id" translatable="false">1629678493985822</string>
     <string name="title_activity_gallery">Gallery</string>
-    <string name="title_activity_subdiviciones_opciones">subdiviciones_opciones</string>
+    <string name="title_activity_subdiviciones_opciones" translatable="false">subdiviciones_opciones</string>
+    <string name="text_paris">Paris</string>
+    <string name="text_roma">Roma</string>
+    <string name="text_londres">Londres</string>
+    <string name="text_venecia">Venecia</string>
+    <string name="text_madrid">Madrid</string>
+    <string name="text_berlin">Berlin</string>
+    <string name="boton_calcular">Calcular</string>
+    <string name="text_total">Total</string>
+    <string name="title_activity_calculadora">Calculadora</string>
+    <string name="title_activity_datosGenerales">Datos Generales</string>
+    <string name="title_activity_opciones">Opciones</string>
+    <string name="text_transporte">Transporte</string>
+    <string name="text_hospedaje">Hospedaje</string>
+    <string name="text_gastronomia">Gastronomía</string>
+    <string name="text_entretenimiento">Entretenimiento</string>
+    <string name="text_lugarInteres">Lugares de interés</string>
+    <string name="text_compras">Compras</string>
     <string-array name="monedas">
         <item>Peso Dominicano(DOP)</item>
         <item>Dolares Estadounidense(USD)</item>

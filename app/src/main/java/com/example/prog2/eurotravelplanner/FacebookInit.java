@@ -25,7 +25,7 @@ public class FacebookInit extends Application{
     }
 
     /**
-     * Call this method inside onCreate once to get your hash key
+     * Call this method inside onCreate ONCE to get your hash key
      */
     public void printKeyHash() {
         try {

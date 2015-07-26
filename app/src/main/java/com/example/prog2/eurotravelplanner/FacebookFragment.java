@@ -27,6 +27,7 @@ import com.facebook.login.widget.LoginButton;
 public class FacebookFragment extends Fragment {
 
     private final static String TAG = "debug1";
+
     private TextView mTextDetails;
     private CallbackManager mCallbackManager;
     private AccessTokenTracker mTokenTracker;
@@ -39,7 +40,6 @@ public class FacebookFragment extends Fragment {
             AccessToken accessToken = loginResult.getAccessToken();
             Profile profile = Profile.getCurrentProfile();
             mTextDetails.setText(constructWelcomeMessage(profile));
-
         }
 
         @Override

@@ -6,11 +6,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.facebook.FacebookSdk;
 import android.view.View;
 import android.widget.Button;
 
-public class Context extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity {
     Button btnRegister, btnLogin;
 
     @Override
@@ -26,7 +25,7 @@ public class Context extends ActionBarActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Context.this, Destinos.class);
+                Intent i = new Intent(MainActivity.this, Destinos.class);
                 startActivity(i);
             }
         });

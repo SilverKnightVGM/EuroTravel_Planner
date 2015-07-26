@@ -20,7 +20,7 @@ public class subdiviciones_opciones extends ActionBarActivity {
 
     ListView listView_subdiviciones;
 
-
+    //TODO does this needs to be static? can't extract string resource and replace like this.
 
     public static Integer [] Images_SubTransporte={R.drawable.rent_car,R.drawable.taxi,R.drawable.bus,R.drawable.underground};
     public static String [] Texto_SubTransporte={"Renta de Autos","Taxi","Transporte Publico","Trenes"};
@@ -48,10 +48,10 @@ public class subdiviciones_opciones extends ActionBarActivity {
 
         // en este intent recupero la categoria que clikee, ej. Datos Generales, Enretenimieto, Transporte etc
         final Intent tipo_categoria = getIntent();
-        final String tipo_categoriaa = tipo_categoria.getStringExtra("idcategoria_clikeada");
+        final String string_tipo_categoria = tipo_categoria.getStringExtra("idcategoria_clikeada");
 
         //creo el metodo para buscar cual categoria clikee para insertar el imagen que deseo de la subdivision.
-        inserto_ListViewSubdivisiones(tipo_categoriaa);
+        inserto_ListViewSubdivisiones(string_tipo_categoria);
 
 
 // aqui esta el metodo de cuando clikee un item del listview de las subdiviciones
@@ -79,7 +79,7 @@ public class subdiviciones_opciones extends ActionBarActivity {
                     // en el putExtra tipo_subdivicion le mando el item que clikee ej. (Renta de Autos si estoy en Transporte, Hoteles si estoy en Hospedate, etc)
 
                     e.putExtra("id_cuidades",id_cuidad);
-                    e.putExtra("tipo_categoria",tipo_categoriaa);
+                    e.putExtra("tipo_categoria",string_tipo_categoria);
                     e.putExtra("tipo_subdivision",texto_clikeado);
 
                     startActivity(e);
@@ -97,7 +97,7 @@ public class subdiviciones_opciones extends ActionBarActivity {
         // en este método yo valido cual opcion fue lo que clikee (Entretenimiento, hospedaje etc) y luego que valido
         // inserto en el listview las subdivisiones de cada opciones
 
-        if (tipo_categoria.equals("Transporte")){
+        if (tipo_categoria.equals(getString(R.string.text_transporte))){
 
             CustomList adapter = new CustomList(subdiviciones_opciones.this, Texto_SubTransporte, Images_SubTransporte);
 
@@ -105,11 +105,11 @@ public class subdiviciones_opciones extends ActionBarActivity {
 
             listView_subdiviciones.setAdapter(adapter);
 
-            getSupportActionBar().setTitle("Transporte");
+            getSupportActionBar().setTitle(getString(R.string.text_transporte));
 
         }
 
-        if (tipo_categoria.equals("Gastronomía")){
+        if (tipo_categoria.equals(getString(R.string.text_gastronomia))){
 
             CustomList adapter = new CustomList(subdiviciones_opciones.this, Texto_SubGastronomia, Images_SubGastronomia);
 
@@ -117,10 +117,10 @@ public class subdiviciones_opciones extends ActionBarActivity {
 
             listView_subdiviciones.setAdapter(adapter);
 
-            getSupportActionBar().setTitle("Gastronomía");
+            getSupportActionBar().setTitle(getString(R.string.text_gastronomia));
         }
 
-        if (tipo_categoria.equals("Hospedaje")){
+        if (tipo_categoria.equals(getString(R.string.text_hospedaje))){
 
             CustomList adapter = new CustomList(subdiviciones_opciones.this, Texto_SubHospedaje, Images_SubHospedaje);
 
@@ -128,10 +128,10 @@ public class subdiviciones_opciones extends ActionBarActivity {
 
             listView_subdiviciones.setAdapter(adapter);
 
-            getSupportActionBar().setTitle("Hospedaje");
+            getSupportActionBar().setTitle(getString(R.string.text_hospedaje));
         }
 
-        if (tipo_categoria.equals("Entretenimiento")){
+        if (tipo_categoria.equals(getString(R.string.text_entretenimiento))){
 
             CustomList adapter = new CustomList(subdiviciones_opciones.this, Texto_SubEntretenimiento, Images_SubEntretenimiento);
 
@@ -139,10 +139,10 @@ public class subdiviciones_opciones extends ActionBarActivity {
 
             listView_subdiviciones.setAdapter(adapter);
 
-            getSupportActionBar().setTitle("Entretenimiento");
+            getSupportActionBar().setTitle(getString(R.string.text_entretenimiento));
         }
 
-        if (tipo_categoria.equals("Lugares de interés")){
+        if (tipo_categoria.equals(getString(R.string.text_lugarInteres))){
 
             CustomList adapter = new CustomList(subdiviciones_opciones.this, Texto_SubLugaresInteres, Images_SubLugaresInteres);
 
@@ -150,7 +150,7 @@ public class subdiviciones_opciones extends ActionBarActivity {
 
             listView_subdiviciones.setAdapter(adapter);
 
-            getSupportActionBar().setTitle("Lugares de interés");
+            getSupportActionBar().setTitle(getString(R.string.text_lugarInteres));
         }
 
     }

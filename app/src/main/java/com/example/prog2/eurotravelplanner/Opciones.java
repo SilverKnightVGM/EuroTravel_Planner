@@ -62,7 +62,7 @@ public class Opciones extends ActionBarActivity {
                 // idcategoria_clikeada en esta variable guardo la categoria que clikee, ej. Datos Generales, Enretenimieto, Transporte etc
                 String idcategoria_clikeada = miCategoria.get(position).getCategoria();
 
-                if (idcategoria_clikeada.equals("Datos Generales")) {
+                if (idcategoria_clikeada.equals(getString(R.string.title_activity_datosGenerales))) {
 
                     Intent recupero_id = getIntent();
                     String recupero_idBanner = recupero_id.getStringExtra("id_cuidades");
@@ -73,7 +73,7 @@ public class Opciones extends ActionBarActivity {
                     i.putExtra("id_cuidades",pais_actual);
                     startActivity(i);
 
-                } else if (idcategoria_clikeada.equals("Compras")) {
+                } else if (idcategoria_clikeada.equals(getString(R.string.text_compras))) {
 
                     Intent recupero_id = getIntent();
                     String recupero_idBanner = recupero_id.getStringExtra("id_cuidades");
@@ -169,13 +169,13 @@ public class Opciones extends ActionBarActivity {
     }
 
     private void populateListCategoria(){
-        miCategoria.add(new clase_categorias("Datos Generales",R.drawable.icon_info));
-        miCategoria.add(new clase_categorias("Transporte",R.drawable.icon_maleta));
-        miCategoria.add(new clase_categorias("Hospedaje",R.drawable.icon_hospedaje));
-        miCategoria.add(new clase_categorias("Gastronomía",R.drawable.icon_gastronomia));
-        miCategoria.add(new clase_categorias("Entretenimiento",R.drawable.icon_entretenimiento));
-        miCategoria.add(new clase_categorias("Lugares de interés",R.drawable.icon_interes));
-        miCategoria.add(new clase_categorias("Compras",R.drawable.icon_compras));
+        miCategoria.add(new clase_categorias(getString(R.string.title_activity_datosGenerales),R.drawable.icon_info));
+        miCategoria.add(new clase_categorias(getString(R.string.text_transporte),R.drawable.icon_maleta));
+        miCategoria.add(new clase_categorias(getString(R.string.text_hospedaje),R.drawable.icon_hospedaje));
+        miCategoria.add(new clase_categorias(getString(R.string.text_gastronomia),R.drawable.icon_gastronomia));
+        miCategoria.add(new clase_categorias(getString(R.string.text_entretenimiento),R.drawable.icon_entretenimiento));
+        miCategoria.add(new clase_categorias(getString(R.string.text_lugarInteres),R.drawable.icon_interes));
+        miCategoria.add(new clase_categorias(getString(R.string.text_compras),R.drawable.icon_compras));
     }
 
     private void populateListView() {
