@@ -69,7 +69,6 @@ public class Opciones extends ActionBarActivity {
                     pais_actual = recupero_idBanner;
 
                     Intent i = new Intent(Opciones.this, DatosGenerales.class);
-                    //i.putExtra("idcategoria_clikeada", idcategoria_clikeada);
                     i.putExtra("id_cuidades",pais_actual);
                     startActivity(i);
 
