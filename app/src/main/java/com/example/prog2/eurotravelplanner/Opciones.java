@@ -78,8 +78,16 @@ public class Opciones extends ActionBarActivity {
                     String recupero_idBanner = recupero_id.getStringExtra("id_cuidades");
                     pais_actual = recupero_idBanner;
 
-                    Toast.makeText(Opciones.this, "You Clicked at " + miCategoria.get(position).getCategoria(), Toast.LENGTH_SHORT).show();
+                    String categoriaa = miCategoria.get(position).getCategoria();
 
+                    //Toast.makeText(Opciones.this, "You Clicked at " + miCategoria.get(position).getCategoria(), Toast.LENGTH_SHORT).show();
+
+                    Intent e = new Intent(Opciones.this,gallery.class);
+
+                    e.putExtra("id_cuidades",recupero_idBanner);
+                    e.putExtra("tipo_categoria",categoriaa);
+
+                    startActivity(e);
 
                 } else {
 

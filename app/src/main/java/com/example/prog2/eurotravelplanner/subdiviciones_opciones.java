@@ -109,6 +109,7 @@ public class subdiviciones_opciones extends ActionBarActivity {
 
         }
 
+
         if (tipo_categoria.equals(getString(R.string.text_gastronomia))){
 
             CustomList adapter = new CustomList(subdiviciones_opciones.this, Texto_SubGastronomia, Images_SubGastronomia);
