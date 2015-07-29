@@ -151,18 +151,29 @@ public class gallery extends ActionBarActivity {
 
                 if(subdivicion.equals("Restaurantes")){
 
-                    Integer[] p_taxi = {R.drawable.restaurante_paris_epicure, R.drawable.restaurante_paris_seb_on,R.drawable.restaurant_paris_roomies,R.drawable.resturant_paris_pur_jean_francois_rouquette};
+                    Integer[] image = {R.drawable.restaurant_paris_epicure, R.drawable.restaurante_paris_seb_on,R.drawable.restaurant_paris_roomies,R.drawable.resturant_paris_pur_jean_francois_rouquette,R.drawable.restaurant_paris_lassommoirr,R.drawable.restaurant_paris_bistrot_chez_france,R.drawable.restaurant_paris_cobea};
 
-                    gallery.setAdapter(new ImageAdapter(this,p_taxi));
+                    gallery.setAdapter(new ImageAdapter(this,image));
 
                 }
                 if(subdivicion.equals("Pasteleria y Panaderia")){
 
-                }
-                if(subdivicion.equals("Comida Rapida")){
+                    Integer[] image = {R.drawable.pasteleria_paris_pierre_herme,R.drawable.pasteleria_paris_le_saotico,R.drawable.pasteleria_paris_berties_cupcakery,R.drawable.pasteleria_paris_patisserie_stohrer,R.drawable.pasteleria_paris_ble_sucre};
+
+                    gallery.setAdapter(new ImageAdapter(this,image));
+
 
                 }
+                if(subdivicion.equals("Comida Rapida")){
+                    Integer[] image = {R.drawable.comidarapida_paris_cojean,R.drawable.comidarapida_paris_lentredgeu,R.drawable.comidarapida_paris_cafe_des_musees,R.drawable.comidarapida_paris_pret_a_manger,R.drawable.comidarapida_paris_vandermeersch};
+
+                    gallery.setAdapter(new ImageAdapter(this,image));
+                }
                 if(subdivicion.equals("Comida Típicas")){
+
+                    Integer[] image = {R.drawable.platostipicos_paris_coq_au_vin,R.drawable.platostipicos_paris_canard_a_lorange,R.drawable.platostipicos_paris_ratatouille,R.drawable.platostipicos_paris_soupe_a_loignon,R.drawable.platostipicos_paris_escargo};
+
+                    gallery.setAdapter(new ImageAdapter(this,image));
 
                 }
 
@@ -534,14 +545,30 @@ public class gallery extends ActionBarActivity {
 
                 if(subdivicion.equals("Restaurantes")){
 
+                    Integer[] image = {R.drawable.restaurant_berlin_grill_royal,R.drawable.restaurant_berlin_hofbrau_berlin,R.drawable.restaurant_berlin_zur_letzten_instanz};
+
+                    gallery.setAdapter(new ImageAdapter(this,image));
+
                 }
                 if(subdivicion.equals("Pasteleria y Panaderia")){
+
+                    Integer[] image = {R.drawable.pasteleria_berlin_mandragoras,R.drawable.pasteleria_berlin_tigertortchen,R.drawable.pasteleria_berlin_zeit_fuer_brot};
+
+                    gallery.setAdapter(new ImageAdapter(this,image));
 
                 }
                 if(subdivicion.equals("Comida Rapida")){
 
+                    Integer[] image = {R.drawable.comidarapida_berlin_burgermeister,R.drawable.comidarapida_berlin_curry_baude,R.drawable.comidarapida_berlin_vapiano};
+
+                    gallery.setAdapter(new ImageAdapter(this,image));
+
                 }
                 if(subdivicion.equals("Comida Típicas")){
+
+                    Integer[] image = {R.drawable.platotipico_berlin_currywurst,R.drawable.platotipico_berlin_kartoffelsalat,R.drawable.platotipico_berlin_rote_gruetze,R.drawable.platotipico_berlin_eisbein_mit_sauerkraut};
+
+                    gallery.setAdapter(new ImageAdapter(this,image));
 
                 }
 
