@@ -356,14 +356,30 @@ public class gallery extends ActionBarActivity {
 
                 if(subdivicion.equals("Restaurantes")){
 
+                    Integer[] p_rest = {R.drawable.restaurante_roma_vicinibistrot, R.drawable.restaurante_roma_lla_porta_del_principe, R.drawable.restaurante_roma_tamburellodi_pulcinella};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_rest));
+
                 }
                 if(subdivicion.equals("Pasteleria y Panaderia")){
+
+                    Integer[] p_past = {R.drawable.reposteria_roma_biscottificio_lnnocenti, R.drawable.reposteria_roma_opulentia, R.drawable.reposteria_roma_panzerotti_friends};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_past));
 
                 }
                 if(subdivicion.equals("Comida Rapida")){
 
+                    Integer[] p_rapidat = {R.drawable.comida_rapida_roma_madame_baguette, R.drawable.comida_rapida_roma_bacio_di_puglia, R.drawable.comida_rapida_roma_lasagnam};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_rapidat));
+
                 }
                 if(subdivicion.equals("Comida Típicas")){
+
+                    Integer[] p_tipica = {R.drawable.comida_tipica_roma_tomato_bruschetta_with_ricotta_and, R.drawable.comida_tipica_roma_bucainiall_amatriciana, R.drawable.comida_tipica_roma_panini, R.drawable.comida_tipica_roma_tartufonegro};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_tipica));
 
                 }
 
