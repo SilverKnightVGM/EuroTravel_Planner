@@ -199,11 +199,23 @@ public class gallery extends ActionBarActivity {
 
                 if(subdivicion.equals("Hoteles")){
 
+                    Integer[] p_hotel = {R.drawable.hotel_paris_le_bristol_paris,R.drawable.hotel_paris_four_seasons_hotel_george_v,R.drawable.hotel_paris_saint_james_paris_relais_et_chateaux};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_hotel));
+
                 }
                 if(subdivicion.equals("Hostel")){
 
+                    Integer[] p_hostel = {R.drawable.hostel_paris_avalon_paris_hotel,R.drawable.hostel_paris_hotel_rocroy,R.drawable.hostel_paris_hotel_boissiere};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_hostel));
+
                 }
                 if(subdivicion.equals("Lugares de Acampar")){
+
+                    Integer[] p_camp = {R.drawable.acampar_paris_camping_indigo_paris_bois_boulogne,R.drawable.acampar_paris_camping_international_maisons_laffitte,R.drawable.acampar_paris_huttopia_versailles};
+
+                     gallery.setAdapter(new ImageAdapter(this,p_camp));
 
                 }
 
@@ -294,11 +306,24 @@ public class gallery extends ActionBarActivity {
 
                 if(subdivicion.equals("Hoteles")){
 
+                    Integer[] p_hotel = {R.drawable.hotel_madrid_jardines_de_sabatini_opt,R.drawable.hotel_madrid_the_westin_palace_madrid_opt};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_hotel));
+
                 }
                 if(subdivicion.equals("Hostel")){
 
+                    Integer[] p_hostel = {R.drawable.hostel_madrid_way_hostel_opt,R.drawable.hostel_madrid_u_hostels_opt};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_hostel));
+
+
                 }
                 if(subdivicion.equals("Lugares de Acampar")){
+
+                    Integer[] p_camp = {R.drawable.acampar_madrid_only_you_hotel_lounge_opt};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_camp));
 
                 }
 
@@ -482,15 +507,30 @@ public class gallery extends ActionBarActivity {
 
                 if(subdivicion.equals("Restaurantes")){
 
+                    Integer[] p_rest = {R.drawable.restaurant_venecia_la_zucca,R.drawable.restaurant_venecia_al_covo,R.drawable.restaurant_venecia_bistrot_de_venise};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_rest));
+
                 }
                 if(subdivicion.equals("Pasteleria y Panaderia")){
+
+                    Integer[] p_paste = {R.drawable.pasteleria_venecia_nobile_pasticceria,R.drawable.pasteleria_venecia_rosa_salva,R.drawable.pasteleria_venecia_pasticceria_tonolo};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_paste));
 
                 }
                 if(subdivicion.equals("Comida Rapida")){
 
+                    Integer[] p_fast = {R.drawable.comidarapida_venecia_q_food_more,R.drawable.comidarapida_venecia_tiziano_snack_bar,R.drawable.comidarapida_venecia_dal_moros_fresh_pasta_to_go};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_fast));
+
                 }
                 if(subdivicion.equals("Comida Típicas")){
 
+                    Integer[] p_tipica = {R.drawable.platotipico_venecia_brioche,R.drawable.platotipico_venecia_risotto_risi_e_bis,R.drawable.platotipico_venecia_fegatto_alla_veneziana,R.drawable.platotipico_venecia_pez_san_pedro,R.drawable.platotipico_venecia_campari};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_tipica));
                 }
 
             }
@@ -499,11 +539,24 @@ public class gallery extends ActionBarActivity {
 
                 if(subdivicion.equals("Hoteles")){
 
+                    Integer[] p_hotel = {R.drawable.hotel_venecia_hilton_molino_stucky_venice,R.drawable.hotel_venecia_the_westin_europa_regina,R.drawable.hotel_venecia_carnival_palace};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_hotel));
+
                 }
                 if(subdivicion.equals("Hostel")){
 
+                    Integer[] p_hostel = {R.drawable.hostel_venecia_yha_ostello,R.drawable.hostel_venecia_ostello_santa_fosca,R.drawable.hostel_venecia_lmbarcadero};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_hostel));
+
+
                 }
                 if(subdivicion.equals("Lugares de Acampar")){
+
+                    Integer[] p_camp = {R.drawable.acampar_venecia_camping_serenissima,R.drawable.acampar_venecia_camping_fusina};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_camp));
 
                 }
 
@@ -610,14 +663,24 @@ public class gallery extends ActionBarActivity {
 
                 if(subdivicion.equals("Hoteles")){
 
+                    Integer[] p_hotel = {R.drawable.hotel_berlin_hotel_adlon_kempinski,R.drawable.hotel_berlin_movenpick_hotel_berlin};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_hotel));
+
                 }
                 if(subdivicion.equals("Hostel")){
+
+                    Integer[] p_hostel = {R.drawable.hastel_berlin_cityhostel_berlin,R.drawable.hostel_berlin_sunflower_hostel};
+                    gallery.setAdapter(new ImageAdapter(this,p_hostel));
 
                 }
                 if(subdivicion.equals("Lugares de Acampar")){
 
+                    Integer[] p_camp = {R.drawable.acampar_berlin_assateague_state_park_camping};
+                    gallery.setAdapter(new ImageAdapter(this,p_camp));
+
                 }
-                //g
+
 
             }
 
@@ -706,12 +769,23 @@ public class gallery extends ActionBarActivity {
 
                 if(subdivicion.equals("Hoteles")){
 
+                    Integer[] p_hotel = {R.drawable.hotel_londres_conrad_london_st_james,R.drawable.hotel_londres_hotel_cuarenta_uno,R.drawable.hotel_londres_the_milestone_hotel};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_hotel));
+
                 }
                 if(subdivicion.equals("Hostel")){
+
+                    Integer[] p_hostel = {R.drawable.hostel_londres_clink_hostel,R.drawable.hostel_londres_smart_russell_square_hostel,R.drawable.hostel_londres_palmer_lodge_swiss_cottage};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_hostel));
 
                 }
                 if(subdivicion.equals("Lugares de Acampar")){
 
+                    Integer[] p_camp = {R.drawable.acampar_londres_abbey_wood_caravan_club_site,R.drawable.acampar_londres_crystal_palace_caravan_club_site,R.drawable.acampar_londres_lee_valley_camping_and_caravan_park_edmonton};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_camp));
                 }
 
             }
