@@ -4,9 +4,9 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,7 +17,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,11 +31,16 @@ public class Opciones extends ActionBarActivity {
     List<String> template = new ArrayList<String>();
     ImageView imageView_banner;
 
+    Cursor cl;
+
+    DbHelper helper = new DbHelper(this);
+
     public static String pais_actual=null; // variable para saber en que pais se realiza la busqueda
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_opciones);
+
 
         categorias = (ListView) findViewById(R.id.listView_opciones);
         tips = (Button) findViewById(R.id.buttonTips);
@@ -44,7 +48,9 @@ public class Opciones extends ActionBarActivity {
 
             @Override
             public void onClick(View v) {
+                cl = helper.getTips();
                 Opciones.this.showDialog(ALERT_DIALOG);//Llama al metodo que crea el AlertDialog para los Tips
+
             }
         });
         inserto_banner();
@@ -105,23 +111,56 @@ public class Opciones extends ActionBarActivity {
             }
         });
 
+        if (Opciones.pais_actual.equals("paris"))
+        {
+            helper.where2 = helper.ID_ciudad +" = 'paris'";
+        }
+        if (Opciones.pais_actual.equals("madrid"))
+        {
+            helper.where2 = helper.ID_ciudad +" = 'madrid'";
+        }
+        if (Opciones.pais_actual.equals("roma"))
+        {
+            helper.where2 = helper.ID_ciudad +" = 'roma'";
+        }
+        if (Opciones.pais_actual.equals("londres"))
+        {
+            helper.where2 = helper.ID_ciudad +" = 'londres'";
+        }
+        if (Opciones.pais_actual.equals("venecia"))
+        {
+            helper.where2 = helper.ID_ciudad +" = 'venecia'";
+        }
+        if (Opciones.pais_actual.equals("berlin"))
+        {
+            helper.where2 = helper.ID_ciudad +" = 'berlin'";
+        }
+
     }
 
     @Override
     protected Dialog onCreateDialog(int id) {
         Dialog dialog=null;
         AlertDialog.Builder builder = new AlertDialog.Builder(this);// Constructor para el AlertDialog de los Tips
+        String text= null;
+
         switch (id){
             case ALERT_DIALOG:
-                builder.setMessage("Hola").setPositiveButton("Ok", new DialogInterface.OnClickListener(){ //Se establece el mensage y el label del boton para el AlertDialog
-                public void onClick(DialogInterface dialog, int id) {
+
+                if (cl.moveToFirst())  {
+                    text = cl.getString(0);
+                }
+                if (text != null && !text.toString().isEmpty()) {
+                builder.setMessage(text).setPositiveButton("Ok", new DialogInterface.OnClickListener() { //Se establece el mensage y el label del boton para el AlertDialog
+
+                    public void onClick(DialogInterface dialog, int id) {
 
                 }
 
             })
                         .setCancelable(false);
             dialog=builder.create(); //Ejecuta el constructor del AlertDialog de los tips para crearlo
-                break;
+                break;}
             default:
 
         }
