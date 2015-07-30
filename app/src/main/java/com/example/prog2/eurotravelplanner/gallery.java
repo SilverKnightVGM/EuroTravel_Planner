@@ -601,6 +601,7 @@ public class gallery extends ActionBarActivity {
                 if(subdivicion.equals("Lugares de Acampar")){
 
                 }
+                //g
 
             }
 
