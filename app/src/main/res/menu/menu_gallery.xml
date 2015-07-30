@@ -4,4 +4,25 @@
     tools:context="com.example.prog2.eurotravelplanner.gallery">
     <item android:id="@+id/action_settings" android:title="@string/action_settings"
         android:orderInCategory="100" app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_Home"
+        android:title="Home"
+        android:layout_gravity="center"
+        android:icon="@drawable/home"
+        app:showAsAction="always|withText"/>
+
+    <item
+        android:id="@+id/menu_Calculator"
+        android:title="Calculadora"
+        android:icon="@drawable/calculadora"
+        android:orderInCategory="0"
+        app:showAsAction="always|withText"/>
+
+    <item
+        android:id="@+id/menu_Lista"
+        android:title="Lista"
+        android:icon="@drawable/lista"
+        android:orderInCategory="0"
+        app:showAsAction="always|withText"/>
 </menu>

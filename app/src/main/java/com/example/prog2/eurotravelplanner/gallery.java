@@ -74,14 +74,30 @@ public class gallery extends ActionBarActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        switch(item.getItemId()){
+            case R.id.menu_Home:
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+                Intent i = new Intent(gallery.this, Destinos.class);
+                startActivity(i);
+                return true;
+
+            case R.id.menu_Calculator:
+                startActivity(new Intent(gallery.this, CalculadoraPopUp.class));
+                return true;
+
+            case R.id.menu_Lista:
+                Intent recupero_id = getIntent();
+                String recupero_idBanner = recupero_id.getStringExtra("id_cuidades");
+
+                Intent r = new Intent(gallery.this, Opciones.class);
+                r.putExtra("id_cuidades",recupero_idBanner);
+                startActivity(r);
+                return true;
+
+            default:
+                break;
         }
-
-        return super.onOptionsItemSelected(item);
+        return true;
     }
 
     // este metodo es para insertar las imagenes en la galeria.
@@ -356,14 +372,30 @@ public class gallery extends ActionBarActivity {
 
                 if(subdivicion.equals("Restaurantes")){
 
+                    Integer[] p_rest = {R.drawable.restaurante_roma_vicinibistrot, R.drawable.restaurante_roma_lla_porta_del_principe, R.drawable.restaurante_roma_tamburellodi_pulcinella};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_rest));
+
                 }
                 if(subdivicion.equals("Pasteleria y Panaderia")){
+
+                    Integer[] p_past = {R.drawable.reposteria_roma_biscottificio_lnnocenti, R.drawable.reposteria_roma_opulentia, R.drawable.reposteria_roma_panzerotti_friends};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_past));
 
                 }
                 if(subdivicion.equals("Comida Rapida")){
 
+                    Integer[] p_rapidat = {R.drawable.comida_rapida_roma_madame_baguette, R.drawable.comida_rapida_roma_bacio_di_puglia, R.drawable.comida_rapida_roma_lasagnam};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_rapidat));
+
                 }
                 if(subdivicion.equals("Comida Típicas")){
+
+                    Integer[] p_tipica = {R.drawable.comida_tipica_roma_tomato_bruschetta_with_ricotta_and, R.drawable.comida_tipica_roma_bucainiall_amatriciana, R.drawable.comida_tipica_roma_panini, R.drawable.comida_tipica_roma_tartufonegro};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_tipica));
 
                 }
 
@@ -585,6 +617,7 @@ public class gallery extends ActionBarActivity {
                 if(subdivicion.equals("Lugares de Acampar")){
 
                 }
+                //g
 
             }
 
