@@ -11,7 +11,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DbHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME="DB_EuroTravel";
-    private static final int DB_SCHEMA_VESION= 6;
+    private static final int DB_SCHEMA_VESION= 10;
     SQLiteDatabase db;
 
     public static final String TABLE_NAME = "Datos_Generales";
@@ -38,9 +38,19 @@ public class DbHelper extends SQLiteOpenHelper {
     public static final String CN_lugar= "Lugares_Interes";
     public static final String CN_comp= "Compras";
 
-    public static String where = null;
-    public static String where2 = null;
+    public static final String TABLE_NAME4 = "Informacion";
+    public static final String ID_info = "_id";
+    public static final String ID_ciudad3= "nombre_ciudad";
+    public static final String CN_categoria= "Categoria";
+    public static final String CN_sub_cat= "Sub_Categoria";
+    public static final String CN_nombre= "Nombre";
+    public static final String CN_dato1= "Dato1";
+    public static final String CN_dato2= "Dato2";
+    public static final String CN_dato3= "Dato3";
 
+    public static String where = null; //para datos generales
+    public static String where2 = null; //para tips
+    public static String where3 = null; //para info
 
     // Query que creara tabla Datos Generales
     private static final String TABLE_CREATE="CREATE TABLE "+TABLE_NAME+" ("+ID_datos+" INTEGER PRIMARY KEY AUTOINCREMENT, "+
@@ -54,33 +64,22 @@ public class DbHelper extends SQLiteOpenHelper {
             " "+CN_hosp+" Integer, "+CN_gas+" Integer, "+CN_entre+" Integer,"+CN_lugar+" Integer ,"+
             " "+CN_comp+" Integer)";
 
+    private static final String TABLE_CREATE4="CREATE TABLE "+TABLE_NAME4+" ("+ID_info+" INTEGER PRIMARY KEY AUTOINCREMENT, "+
+            " "+ID_ciudad3+" text not null, "+CN_categoria+" text not null, "+CN_sub_cat+" text not null,"+CN_nombre+" text not null,"+
+            " "+CN_dato1+" text not null, "+CN_dato2+" text, "+CN_dato3+" text)";
+
 
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(TABLE_CREATE);
         db.execSQL(TABLE_CREATE2);
         db.execSQL(TABLE_CREATE3);
+        db.execSQL(TABLE_CREATE4);
 
-        //Insertamos datos fijos de la tabla Datos Generales
-        db.execSQL("INSERT INTO "+TABLE_NAME+" ("+ID_ciudad+", "+CN_info+", "+CN_segundo_nombre+", "+CN_lema+", "+CN_clima+", "+CN_moneda+", "+CN_demografia+") " +
-                "values('paris', 'La ciudad es el destino turístico más popular del mundo, con más de 42 millones de visitantes extranjeros por año.', 'La ciudad Luz', 'Fluctuat Nec Mergitur, Navega, sin ser nunca sumergido', 'París posee un clima continental caracterizado por veranos calurosos y sofocantes e inviernos fríos', 'Euro', 'París es el centro de un área metropolitana con 12,292,895 habitantes, la primera de la Unión Europea.')");
 
-        db.execSQL("INSERT INTO "+TABLE_NAME+" ("+ID_ciudad+", "+CN_info+", "+CN_lema+", "+CN_clima+", "+CN_moneda+", "+CN_demografia+") " +
-                "values('londres', 'Es la capital de Inglaterra y del Reino Unido, y la mayor ciudad y área urbana de Gran Bretaña y de toda la Unión Europea', '“SEÑOR, DIRÍGENOS”', 'El tiempo en Londres varía constantemente durante el día y, aunque no suele haber temperaturas extremas, en una misma jornada es habitual ver nubes, lluvia, frío e incluso sol y calor.', 'Libra Esterlina (GBP)', '8,615,246 hab')");
-
-        db.execSQL("INSERT INTO "+TABLE_NAME+" ("+ID_ciudad+", "+CN_info+", "+CN_segundo_nombre+", "+CN_lema+", "+CN_clima+", "+CN_moneda+", "+CN_demografia+") " +
-                "values('madrid', 'Es una ciudad cosmopolita que combina las infraestructuras más modernas y su condición de centro económico, financiero, administrativo y de servicios con un inmenso patrimonio cultural y artístico, legado de siglos de historia apasionante.', ' Villa y Corte, La Villa, La Capital del Reino', '«Fui sobre agua edificada, mis muros de fuego son. Esta es mi insignia y blasón»', 'De Madrid te sorprenderán sus cielos azules, intensos y rotundos. Con un clima seco y sin demasiadas precipitaciones a lo largo del año, los veranos son calurosos y los inviernos fríos.', 'Euro', '3,165,235 hab ')");
-
-        db.execSQL("INSERT INTO "+TABLE_NAME+" ("+ID_ciudad+", "+CN_info+", "+CN_segundo_nombre+",  "+CN_clima+", "+CN_moneda+", "+CN_demografia+") " +
-                "values('venecia', 'Venecia es un conjunto de 120 islas unidas a través de puentes. Desde Mestre se puede llegar a Venecia utilizando el Puente de la Libertad, que lleva hasta la Piazzale Roma.', 'La Serenissima, La Ciudad de los canales', 'Dependiendo de la época en la que viajes, será un factor determinante para la planificación del viaje.', 'Euro', '270,884 hab')");
-
-        db.execSQL("INSERT INTO "+TABLE_NAME+" ("+ID_ciudad+", "+CN_info+", "+CN_segundo_nombre+", "+CN_lema+", "+CN_clima+", "+CN_moneda+", "+CN_demografia+") " +
-                "values('roma', 'Es la ciudad con la más alta concentración de bienes históricos y arquitectónicos del mundo su centro histórico delimitado por el perímetro que marcan las murallas aurelianas, superposición de huellas de tres milenios, es la expresión del patrimonio histórico, artístico y cultural del mundo occidental europeo.', 'La ciudad eterna', '«Senatus Populusque Romanus», El Senado y el Pueblo de Roma', 'El clima de Roma es mediterráneo y suave, lo que hace que cualquier época sea buena para conocer la ciudad.', 'Euro', '2,874,038 hab')");
-
-        db.execSQL("INSERT INTO " + TABLE_NAME + " (" + ID_ciudad + ", " + CN_info + ", " + CN_clima + ", " + CN_moneda + ", " + CN_demografia + ") " +
-                "values('berlin', 'Es una ciudad mundial y un centro cultural y artístico de primer nivel. Es una de las ciudades más influyentes en el ámbito político de la Unión Europea y en 2006 fue elegida Ciudad Creativa por la Unesco.', 'Generalmente, junio, julio y agosto son los meses más cálidos, aunque no podemos hablar de un calor sofocante en ningún momento del año. Durante el verano hay una temperatura media de 24°C, llegándose a alcanzar máximas de 30ºC', 'Euro', '3,421,829 hab.')");
-
+        InsertarDG(db);
         InsertarTips(db);
+        InsertarGastronomia(db);
 
         //db.execSQL("INSERT INTO "+TABLE_NAME2+" ("+CN_tip+","+ID_ciudad2+" ,"+CN_tipo+") " +
         //        "values('Si viajas desde otro continente, muchas aerolíneas ofrecen tiquetes más baratos hacia ciudades diferentes a París. Puede ser útil arribar primero a otra ciudad y luego llegar a la capital francesa en tren.', 'paris', 'transporte')");
@@ -95,6 +94,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
     }
 
+    //Retorno de datos generales
     public Cursor getDatos(){
         String columnas[]={ID_datos,ID_ciudad,CN_info,CN_segundo_nombre,CN_lema,CN_clima,CN_moneda,CN_demografia};
         Cursor c= this.getReadableDatabase().query(TABLE_NAME,columnas,where,null,null,null,null);
@@ -104,9 +104,20 @@ public class DbHelper extends SQLiteOpenHelper {
         return c;
     }
 
+    //retorno de tips
     public Cursor getTips(){
         String columnas[]={CN_tip};
         Cursor c= this.getReadableDatabase().query(TABLE_NAME2,columnas,where2,null,null,null,"RANDOM()");
+        if (c!=null){
+            c.moveToFirst();
+        }
+        return c;
+    }
+
+    //retorno de informacion
+    public Cursor getInfo(){
+        String columnas[]={ID_info,ID_ciudad3,CN_categoria,CN_sub_cat,CN_nombre,CN_dato1,CN_dato2,CN_dato3};
+        Cursor c= this.getReadableDatabase().query(TABLE_NAME,columnas,where,null,null,null,null);
         if (c!=null){
             c.moveToFirst();
         }
@@ -120,6 +131,7 @@ public class DbHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS "+TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS "+TABLE_NAME2);
         db.execSQL("DROP TABLE IF EXISTS "+TABLE_NAME3);
+        db.execSQL("DROP TABLE IF EXISTS "+TABLE_NAME4);
         this.onCreate(db);
     }
 
@@ -355,5 +367,397 @@ public class DbHelper extends SQLiteOpenHelper {
                 "values('Las tiendas en Berlín se encuentran casi en cada calle, tanto los boutiques como pequeñas tiendas de souvenirs.', 'berlin', 'compras')");
     }
 
+     public void InsertarDG(SQLiteDatabase db){
+         //Insertamos datos fijos de la tabla Datos Generales
+         db.execSQL("INSERT INTO "+TABLE_NAME+" ("+ID_ciudad+", "+CN_info+", "+CN_segundo_nombre+", "+CN_lema+", "+CN_clima+", "+CN_moneda+", "+CN_demografia+") " +
+                 "values('paris', 'La ciudad es el destino turístico más popular del mundo, con más de 42 millones de visitantes extranjeros por año.', 'La ciudad Luz', 'Fluctuat Nec Mergitur, Navega, sin ser nunca sumergido', 'París posee un clima continental caracterizado por veranos calurosos y sofocantes e inviernos fríos', 'Euro', 'París es el centro de un área metropolitana con 12,292,895 habitantes, la primera de la Unión Europea.')");
 
+         db.execSQL("INSERT INTO "+TABLE_NAME+" ("+ID_ciudad+", "+CN_info+", "+CN_lema+", "+CN_clima+", "+CN_moneda+", "+CN_demografia+") " +
+                 "values('londres', 'Es la capital de Inglaterra y del Reino Unido, y la mayor ciudad y área urbana de Gran Bretaña y de toda la Unión Europea', '“SEÑOR, DIRÍGENOS”', 'El tiempo en Londres varía constantemente durante el día y, aunque no suele haber temperaturas extremas, en una misma jornada es habitual ver nubes, lluvia, frío e incluso sol y calor.', 'Libra Esterlina (GBP)', '8,615,246 hab')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME+" ("+ID_ciudad+", "+CN_info+", "+CN_segundo_nombre+", "+CN_lema+", "+CN_clima+", "+CN_moneda+", "+CN_demografia+") " +
+                 "values('madrid', 'Es una ciudad cosmopolita que combina las infraestructuras más modernas y su condición de centro económico, financiero, administrativo y de servicios con un inmenso patrimonio cultural y artístico, legado de siglos de historia apasionante.', ' Villa y Corte, La Villa, La Capital del Reino', '«Fui sobre agua edificada, mis muros de fuego son. Esta es mi insignia y blasón»', 'De Madrid te sorprenderán sus cielos azules, intensos y rotundos. Con un clima seco y sin demasiadas precipitaciones a lo largo del año, los veranos son calurosos y los inviernos fríos.', 'Euro', '3,165,235 hab ')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME+" ("+ID_ciudad+", "+CN_info+", "+CN_segundo_nombre+",  "+CN_clima+", "+CN_moneda+", "+CN_demografia+") " +
+                 "values('venecia', 'Venecia es un conjunto de 120 islas unidas a través de puentes. Desde Mestre se puede llegar a Venecia utilizando el Puente de la Libertad, que lleva hasta la Piazzale Roma.', 'La Serenissima, La Ciudad de los canales', 'Dependiendo de la época en la que viajes, será un factor determinante para la planificación del viaje.', 'Euro', '270,884 hab')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME+" ("+ID_ciudad+", "+CN_info+", "+CN_segundo_nombre+", "+CN_lema+", "+CN_clima+", "+CN_moneda+", "+CN_demografia+") " +
+                 "values('roma', 'Es la ciudad con la más alta concentración de bienes históricos y arquitectónicos del mundo su centro histórico delimitado por el perímetro que marcan las murallas aurelianas, superposición de huellas de tres milenios, es la expresión del patrimonio histórico, artístico y cultural del mundo occidental europeo.', 'La ciudad eterna', '«Senatus Populusque Romanus», El Senado y el Pueblo de Roma', 'El clima de Roma es mediterráneo y suave, lo que hace que cualquier época sea buena para conocer la ciudad.', 'Euro', '2,874,038 hab')");
+
+         db.execSQL("INSERT INTO " + TABLE_NAME + " (" + ID_ciudad + ", " + CN_info + ", " + CN_clima + ", " + CN_moneda + ", " + CN_demografia + ") " +
+                 "values('berlin', 'Es una ciudad mundial y un centro cultural y artístico de primer nivel. Es una de las ciudades más influyentes en el ámbito político de la Unión Europea y en 2006 fue elegida Ciudad Creativa por la Unesco.', 'Generalmente, junio, julio y agosto son los meses más cálidos, aunque no podemos hablar de un calor sofocante en ningún momento del año. Durante el verano hay una temperatura media de 24°C, llegándose a alcanzar máximas de 30ºC', 'Euro', '3,421,829 hab.')");
+     }
+
+     public void InsertarGastronomia(SQLiteDatabase db){
+
+         //paris(restaurantes)
+         //dato 1: direccion dato2: telefono dato3: horario
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('paris', 'gastronomia', 'restaurantes', 'Epicure', '112 rue du Faubourg Saint-Honore, 75008 París, Francia', '+33 1 53 43 43 40','7:00 – 10:30/ 12:00 – 14:00/ 19:00 – 22:00')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('paris', 'gastronomia', 'restaurantes', 'Seb’on', '62 rue d’Orsel, 85018 París, Francia', '+33 1 42 59 74 32','Mié – sáb 19:00 – 23:00 / Sáb – dom 12:00 – 15:00')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('paris', 'gastronomia', 'restaurantes', 'Roomies', '14 Rue du Cygne, 75001 París, Francia', '+33 1 42 60 30 11','12:00 - 14:30 / 19:30 - 22:30 ')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('paris', 'gastronomia', 'restaurantes', 'Pur’ – Jean-Francois Rouquette', 'Rue de la Paix | Park Hyatt Paris, 75002 París, Francia', '+33 1 58 71 10 60','dom - sáb 20:00 - 22:00')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('paris', 'gastronomia', 'restaurantes', 'L’Assommoir', '37 Rue Rodier, 75009 París, Francia', '+33 01 49 26 43 47','12:00 - 16:00 / 12:00 - 22:30 ')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('paris', 'gastronomia', 'restaurantes', 'Bistrot Chez France', '9 Rue Amelie, 75007 Paris, Francia', '+33 1 45 51 50 08','lun - vie 12:00 - 14:30 / sáb - dom 19:00 - 22:30')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('paris', 'gastronomia', 'restaurantes', 'Cobea', '11, rue Raymond Losserand, 75014 Paris, Francia', '+33 1 43 20 21 39','Mar – Sab 12:15 – 13:30 / 19:15 – 21:30')");
+
+        //paris(pastelerias)
+        //dato 1: direccion dato2: telefono dato3: horario
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('paris', 'gastronomia', 'pasteleria', 'Pierre Herme', ' 4, rue Cambon, 75001 Paris, Francia', '+33 1 43 54 47 77','10:00 – 20:00')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('paris', 'gastronomia', 'pasteleria', 'Le Saotico', '96 Rue de Richelieu, 75002 Paris, Francia', '+33 1 42 96 03 20','Lun- Vie: 8:30 – 23:30')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('paris', 'gastronomia', 'pasteleria', 'Bertie’s CupCakery', '26 Rue Chanoinesse, 75004 Paris, Francia', '+33 1 43 29 18 70','Lun- Dom: 11:00 – 19:00')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('paris', 'gastronomia', 'pasteleria', 'Patisserie Stohrer', '51 rue Monotrgueil | 2eme arrondissement, 75002 Paris, Francia', '+33 01 42 33 38 20','Dom – Sab: 7:30 – 20:30')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('paris', 'gastronomia', 'pasteleria', 'Ble Sucre', '7 rue Antoine Vollon, 75012 Paris, Francia', '+33 1 43 40 77 73','Mar – Sab 12:15 – 13:30')");
+
+
+         //paris(comida rapida)
+         //dato 1: direccion dato2: telefono dato3: horario
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('paris', 'gastronomia', 'comida_rapida', 'Cojean Sandwiches', '6 Rue de Seze, 75009 Paris, France', '+33 1 40 06 08 80','8:30 – 18:00')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('paris', 'gastronomia', 'comida_rapida', 'L’ Entredgeu', '83 Rue Laugier, 75017 Paris, France', '+33 1 40 54 97 24','12:00 – 14:00, 19:30 – 22:30')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('paris', 'gastronomia', 'comida_rapida', 'Café des Musees', '49 rue de Turenne, 75003 Paris, Francia', '+33 1 42 72 96 17','12:00 – 15:00 , 19:00 – 23:00')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('paris', 'gastronomia', 'comida_rapida', 'Pret A Manger', '57 Rue des Petits Champs, 75001 Paris, Francia', '+33 1 42 61 67 56','7:30 – 20:00')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('paris', 'gastronomia', 'comida_rapida', 'Vandermeersch', '278 rue Daumesnil, Paris, Francia', '+33 1 43 47 21 66','7:00 – 20:00')");
+
+
+         //paris(comida tipica)
+         //dato1: informacion del plato
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                 "values('paris', 'gastronomia', 'comida_tipica', 'Coq au vin', 'Exquisito platillo a base de pollo y vegetales sazonado con vino y finas especias.')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                 "values('paris', 'gastronomia', 'comida_tipica', 'Canard a l’ orange', 'Platillo típico a base de pato, asado a fuego lento y bañado en una delicada salsa de naranja.')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                 "values('paris', 'gastronomia', 'comida_tipica', 'Ratatouille', 'Deliciosa mezcla de vegetales sazonados y freídos con aceite de oliva y hierbas.')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                 "values('paris', 'gastronomia', 'comida_tipica', 'Soupe a l’oignon', 'Platillo a base de cebolla con mantequilla y queso gratinado que se sirve con crujientes rebanadas de pan.')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                 "values('paris', 'gastronomia', 'comida_tipica', 'Escargo', 'Plato de caracoles de tierra cocida , por lo general se sirve como aperitivo en Portugal , España y en Francia. ')");
+
+         //londres(restaurantes)
+         //dato 1: direccion dato2: telefono dato3: horario
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('londres', 'gastronomia', 'restaurantes', 'The Five Fields', '8-9 Blacklands Terrace, Londres SW3 2SP, Inglaterra', '+44 20 7838 1082','mar – sab 18:30: 22:00')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('londres', 'gastronomia', 'restaurantes', 'Canvas', '1 Wilbraham Place | 1 Wilbraham Place, Londres SW1X 9AE, Inglaterra', '+44 20 7823 4463','mar – sáb 17:30 – 0:00')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('londres', 'gastronomia', 'restaurantes', 'Restaurant Gordon Ramsay', 'Royal Hospital Road 68, Londres SW3 4HP, Inglaterra', '+44 020 7352 4441','12:00 – 14:30       18:30 – 22:00')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('londres', 'gastronomia', 'restaurantes', 'Le Gavroche', '43 Upper Brook St. | Marble Arch, Londres W1k 7QR, Inglaterra', '+44 20 7408 0881','12:00 – 14:00    18:00 – 22:00')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('londres', 'gastronomia', 'restaurantes', 'The Ledbury', '127 Ledbury Rd, Londres W11 2AQ, Inglaterra', '+44 20 7792 9090','12:00 – 14:30   18:30 – 22:45')");
+
+         //londres(pastelerias)
+         //dato 1: direccion dato2: telefono dato3: horario
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('londres', 'gastronomia', 'pasteleria', 'Ben’s Cookies', '355-361 Oxford Street, Londres, Inglaterra', '0203 206 2008','9:00 – 21:00 ')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('londres', 'gastronomia', 'pasteleria', 'Palm Court at The Langham', '1c Portland Place, Regent Street | The Langham Hotel, Londres W1B 1JA, Inglaterra', '+44 20 7965 0195','6:30 – 23:00')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('londres', 'gastronomia', 'pasteleria', 'Exmouth Coffee company', '83 Whitechapel High Street, Londres, Inglaterra', '+44 20 7377 1010','7:00 – 20:00')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('londres', 'gastronomia', 'pasteleria', 'Brick Lane Beigel Bakery', '159 Brick Lane, Londres E1 6SB, Inglaterra', '+44 20 7729 0616','24/7 ')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('londres', 'gastronomia', 'pasteleria', 'Juice & Public', '9 Wardour Street, Londres W1D 6PB, Inglaterra', '+44 20 7734 9541','8:00 - 21:00')");
+
+         //londres(comida rapida)
+         //dato 1: direccion dato2: telefono dato3: horario
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('londres', 'gastronomia', 'comida_rapida', 'Cafeteria Monmouth', '27 Monmouth Street, Londres WC2H 9EU', '+44 20 7232 3010','8:30 - 17:00')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('londres', 'gastronomia', 'comida_rapida', 'Little Frankie’s', '7 Whitehall, Londres SW1A 2DD, Inglaterra, Londres', '+44 0207 389 3880','9:00 - 23:00')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('londres', 'gastronomia', 'comida_rapida', 'Caffe Crema', '75 West Yard, Camden Lock, Londres', '+44 0871 4263876','9:30 - 18:30  / 19:30 - 23:00')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('londres', 'gastronomia', 'comida_rapida', 'Clarence', '53 Whitehall | Whitehall, Londres SW1A 2HP', '+44 20 7930 4808','11:00 - 23:00')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('londres', 'gastronomia', 'comida_rapida', 'Apostrophe', '23 Barrett Street, Londres W1U 1BF, Inglaterra, Londres', '+44 023 7355 1001','6:45 - 18:00')");
+
+         //londres(comida tipica)
+         //dato1: informacion del plato
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                 "values('londres', 'gastronomia', 'comida_tipica', 'Fish & Chips', 'Platillo hecho a base de pescado frito acompañado con papas.')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                 "values('londres', 'gastronomia', 'comida_tipica', 'Roast beef', 'Asado de carne que se sirve con una guarnición de papas o verduras')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                 "values('londres', 'gastronomia', 'comida_tipica', 'Yorkshire Pudding', 'Tipo de pan horneado que acompaña  platillos a base de carne.')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                 "values('londres', 'gastronomia', 'comida_tipica', 'Wellington beef', 'Lomo de ternera envuelto en hojaldre y cocinado al horno.')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                 "values('londres', 'gastronomia', 'comida_tipica', 'Afternoon tea', 'El típico té de la tarde que consta de diferentes hierbas que suelen acompañarse con leche o crema.')");
+
+         //roma(restaurantes)
+         //dato 1: direccion dato2: telefono dato3: horario
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('roma', 'gastronomia', 'restaurantes', 'I Vicini Bistrot', 'Via di Torre Argentina 70, 00186 Roma', '+39 366 878 2625','13:00 - 22:00')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('roma', 'gastronomia', 'restaurantes', 'La porta del principe', 'Via Portuense, 1585, 00148 Roma, Italia', '+39 066 500 1249','12:00 - 17:30')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('roma', 'gastronomia', 'restaurantes', 'Il Tamburello di Pulcinella', 'Via Pasquale Fiore 23 | Metro a Cornelia/Baldo Degli Ubaldi, 00165 Roma', '+39 329 285 1794','18:00 - 0:00')");
+
+         //roma(pastelerias)
+         //dato 1: direccion dato2: telefono dato3: horario
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('roma', 'gastronomia', 'pasteleria', 'Biscottificio Innocenti', 'Via della Luce 21, 00153 Roma', '0039 06 5703926','8:00 - 20:00')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('roma', 'gastronomia', 'pasteleria', 'Opulenti', 'Via Ascoli Piceno 44, Pigneto, 00176 Roma', '+39 339 725 0418','12:00PM - 1:00AM')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('roma', 'gastronomia', 'pasteleria', 'Panzerotti & Friends', 'Via Appia Nuova 559/D, 00179 Roma', '+39 06 4549 2604','8:30 - 19:00')");
+
+         //roma(comida rapida)
+         //dato 1: direccion dato2: telefono dato3: horario
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('roma', 'gastronomia', 'comida_rapida', 'Madame Baguette', 'Via Boncompagni, 81, 00187 Roma', '+39 06 4201 3072','8:00 – 16:30')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('roma', 'gastronomia', 'comida_rapida', 'Bacio di Puglia', 'Via del Mascherino, 59, 00193 Roma', '+39 06 6830 7697','9:00 – 21:00')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('roma', 'gastronomia', 'comida_rapida', 'LasaGnaM', 'Via Nazionale, 184, 00184, Roma', '+39 06 4891 3677','7:30 – 23:00')");
+
+         //roma(comida tipica)
+         //dato1: informacion del plato
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                 "values('roma', 'gastronomia', 'comida_tipica', 'Bruschetta', 'Rebanadas de pan tostado aderezados con ajo y se sirven con aceite de oliva, jitomate y queso')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                 "values('roma', 'gastronomia', 'comida_tipica', 'Bucatini all’ Amatriciana', 'Tradicional pasta con tocino y jitomate')");
+
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                 "values('roma', 'gastronomia', 'comida_tipica', 'Panini', 'Delicioso sándwich de varios ingredientes que se puede servir frio o caliente.')");
+
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                 "values('roma', 'gastronomia', 'comida_tipica', 'Tarfuto negro', 'Exquisito pastel de chocolate muy típico de la región.')");
+
+
+         //venecia(restaurantes)
+         //dato 1: direccion dato2: telefono dato3: horario
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('venecia', 'gastronomia', 'restaurantes', 'La Zucca', 'Santa Croce, 1762, Venezia', '+39 041 524 1570','12:30 – 14:30 , 19:00 – 22:30')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('venecia', 'gastronomia', 'restaurantes', 'Al Covo', 'Castello, 3968 30122, Venezia', '+39 041 522 3812','12:45 – 14:00 , 19:30 – 22:00')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('venecia', 'gastronomia', 'restaurantes', 'Bistrot De Venise', 'Calle dei Fabbri, Sestiere San Marco, 4685, 30124 Venezia', ' +39 041 523 6651','12:00 – 15:00 , 19:00- 00:00')");
+
+
+         //venecia(pastelerias)
+         //dato 1: direccion dato2: telefono dato3: horario
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('venecia', 'gastronomia', 'pasteleria', 'Nobile Pasticceria in Venezia', 'Sestiere Cannaregio, 1818, 30121 Venecia', '+39 04 172 0731','6:30 – 20:30')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('venecia', 'gastronomia', 'pasteleria', 'Rosa Salva', 'San Marco, 950, 30124 Venecia', '+39 041 521 0544','8:00 – 20:00')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('venecia', 'gastronomia', 'pasteleria', 'Pasticceria Tonolo', 'Dorsoduro, 3764, 30123 Venecia', '+39 041 523 7209','7:35 – 20:00')");
+
+         //venecia(comida rapida)
+         //dato 1: direccion dato2: telefono dato3: horario
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('venecia', 'gastronomia', 'comida_rapida', 'Q Food & More', 'San Marco 5464, 30124 Venecia', '+39 041 296 0057','10:30 – 21:00')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('venecia', 'gastronomia', 'comida_rapida', 'Tiziano Snack Bar', '5747 Cannaregio, Venecia', '+39 041 275 0071','8:00 – 20:00')");
+
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('venecia', 'gastronomia', 'comida_rapida', 'Dal Moro’s – Fresh Pasta to go', 'Calle de la Casseleria, 5324 | Castello, 30122 Venecia', '+39 327 870 5014','15:00 – 20:30')");
+
+         //venecia(comida tipica)
+         //dato1: informacion del plato
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                 "values('venecia', 'gastronomia', 'comida_tipica', 'Brioche', 'Delicioso pan dulce o salado ideal para desayunar acompañado de un rico café espresso.')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                 "values('venecia', 'gastronomia', 'comida_tipica', 'Risotto risi e bisi', 'Exquisito platillo típico de Venecia elaborado con arroz, jamon curado o serrano y chicharos.')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                 "values('venecia', 'gastronomia', 'comida_tipica', 'Fegatto alla Veneziana', 'Higado guisado con cebolla dulce caramelizada.')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                 "values('venecia', 'gastronomia', 'comida_tipica', 'Pez San Pedro', 'Platillo elaborado con pescado de fondo marino y cocido con vino blanco, sal, pimienta y aceite de oliva.')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                 "values('venecia', 'gastronomia', 'comida_tipica', 'tCampari', 'Licor elaborado a base de distintas hierbas, ruibardo y naranja amarga, es de color rojo y sabor amargo.')");
+
+         //madrid(restaurantes)
+         //dato 1: direccion dato2: telefono dato3: horario
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('madrid', 'gastronomia', 'restaurantes', 'Rubaiyat', 'Juan Ramon Jimenez, 37, 28036 Madrid', '+34 913 59 56 96','13:00 – 16:00 , 20:30 – 24:00')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('madrid', 'gastronomia', 'restaurantes', 'Santceloni', 'Paseo de la Castellana, 57, 28046 Madrid', '+34 912 10 88 40','14:00 – 15:30 , 21:00 – 22:30')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('madrid', 'gastronomia', 'restaurantes', 'La Bola Taberna', 'Calle Bola, 5, 28013 Madrid', '+34 915 47 69 30','13:30 – 17:30')");
+
+         //madrid(pastelerias)
+         //dato 1: direccion dato2: telefono dato3: horario
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('madrid', 'gastronomia', 'pasteleria', 'Martina Cocina', 'Plaza de Cascorro 11, 28005 Madrid', '+34 910 83 43 80','10:00 – 23:00')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('madrid', 'gastronomia', 'pasteleria', 'Celicioso', 'Calle Hortaleza, 3 28004 Madrid', '+34 915 31 88 87','12:00 – 20:00')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('madrid', 'gastronomia', 'pasteleria', 'La Mallorquina', 'Calle Mayor, 2,  Puerta del Sol, 28013 Madrid', '+34 915 21 12 01','9:00 – 21:15')");
+
+         //madrid(comida rapida)
+         //dato 1: direccion dato2: telefono dato3: horario
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('madrid', 'gastronomia', 'comida_rapida', 'Casa Alberto', 'Calle de las Huertas, 18, 28012 Madrid', '+34 914 29 93 56','12:00 – 1:30')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('madrid', 'gastronomia', 'comida_rapida', 'Malaspina', 'Calle de Cadiz, 9, 28012 Madrid', '+34 915 23 40 24','11:00 – 2:00')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('madrid', 'gastronomia', 'comida_rapida', 'Stop Madrid', 'Calle de Hortaleza, 11, 28004 Madrid', '+34 915 21 88 87','12:30 – 2:00')");
+
+
+         //madrid(comida tipica)
+         //dato1: informacion del plato
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                 "values('madrid', 'gastronomia', 'comida_tipica', 'Ensalada de San Isidro', 'Deliciosa ensalada preparada con lechuga, aceitunas negras, huevo duro rebanado y atun.')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                 "values('madrid', 'gastronomia', 'comida_tipica', 'Cocido madrileño', 'Exquisito estofado de vegetales, garbanzos con carne y otros embutidos')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                 "values('madrid', 'gastronomia', 'comida_tipica', 'Tapas', 'Tradicional aperitivo en la region que se sirve comunmente con bebidas alcoholicas y que se puede preparar con carnes, embutidos, quesos, pescados y mariscos')");
+
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                 "values('madrid', 'gastronomia', 'comida_tipica', 'Bartolillos', 'Finas empanadilla rellena de crema con aroma de limon')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                 "values('madrid', 'gastronomia', 'comida_tipica', 'Leche merengada', 'Refrescante bebida tradicional que se prepara a base de leche, clara de huevo y canela. Se sirve frio.')");
+
+         //berlin(restaurantes)
+         //dato 1: direccion dato2: telefono dato3: horario
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('belin', 'gastronomia', 'restaurantes', 'Grill Royal ', 'Friedrichstraße 105b, 10117 Berlin', '+49 30 28879288','18:00 – 3:00')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('belin', 'gastronomia', 'restaurantes', 'Hofbräu Berlin', 'Karl-Liebknecht-Straße 30, 10178 Berlin', '+49 30 679665520','10:00 – 1:00')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('belin', 'gastronomia', 'restaurantes', 'Zur Letzten Instanz', 'Waisentraße 14-16, 10179 Berlin', '+49 30 24 25528','12:00 – 1:00')");
+
+         //berlin(pastelerias)
+         //dato 1: direccion dato2: telefono dato3: horario
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('berlin', 'gastronomia', 'pasteleria', 'Mandragoras', 'Waller-Benjamin Platz 8 ,10629 Berlin', '+49 30 81723987','11:45 – 23:45')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('berlin', 'gastronomia', 'pasteleria', 'Tigertortchen', 'Spandauer Strasse 25, 10178 Berlin', '+49 30 67969051','11:00 – 18:00')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('berlin', 'gastronomia', 'pasteleria', 'Zeit fuer Brot', 'Alte Schoenhauser Str. 4, 10119 Berlin', '+49 30 28046780','8:00 – 18:00')");
+
+         //berlin(comida rapida)
+         //dato 1: direccion dato2: telefono dato3: horario
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('berlin', 'gastronomia', 'comida_rapida', 'Burgermeister', 'Oberbaumstraße 8, 10997 Berlín', '+49 30 23883840','11:00 – 15:00 ')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('berlin', 'gastronomia', 'comida_rapida', 'Curry Baude', 'Badstraße 1, 13357 Berlín', '+49 30 4941414','9:00  - 20:00')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('berlin', 'gastronomia', 'comida_rapida', 'Vapiano', 'Mittelstraße 51, 10117 Berlín', '+49 30 50154100','10:00 – 00:00')");
+
+         //berlin(comida tipica)
+         //dato1: informacion del plato
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                 "values('berlin', 'gastronomia', 'comida_tipica', 'Currywurst', 'Salchicha asada servida en rodajas acompañada de una salsa de curry y kétchup con papas fritas')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                 "values('berlin', 'gastronomia', 'comida_tipica', 'Kartoffelsalat', 'Ensalada de papas con verduras y mostaza.')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                 "values('berlin', 'gastronomia', 'comida_tipica', 'Rote Grutze', 'Pasta de frutos rojos servida con leche, nata o helado de vainilla.')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                 "values('berlin', 'gastronomia', 'comida_tipica', 'Eisbein mit Sauerkraut', 'Codillo de cerdo en salmuera, acompañado de ensalada de col y puré de chicharos. ')");
+
+     }
 }
