@@ -117,7 +117,7 @@ public class DbHelper extends SQLiteOpenHelper {
     //retorno de informacion
     public Cursor getInfo(){
         String columnas[]={ID_info,ID_ciudad3,CN_categoria,CN_sub_cat,CN_nombre,CN_dato1,CN_dato2,CN_dato3};
-        Cursor c= this.getReadableDatabase().query(TABLE_NAME,columnas,where,null,null,null,null);
+        Cursor c= this.getReadableDatabase().query(TABLE_NAME4,columnas,where3,null,null,null,null);
         if (c!=null){
             c.moveToFirst();
         }
