@@ -11,7 +11,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DbHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME="DB_EuroTravel";
-    private static final int DB_SCHEMA_VESION= 10;
+    private static final int DB_SCHEMA_VESION= 11;
     SQLiteDatabase db;
 
     public static final String TABLE_NAME = "Datos_Generales";
@@ -712,13 +712,13 @@ public class DbHelper extends SQLiteOpenHelper {
          //dato 1: direccion dato2: telefono dato3: horario
 
          db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
-                 "values('belin', 'gastronomia', 'restaurantes', 'Grill Royal ', 'Friedrichstraße 105b, 10117 Berlin', '+49 30 28879288','18:00 – 3:00')");
+                 "values('berlin', 'gastronomia', 'restaurantes', 'Grill Royal ', 'Friedrichstraße 105b, 10117 Berlin', '+49 30 28879288','18:00 – 3:00')");
 
          db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
-                 "values('belin', 'gastronomia', 'restaurantes', 'Hofbräu Berlin', 'Karl-Liebknecht-Straße 30, 10178 Berlin', '+49 30 679665520','10:00 – 1:00')");
+                 "values('berlin', 'gastronomia', 'restaurantes', 'Hofbräu Berlin', 'Karl-Liebknecht-Straße 30, 10178 Berlin', '+49 30 679665520','10:00 – 1:00')");
 
          db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
-                 "values('belin', 'gastronomia', 'restaurantes', 'Zur Letzten Instanz', 'Waisentraße 14-16, 10179 Berlin', '+49 30 24 25528','12:00 – 1:00')");
+                 "values('berlin', 'gastronomia', 'restaurantes', 'Zur Letzten Instanz', 'Waisentraße 14-16, 10179 Berlin', '+49 30 24 25528','12:00 – 1:00')");
 
          //berlin(pastelerias)
          //dato 1: direccion dato2: telefono dato3: horario

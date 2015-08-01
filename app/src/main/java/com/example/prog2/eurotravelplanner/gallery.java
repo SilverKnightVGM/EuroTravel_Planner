@@ -2,19 +2,17 @@ package com.example.prog2.eurotravelplanner;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
+import android.database.Cursor;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ExpandableListView;
 import android.widget.Gallery;
 import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,6 +26,7 @@ public class gallery extends ActionBarActivity {
     List<String> lugares_detalles; //Guarda los detalles que se presentan cuando se expande una opcion
     ExpandableListView exp_list; //Variable para el listview expandible
     LugaresAdapter adapter; //Adapter para el list view desplegable
+    DbHelper helper = new DbHelper(this);
 
 
     // este Integer{} son las imagenes que inserto en la galeria, estas dos imagenes son de prueba
@@ -40,6 +39,22 @@ public class gallery extends ActionBarActivity {
     public static Integer [] Images_Lista={R.drawable.flores,R.drawable.music};
     public static String [] Texto_Lista={"Flores","Música"};
 
+    //listas que iran al HashMap y sus titulos
+    static List<String> Primer_Lugar = new ArrayList<String>();
+       static String StrPrimer;
+    static List<String> Segundo_Lugar = new ArrayList<String>();
+        static String StrSegundo;
+    static List<String> Tercer_Lugar = new ArrayList<String>();
+        static String StrTercer;
+    static List<String> Cuarto_Lugar = new ArrayList<String>();
+        static String StrCuarto;
+    static List<String> Quinto_Lugar = new ArrayList<String>();
+        static String StrQuinto;
+    static List<String> Sexto_Lugar = new ArrayList<String>();
+    static String StrSexto;
+    static List<String> Septimo_Lugar = new ArrayList<String>();
+    static String StrSeptimo;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,15 +65,138 @@ public class gallery extends ActionBarActivity {
         String ciudad = recupero_id.getStringExtra("id_cuidades");
         String categoria = recupero_id.getStringExtra("tipo_categoria");
         String subdivicion = recupero_id.getStringExtra("tipo_subdivision");
+        LimpiarListas();
 
         imagenes_Ainsertar(ciudad, categoria, subdivicion);
-
+        ObtenerInfo();
         exp_list = (ExpandableListView)findViewById(R.id.expandableListView);
-        lista_lugares = DataProvider.getInfo();//Obtiene el HashMap creado en la clase DataProvider
+
+
+        lista_lugares = getInfo();//Obtiene el HashMap creado en la clase DataProvider
         lugares_detalles = new ArrayList<String>(lista_lugares.keySet());//Inicia la lista de descripciones a partir de lo que contiene el HashMap
         adapter = new LugaresAdapter(this, lista_lugares, lugares_detalles);
         exp_list.setAdapter(adapter);
 
+
+    }
+
+    public void LimpiarListas(){
+        Primer_Lugar.clear();
+        Segundo_Lugar.clear();
+        Tercer_Lugar.clear();
+        Cuarto_Lugar.clear();
+        Quinto_Lugar.clear();
+        Sexto_Lugar.clear();
+        Septimo_Lugar.clear();
+
+        StrPrimer = "";
+        StrSegundo = "";
+        StrTercer = "";
+        StrCuarto = "";
+        StrQuinto = "";
+        StrSexto = "";
+        StrSeptimo = "";
+    }
+
+    private void ObtenerInfo(){
+        Cursor cl = helper.getInfo();
+        int cantRow = cl.getColumnCount();
+        String text = null;
+
+
+        if (cl.moveToFirst()){
+            StrPrimer = cl.getString(4);
+            for(int i=5;i<cantRow;i++){
+                text = cl.getString(i);
+                if(text != null && !text.toString().isEmpty()) {
+                    Primer_Lugar.add(text);
+                }
+            }
+        }
+        if(cl.moveToNext()){
+            StrSegundo = cl.getString(4);
+            for(int i=5;i<cantRow;i++){
+                text = cl.getString(i);
+                if(text != null && !text.toString().isEmpty()) {
+                    Segundo_Lugar.add(cl.getString(i));
+                }
+            }
+        }
+        if(cl.moveToNext()){
+            StrTercer = cl.getString(4);
+            for(int i=5;i<cantRow;i++){
+                text = cl.getString(i);
+                if(text != null && !text.toString().isEmpty()) {
+                    Tercer_Lugar.add(cl.getString(i));
+                }
+            }
+        }
+        if(cl.moveToNext()){
+            StrCuarto = cl.getString(4);
+            for(int i=5;i<cantRow;i++){
+                text = cl.getString(i);
+                if(text != null && !text.toString().isEmpty()) {
+                    Cuarto_Lugar.add(cl.getString(i));
+                }
+            }
+        }
+        if(cl.moveToNext()){
+            StrQuinto = cl.getString(4);
+            for(int i=5;i<cantRow;i++){
+                text = cl.getString(i);
+                if(text != null && !text.toString().isEmpty()) {
+                    Quinto_Lugar.add(cl.getString(i));
+                }
+            }
+        }
+        if(cl.moveToNext()){
+            StrSexto = cl.getString(4);
+            for(int i=5;i<cantRow;i++){
+                text = cl.getString(i);
+                if(text != null && !text.toString().isEmpty()) {
+                    Sexto_Lugar.add(cl.getString(i));
+                }
+            }
+        }
+
+        if(cl.moveToNext()){
+            StrSeptimo = cl.getString(4);
+            for(int i=5;i<cantRow;i++){
+                text = cl.getString(i);
+                if(text != null && !text.toString().isEmpty()) {
+                    Septimo_Lugar.add(cl.getString(i));
+                }
+            }
+        }
+    }
+
+
+    public static HashMap<String, List<String>> getInfo(){
+        HashMap <String, List<String>> LugaresDetalles = new HashMap<String, List<String>>();
+
+        if(!Primer_Lugar.isEmpty()) {
+            LugaresDetalles.put(StrPrimer, Primer_Lugar);
+        }
+        if(!Segundo_Lugar.isEmpty()) {
+            LugaresDetalles.put(StrSegundo, Segundo_Lugar);
+        }
+        if(!Tercer_Lugar.isEmpty()) {
+            LugaresDetalles.put(StrTercer, Tercer_Lugar);
+        }
+        if(!Cuarto_Lugar.isEmpty()) {
+            LugaresDetalles.put(StrCuarto, Cuarto_Lugar);
+        }
+        if(!Quinto_Lugar.isEmpty()) {
+            LugaresDetalles.put(StrQuinto, Quinto_Lugar);
+        }
+        if(!Sexto_Lugar.isEmpty()) {
+            LugaresDetalles.put(StrSexto, Sexto_Lugar);
+        }
+        if(!Septimo_Lugar.isEmpty()) {
+            LugaresDetalles.put(StrSeptimo, Septimo_Lugar);
+        }
+
+        return LugaresDetalles;
     }
 
 
@@ -143,22 +281,22 @@ public class gallery extends ActionBarActivity {
 //-----------------------------------------------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------------------------------------------
         if(ciudad.equals("paris")){
-
+            helper.where3 = helper.ID_ciudad3 +" = 'paris'";
             if (categoria.equals(getString(R.string.text_transporte))){
 
                 if(subdivicion.equals("Taxi")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'taxi'";
                 }
 
                 if(subdivicion.equals("Renta de Autos")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'renta_autos'";
                 }
                 if(subdivicion.equals("Transporte Publico")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'trans_publico'";
 
                 }
                 if(subdivicion.equals("Trenes")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'trenes'";
                 }
 
 
@@ -167,13 +305,14 @@ public class gallery extends ActionBarActivity {
 
                 if(subdivicion.equals("Restaurantes")){
 
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'restaurantes'";
                     Integer[] image = {R.drawable.restaurant_paris_epicure, R.drawable.restaurante_paris_seb_on,R.drawable.restaurant_paris_roomies,R.drawable.resturant_paris_pur_jean_francois_rouquette,R.drawable.restaurant_paris_lassommoirr,R.drawable.restaurant_paris_bistrot_chez_france,R.drawable.restaurant_paris_cobea};
 
                     gallery.setAdapter(new ImageAdapter(this,image));
 
                 }
                 if(subdivicion.equals("Pasteleria y Panaderia")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'pasteleria'";
                     Integer[] image = {R.drawable.pasteleria_paris_pierre_herme,R.drawable.pasteleria_paris_le_saotico,R.drawable.pasteleria_paris_berties_cupcakery,R.drawable.pasteleria_paris_patisserie_stohrer,R.drawable.pasteleria_paris_ble_sucre};
 
                     gallery.setAdapter(new ImageAdapter(this,image));
@@ -181,12 +320,13 @@ public class gallery extends ActionBarActivity {
 
                 }
                 if(subdivicion.equals("Comida Rapida")){
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'comida_rapida'";
                     Integer[] image = {R.drawable.comidarapida_paris_cojean,R.drawable.comidarapida_paris_lentredgeu,R.drawable.comidarapida_paris_cafe_des_musees,R.drawable.comidarapida_paris_pret_a_manger,R.drawable.comidarapida_paris_vandermeersch};
 
                     gallery.setAdapter(new ImageAdapter(this,image));
                 }
                 if(subdivicion.equals("Comida Típicas")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'comida_tipica'";
                     Integer[] image = {R.drawable.platostipicos_paris_coq_au_vin,R.drawable.platostipicos_paris_canard_a_lorange,R.drawable.platostipicos_paris_ratatouille,R.drawable.platostipicos_paris_soupe_a_loignon,R.drawable.platostipicos_paris_escargo};
 
                     gallery.setAdapter(new ImageAdapter(this,image));
@@ -265,22 +405,22 @@ public class gallery extends ActionBarActivity {
 //-----------------------------------------------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------------------------------------------
         if(ciudad.equals("madrid")){
-
+            helper.where3 = helper.ID_ciudad3 +" = 'madrid'";
             if (categoria.equals(getString(R.string.text_transporte))){
 
                 if(subdivicion.equals("Taxi")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'taxi'";
                 }
 
                 if(subdivicion.equals("Renta de Autos")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'renta_autos'";
                 }
                 if(subdivicion.equals("Transporte Publico")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'trans_publico'";
 
                 }
                 if(subdivicion.equals("Trenes")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'trenes'";
                 }
 
 
@@ -288,16 +428,16 @@ public class gallery extends ActionBarActivity {
             if (categoria.equals(getString(R.string.text_gastronomia))){
 
                 if(subdivicion.equals("Restaurantes")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'restaurantes'";
                 }
                 if(subdivicion.equals("Pasteleria y Panaderia")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'pasteleria'";
                 }
                 if(subdivicion.equals("Comida Rapida")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'comida_rapida'";
                 }
                 if(subdivicion.equals("Comida Típicas")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'comida_tipica'";
                 }
 
             }
@@ -373,7 +513,7 @@ public class gallery extends ActionBarActivity {
 //-----------------------------------------------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------------------------------------------
         if(ciudad.equals("roma")){
-
+            helper.where3 = helper.ID_ciudad3 +" = 'roma'";
             if (categoria.equals(getString(R.string.text_transporte))){
 
                 if(subdivicion.equals("Taxi")){
@@ -396,28 +536,28 @@ public class gallery extends ActionBarActivity {
             if (categoria.equals(getString(R.string.text_gastronomia))){
 
                 if(subdivicion.equals("Restaurantes")){
-
+                    helper.where3+=" AND "+helper.CN_sub_cat+"='restaurantes'";
                     Integer[] p_rest = {R.drawable.restaurante_roma_vicinibistrot, R.drawable.restaurante_roma_lla_porta_del_principe, R.drawable.restaurante_roma_tamburellodi_pulcinella};
 
                     gallery.setAdapter(new ImageAdapter(this,p_rest));
 
                 }
                 if(subdivicion.equals("Pasteleria y Panaderia")){
-
+                    helper.where3+=" AND "+helper.CN_sub_cat+"='pasteleria'";
                     Integer[] p_past = {R.drawable.reposteria_roma_biscottificio_lnnocenti, R.drawable.reposteria_roma_opulentia, R.drawable.reposteria_roma_panzerotti_friends};
 
                     gallery.setAdapter(new ImageAdapter(this,p_past));
 
                 }
                 if(subdivicion.equals("Comida Rapida")){
-
+                    helper.where3+=" AND "+helper.CN_sub_cat+"='comida_rapida'";
                     Integer[] p_rapidat = {R.drawable.comida_rapida_roma_madame_baguette, R.drawable.comida_rapida_roma_bacio_di_puglia, R.drawable.comida_rapida_roma_lasagnam};
 
                     gallery.setAdapter(new ImageAdapter(this,p_rapidat));
 
                 }
                 if(subdivicion.equals("Comida Típicas")){
-
+                    helper.where3+=" AND "+helper.CN_sub_cat+"='comida_tipica'";
                     Integer[] p_tipica = {R.drawable.comida_tipica_roma_tomato_bruschetta_with_ricotta_and, R.drawable.comida_tipica_roma_bucainiall_amatriciana, R.drawable.comida_tipica_roma_panini, R.drawable.comida_tipica_roma_tartufonegro};
 
                     gallery.setAdapter(new ImageAdapter(this,p_tipica));
@@ -483,7 +623,7 @@ public class gallery extends ActionBarActivity {
 //-----------------------------------------------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------------------------------------------
         if(ciudad.equals("venecia")){
-
+            helper.where3 = helper.ID_ciudad3 +" = 'venecia'";
             if (categoria.equals(getString(R.string.text_transporte))){
 
                 if(subdivicion.equals("Taxi")){
@@ -506,28 +646,28 @@ public class gallery extends ActionBarActivity {
             if (categoria.equals(getString(R.string.text_gastronomia))){
 
                 if(subdivicion.equals("Restaurantes")){
-
+                    helper.where3+=" AND "+helper.CN_sub_cat+"='restaurantes'";
                     Integer[] p_rest = {R.drawable.restaurant_venecia_la_zucca,R.drawable.restaurant_venecia_al_covo,R.drawable.restaurant_venecia_bistrot_de_venise};
 
                     gallery.setAdapter(new ImageAdapter(this,p_rest));
 
                 }
                 if(subdivicion.equals("Pasteleria y Panaderia")){
-
+                    helper.where3+=" AND "+helper.CN_sub_cat+"='pasteleria'";
                     Integer[] p_paste = {R.drawable.pasteleria_venecia_nobile_pasticceria,R.drawable.pasteleria_venecia_rosa_salva,R.drawable.pasteleria_venecia_pasticceria_tonolo};
 
                     gallery.setAdapter(new ImageAdapter(this,p_paste));
 
                 }
                 if(subdivicion.equals("Comida Rapida")){
-
+                    helper.where3+=" AND "+helper.CN_sub_cat+"='comida_rapida'";
                     Integer[] p_fast = {R.drawable.comidarapida_venecia_q_food_more,R.drawable.comidarapida_venecia_tiziano_snack_bar,R.drawable.comidarapida_venecia_dal_moros_fresh_pasta_to_go};
 
                     gallery.setAdapter(new ImageAdapter(this,p_fast));
 
                 }
                 if(subdivicion.equals("Comida Típicas")){
-
+                    helper.where3+=" AND "+helper.CN_sub_cat+"='comida_tipica'";
                     Integer[] p_tipica = {R.drawable.platotipico_venecia_brioche,R.drawable.platotipico_venecia_risotto_risi_e_bis,R.drawable.platotipico_venecia_fegatto_alla_veneziana,R.drawable.platotipico_venecia_pez_san_pedro,R.drawable.platotipico_venecia_campari};
 
                     gallery.setAdapter(new ImageAdapter(this,p_tipica));
@@ -606,6 +746,7 @@ public class gallery extends ActionBarActivity {
 //-----------------------------------------------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------------------------------------------
         if(ciudad.equals("berlin")){
+            helper.where3 = helper.ID_ciudad3 +" = 'berlin'";
 
             if (categoria.equals(getString(R.string.text_transporte))){
 
@@ -629,28 +770,28 @@ public class gallery extends ActionBarActivity {
             if (categoria.equals(getString(R.string.text_gastronomia))){
 
                 if(subdivicion.equals("Restaurantes")){
-
+                    helper.where3+=" AND "+helper.CN_sub_cat+"='restaurantes'";
                     Integer[] image = {R.drawable.restaurant_berlin_grill_royal,R.drawable.restaurant_berlin_hofbrau_berlin,R.drawable.restaurant_berlin_zur_letzten_instanz};
 
                     gallery.setAdapter(new ImageAdapter(this,image));
 
                 }
                 if(subdivicion.equals("Pasteleria y Panaderia")){
-
+                    helper.where3+=" AND "+helper.CN_sub_cat+"='pasteleria'";
                     Integer[] image = {R.drawable.pasteleria_berlin_mandragoras,R.drawable.pasteleria_berlin_tigertortchen,R.drawable.pasteleria_berlin_zeit_fuer_brot};
 
                     gallery.setAdapter(new ImageAdapter(this,image));
 
                 }
                 if(subdivicion.equals("Comida Rapida")){
-
+                    helper.where3+=" AND "+helper.CN_sub_cat+"='comida_rapida'";
                     Integer[] image = {R.drawable.comidarapida_berlin_burgermeister,R.drawable.comidarapida_berlin_curry_baude,R.drawable.comidarapida_berlin_vapiano};
 
                     gallery.setAdapter(new ImageAdapter(this,image));
 
                 }
                 if(subdivicion.equals("Comida Típicas")){
-
+                    helper.where3+=" AND "+helper.CN_sub_cat+"='comida_tipica'";
                     Integer[] image = {R.drawable.platotipico_berlin_currywurst,R.drawable.platotipico_berlin_kartoffelsalat,R.drawable.platotipico_berlin_rote_gruetze,R.drawable.platotipico_berlin_eisbein_mit_sauerkraut};
 
                     gallery.setAdapter(new ImageAdapter(this,image));
@@ -728,6 +869,7 @@ public class gallery extends ActionBarActivity {
 //-----------------------------------------------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------------------------------------------
         if(ciudad.equals("londres")){
+            helper.where3 = helper.ID_ciudad3 +" = 'londres'";
 
             if (categoria.equals(getString(R.string.text_transporte))){
 
@@ -751,16 +893,16 @@ public class gallery extends ActionBarActivity {
             if (categoria.equals(getString(R.string.text_gastronomia))){
 
                 if(subdivicion.equals("Restaurantes")){
-
+                    helper.where3+=" AND "+helper.CN_sub_cat+"='restaurantes'";
                 }
                 if(subdivicion.equals("Pasteleria y Panaderia")){
-
+                    helper.where3+=" AND "+helper.CN_sub_cat+"='pasteleria'";
                 }
                 if(subdivicion.equals("Comida Rapida")){
-
+                    helper.where3+=" AND "+helper.CN_sub_cat+"='comida_rapida'";
                 }
                 if(subdivicion.equals("Comida Típicas")){
-
+                    helper.where3+=" AND "+helper.CN_sub_cat+"='comida_tipica'";
                 }
 
             }
@@ -831,5 +973,6 @@ public class gallery extends ActionBarActivity {
         }
 //----------------------------------------------------------------------------------------------------------------------------------
     }
+
 }
 

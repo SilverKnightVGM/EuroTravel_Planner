@@ -3,7 +3,7 @@ package com.example.prog2.eurotravelplanner;
 /**
  * Created by user on 7/11/2015.
  */
-public class Constructor_Datos {
+public class Objeto_Datos {
 
     String NomCiudad,InfoGeneral,SegNombre,Lema,Clima,Moneda,Demografia;
 
@@ -63,10 +63,10 @@ public class Constructor_Datos {
         Demografia = demografia;
     }
 
-    public Constructor_Datos() {
+    public Objeto_Datos() {
     }
 
-    public Constructor_Datos(String infoGeneral) {
+    public Objeto_Datos(String infoGeneral) {
         InfoGeneral = infoGeneral;
     }
 }

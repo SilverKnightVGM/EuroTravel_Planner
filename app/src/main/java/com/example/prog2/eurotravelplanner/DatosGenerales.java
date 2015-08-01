@@ -9,10 +9,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +21,7 @@ public class DatosGenerales extends ActionBarActivity {
     ListView lista;
     DbHelper helper = new DbHelper(this);
     List<String> item = null;
-    private List<Constructor_Datos> DatosGList = new ArrayList<Constructor_Datos>();
+    private List<Objeto_Datos> DatosGList = new ArrayList<Objeto_Datos>();
     int conteoPos=0;
 
     DbHelper myDB;
@@ -115,7 +113,7 @@ public class DatosGenerales extends ActionBarActivity {
                 text = cl.getString(contPos);
 
                 if (text != null && !text.toString().isEmpty()) {
-                    DatosGList.add(new Constructor_Datos(text));
+                    DatosGList.add(new Objeto_Datos(text));
                 }
                 else{bucle++;}
 
@@ -123,11 +121,11 @@ public class DatosGenerales extends ActionBarActivity {
             contPos++;
         } while (contPos <= bucle);
 
-        ArrayAdapter<Constructor_Datos> adapter = new MyListAdapter();
+        ArrayAdapter<Objeto_Datos> adapter = new MyListAdapter();
         lista.setAdapter(adapter);
     }
 
-    private class MyListAdapter extends ArrayAdapter<Constructor_Datos> {
+    private class MyListAdapter extends ArrayAdapter<Objeto_Datos> {
         public MyListAdapter() {
             super(DatosGenerales.this, R.layout.item_view, DatosGList);
         }
@@ -141,7 +139,7 @@ public class DatosGenerales extends ActionBarActivity {
             }
 
             //Dato que estamos utilizando
-            Constructor_Datos DatoActual = DatosGList.get(position);
+            Objeto_Datos DatoActual = DatosGList.get(position);
 
             //dato
             TextView DatoText = (TextView) itemView.findViewById(R.id.tv_dato);
