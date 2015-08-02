@@ -12,7 +12,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Titulo"
-            android:id="@+id/textView"
+            android:id="@+id/textViewTitulo"
             android:textColor="#f20a1183"
             android:layout_x="29dp"
             android:layout_y="2dp"
@@ -30,7 +30,7 @@
             android:layout_x="5dp"
             android:layout_y="26dp"
             android:textIsSelectable="false"
-            android:layout_below="@+id/textView"
+            android:layout_below="@+id/textViewTitulo"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 

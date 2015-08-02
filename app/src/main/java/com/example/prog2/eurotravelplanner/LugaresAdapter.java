@@ -77,14 +77,31 @@ public class LugaresAdapter extends BaseExpandableListAdapter{
     @Override
     public View getChildView(int parent, int child, boolean lastChild,
                              View convertView, ViewGroup parentview) {
-        String child_title = (String) getChild(parent,child);
+        String child_title = (String) getChild(parent, child);
+
         if(convertView==null){
             LayoutInflater inflator = (LayoutInflater) ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflator.inflate(R.layout.template_listview_expandible,parentview, false);
 
         }
-        TextView textView=(TextView) convertView.findViewById(R.id.textView2);
+        TextView textView = (TextView) convertView.findViewById(R.id.textView2);
         textView.setText(child_title);
+        TextView textViewTitulo = (TextView) convertView.findViewById(R.id.textViewTitulo);
+        switch(child){
+            case 0:
+                textViewTitulo.setText("Direccion");
+                break;
+            case 1:
+                textViewTitulo.setText("Telefono");
+                break;
+            case 2:
+                textViewTitulo.setText("Horario");
+            break;
+
+
+        }
+
+
         return convertView;
 
     }

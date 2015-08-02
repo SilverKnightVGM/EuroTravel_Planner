@@ -1,7 +1,7 @@
 package com.example.prog2.eurotravelplanner;
 
 /**
- * Created by Bolívar on 7/31/2015.
+ * Created by Bolivar on 7/31/2015.
  */
 public class ObjetoInformacion {
     String ciudad,categoria,subCat,nombre,dato1,dato2,dato3;
