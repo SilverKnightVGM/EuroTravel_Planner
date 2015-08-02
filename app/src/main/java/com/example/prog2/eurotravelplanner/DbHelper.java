@@ -11,7 +11,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DbHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME="DB_EuroTravel";
-    private static final int DB_SCHEMA_VESION= 11;
+    private static final int DB_SCHEMA_VESION= 12;
     SQLiteDatabase db;
 
     public static final String TABLE_NAME = "Datos_Generales";
@@ -80,6 +80,7 @@ public class DbHelper extends SQLiteOpenHelper {
         InsertarDG(db);
         InsertarTips(db);
         InsertarGastronomia(db);
+        InsertarHospedaje(db);
 
         //db.execSQL("INSERT INTO "+TABLE_NAME2+" ("+CN_tip+","+ID_ciudad2+" ,"+CN_tipo+") " +
         //        "values('Si viajas desde otro continente, muchas aerolíneas ofrecen tiquetes más baratos hacia ciudades diferentes a París. Puede ser útil arribar primero a otra ciudad y luego llegar a la capital francesa en tren.', 'paris', 'transporte')");
@@ -758,6 +759,198 @@ public class DbHelper extends SQLiteOpenHelper {
 
          db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
                  "values('berlin', 'gastronomia', 'comida_tipica', 'Eisbein mit Sauerkraut', 'Codillo de cerdo en salmuera, acompañado de ensalada de col y puré de chicharos. ')");
+
+     }
+
+     public void InsertarHospedaje(SQLiteDatabase db){
+         //paris(hoteles)
+         //dato 1: direccion dato2: telefono dato3: rating
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('paris', 'hospedaje', 'hoteles', 'Le Bristol Paris', '112 rue du Faubourg Saint Honore | 8th arr., 76008 Paris', '011 33 1 82 88 84 89','5.0 de 5')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('paris', 'hospedaje', 'hoteles', 'Four Seasons Hotel George V ', '31 Av George V | 8th Arr., 75008 Paris', '011 33 1 49 52 71 70','5.0 de 5')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('paris', 'hospedaje', 'hoteles', 'Saint James Paris – Relais et Chateaux', '43 avenue Bugeaud, 75116 Paris', '011 33 9 75 18 26 37','4.0 de 5')");
+
+         //paris(hosteles)
+         //dato 1: direccion dato2: telefono dato3: rating
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('paris', 'hospedaje', 'hosteles', 'Avalon Paris Hotel', '131/133 boulevard Magenta, 75010 Paris', '+33 1 42 85 50 00','3.7 de 5')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('paris', 'hospedaje', 'hosteles', 'Hotel Rocroy', '13 rue de Rocroy, 75010 Paris', '+33 1 49 70 70 70','3.6 de 5')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('paris', 'hospedaje', 'hosteles', 'Hotel Boissiere', '53, rue Jean Jaures, 92300 Levallois-Perret', '011 33 1 82 88 85 29','3.6 de 5')");
+
+         //paris(lugares de acampar)
+         //dato 1: direccion dato2: telefono dato3: rating
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('paris', 'hospedaje', 'lugar_acampar', 'Camping Indigo Paris – Bois de Boulogne', '2 allee du Bord de l’Eau 75016 Paris', '+33 01 45 24 30 00','4.0 de 5')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('paris', 'hospedaje', 'lugar_acampar', 'Camping International de Maisons – Laffitte', '1 rue Johnson 78600 Maisons-Laffitte', '+33 01 39 12 21 91','4.0 de 5')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('paris', 'hospedaje', 'lugar_acampar', 'Huttopia Versailles', '31 rue Berthelot 78000 Versailles', '+33 01 39 51 23 61','3.0 de 5')");
+
+
+         //roma(hoteles)
+        //dato 1: direccion dato2: telefono dato3: rating
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('roma', 'hospedaje', 'hoteles', 'Campo De’ Fiori', 'Via del Biscione, 6, 00186 Roma', '011 39 06 9480 4365','4.0 de 5')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('roma', 'hospedaje', 'hoteles', 'Hotel Diocleziano', 'Via Gaeta 71, 00185 Roma', '011 39 06 4890 0767','4.0 de 5')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('roma', 'hospedaje', 'hoteles', 'Hearth Hotel', 'Via Santamaura 2 | musei Vaticano, 00192 Roma', '+39 06 3903 8383','4.5 de 5')");
+
+
+         //roma(hosteles)
+         //dato 1: direccion dato2: telefono dato3: rating
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('roma', 'hospedaje', 'hosteles', 'Villa Teresa', 'Via di Castel Giubileo, 5, 00138 Roma', '+39 06 880 5612','1.0 de 5')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('roma', 'hospedaje', 'hosteles', 'Rhona’s Rooms B&B', 'Via del Condotti, 23, 00187 Roma', '+39 06 6992 1006','1.0 de 5')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('roma', 'hospedaje', 'hosteles', 'Motel Salaria', 'Via Salaria 1256, 00138 Roma', '+39 06 888 9656','3.0 de 5')");
+
+         //roma(lugares de acampar)
+         //dato 1: direccion dato2: telefono dato3: rating
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('roma', 'hospedaje', 'lugar_acampar', 'Camping Internazuionale di Castelfusano', 'Via Litoranea, 132, 00122 LIdo di Ostia Roma', '+39 06 562 3304','3.7 de 5')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('roma', 'hospedaje', 'lugar_acampar', 'Camping Fabulous', 'Via di Malafede 225, 00125 Roma', '+39 06 525 9354','3.7 de 5')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('roma', 'hospedaje', 'lugar_acampar', 'Camper club Miralago ', 'Via di Lunghezzina 75| Lunghezza, 00132 Roma', '+39 335 71 43 109','2.9 de 5')");
+
+         //londres(hoteles)
+         //dato 1: direccion dato2: telefono dato3: rating
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('londres', 'hospedaje', 'hoteles', 'Conrad London St. James', '22-28 Broadway, Londres SW1H 0BH, Inglaterra', '011 44 20 3301 8080','5.0 de 5')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('londres', 'hospedaje', 'hoteles', 'Hotel 41', '41 Buckingham Palace Road, Londres Sw1W 0PS', '011 44 20 8040 1141','5.0 de 5')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('londres', 'hospedaje', 'hoteles', 'The Milestone Hotel', '1 Kensington Court | Kensington, Londres W8 5DL', '011 44 28 2003 2235','5.0 de 5')");
+
+         //londres(hosteles)
+         //dato 1: direccion dato2: telefono dato3: rating
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('londres', 'hospedaje', 'hosteles', 'Clink Hostel', '78 King’s Cross Rd, London WC1X', '+44 20 7183 9400','3.6 de 5')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('londres', 'hospedaje', 'hosteles', 'Smart Russell Square Hostel', '70-72 Guilford St, London WC1N, Londres', '+44 20 7833 8818','3.0 de 5')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('londres', 'hospedaje', 'hosteles', 'Palmer Lodge Swiss Cottage', '40 College Cres, London NW3 5LB', '+44 20 7483 8470','4.3 de 5')");
+
+         //paris(lugares de acampar)
+         //dato 1: direccion dato2: telefono dato3: rating
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('londres', 'hospedaje', 'lugar_acampar', 'Abbey Wood Caravan Club Site', 'Federation Road | Londres SE2 0LS', '+44 20 8311 7708','4.2 de 5')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('londres', 'hospedaje', 'lugar_acampar', 'Crystal Palace Caravan Club Site', 'Crystal Palace Parade, Londres SE19 1UF', '+44 20 8778 7155','4.3 de 5')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('londres', 'hospedaje', 'lugar_acampar', 'Lee Valley Camping and Caravan Park, Edmonton', 'Meridian Way | Edmonton, Londres N9 0AR', '+44 20 8803 6900','3.8 de 5')");
+
+         //venecia(hoteles)
+         //dato 1: direccion dato2: telefono dato3: rating
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('venecia', 'hospedaje', 'hoteles', 'Hilton Molino Stucky Venice', 'Giudecca, 810, 30133 Venezia', '+39 041 272 3311','4.4 de 5')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('venecia', 'hospedaje', 'hoteles', 'The Westin Europa & Regina', 'S. Marco, 2159, 30124 Venezia', '+39 041 240 0001','4.0 de 5')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('venecia', 'hospedaje', 'hoteles', 'Carnival Palace', 'Fondamenta di Cannaregio, 929, 30121', '+39 041 244 0320','4.5 de 5')");
+
+         //venecia(hosteles)
+         //dato 1: direccion dato2: telefono dato3: rating
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('venecia', 'hospedaje', 'hosteles', 'Yha Ostello', 'Fondamenta delle Zitelle, 86, 30133', '+39 041 523 5689','4.0 de 5')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('venecia', 'hospedaje', 'hosteles', 'Ostello Santa Fosca', 'Fondamenta Canal Cannaregio, 2372', '+39 041 715775','3.7 de 5')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('venecia', 'hospedaje', 'hosteles', 'L’Imbarcadero', 'Santa Croce, Calle Zen, 1268, 30135', '+39 392 341 0861','4.6 de 5')");
+
+         //venecia(lugares de acampar)
+         //dato 1: direccion dato2: telefono dato3: rating
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('venecia', 'hospedaje', 'lugar_acampar', 'Camping Serenissima', 'Via Padana 334/a | Malcontenta – Venezia, 30176 Malcontenta', '+39 041 921850','4.3 de 5')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('venecia', 'hospedaje', 'lugar_acampar', 'Camping Fusina', 'Via Moranzani 93, 30030 Venecia', '+39 041 547 0055','3.6 de 5')");
+
+         //madrid(hoteles)
+         //dato 1: direccion dato2: telefono dato3: rating
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('madrid', 'hospedaje', 'hoteles', 'Jardines de Sabatini', 'Cuesta de San Vicente 16, 28008 Madrid', '011 34 911 98 32 90','4.3 de 5')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('madrid', 'hospedaje', 'hoteles', 'The Westin Palace Madrid', 'Plaza de las Cortes 7, 28014 Madrid', '+34 913 60 80 00','4.3 de 5')");
+
+         //madrid(hosteles)
+         //dato 1: direccion dato2: telefono dato3: rating
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('madrid', 'hospedaje', 'hosteles', 'Way Hostel', 'Calle Relatores, 17, 28012 Madrid', '+34 914 20 05 83','4.5 de 5')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('madrid', 'hospedaje', 'hosteles', 'U Hostels', 'Calle de Sagasta, 22, 28004 Madrid', '+34 914 45 03 00','4.6 de 5')");
+
+         //madrid(lugares de acampar)
+         //dato 1: direccion dato2: telefono dato3: rating
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('madrid', 'hospedaje', 'lugar_acampar', 'Only You Hotel & Lounge', 'Calle Barquillo 21, 28004 Madrid', '+34 910 05 22 22','4.7 de 5')");
+
+        //berlin(hoteles)
+        //dato 1: direccion dato2: telefono dato3: rating
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('berlin', 'hospedaje', 'hoteles', 'Hotel Adlon Kempinski', 'Unter den Linden 77, 10117 Berlin', '+49 30 22610','4.5 de 5')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('berlin', 'hospedaje', 'hoteles', 'Mövenpick Hotel Berlin', 'Schöneberger Str. 3, 10963 Berlin', '+49 30 230060','4.2 de 5')");
+
+         //berlin(hosteles)
+        //dato 1: direccion dato2: telefono dato3: rating
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('berlin', 'hospedaje', 'hosteles', 'Cityhostel Berlin', 'Glinkastraße 5-7, 10117 Berlin', '+49 30 238866850','3.5 de 5')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('berlin', 'hospedaje', 'hosteles', 'Sunflower Hostel', 'Helsingforser Str. 17, 10243 Berlin', '+49 30 44044250','4.2 de 5')");
+
+
+         //berlin(lugares de acampar)
+         //dato 1: direccion dato2: telefono dato3: rating
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('berlin', 'hospedaje', 'lugar_acampar', 'Assateague State Park Camping', '7307 Stephen Decatur Highway, Berlin', '+1 410 641 2120','4.6 de 5')");
 
      }
 }
