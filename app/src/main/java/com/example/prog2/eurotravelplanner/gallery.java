@@ -12,12 +12,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ExpandableListView;
 import android.widget.Gallery;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -560,15 +558,31 @@ public class gallery extends ActionBarActivity {
 
                 if(subdivicion.equals("Restaurantes")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'restaurantes'";
+
+                    Integer[] p_rest = {R.drawable.restaurante_madrid_labolataberna,R.drawable.restaurante_madrid_santcelonidos_vdos,R.drawable.restaurante_madrid_rubaiyat};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_rest));
                 }
                 if(subdivicion.equals("Pasteleria y Panaderia")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'pasteleria'";
+
+                    Integer[] p_rest = {R.drawable.reposteria_madrid_lamallorquina_v,R.drawable.reposteria_madrid_celicioso_v,R.drawable.reposteria_madrid_martinacocina_v};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_rest));
                 }
                 if(subdivicion.equals("Comida Rapida")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'comida_rapida'";
+
+                    Integer[] p_rest = {R.drawable.comidarapida_madrid_stopmadrid_v,R.drawable.comidarapida_madrid_malaspina_v,R.drawable.comidarapida_madrid_restaurantecasaalberto_v};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_rest));
                 }
                 if(subdivicion.equals("Comida Típicas")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'comida_tipica'";
+
+                    Integer[] p_rest = {R.drawable.comidatipica_madrid_tapas_v,R.drawable.comidatipica_madrid_ensaladadesanisidro_vdos,R.drawable.comidatipica_madrid_lechemerengada_v,R.drawable.comidatipica_madrid_bartillo_v,R.drawable.comidatipica_madrid_cocidomadrileno_v};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_rest));
                 }
 
             }
@@ -701,12 +715,25 @@ public class gallery extends ActionBarActivity {
 
                 if(subdivicion.equals("Hoteles")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'hoteles'";
+
+                    Integer[] p_tipica = {R.drawable.hospedaje_roma_hearthhote_v, R.drawable.hospedaje_roma_diocleziano_v, R.drawable.hospedaje_roma_campodefiori_v};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_tipica));
+
                 }
                 if(subdivicion.equals("Hostel")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'hosteles'";
+
+                    Integer[] p_tipica = {R.drawable.hospedaje_roma_motelsalario_v, R.drawable.hospedaje_roma_rhonabb_v, R.drawable.hospedaje_roma_villateresa_v};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_tipica));
                 }
                 if(subdivicion.equals("Lugares de Acampar")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'lugar_acampar'";
+
+                    Integer[] p_tipica = {R.drawable.hospedaje_roma_miralago_v, R.drawable.hospedaje_roma_camping_v, R.drawable.hospedaje_roma_fabulous_v};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_tipica));
                 }
 
             }
