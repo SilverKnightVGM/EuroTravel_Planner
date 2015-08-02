@@ -87,10 +87,17 @@ public class gallery extends ActionBarActivity {
         exp_list.setAdapter(adapter);
 
         exp_list.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+
+            int previousGroup = -1;
+
             @Override
             public void onGroupExpand(int groupPosition) {
                 //Toast.makeText(gallery.this, "You Clicked at " + groupPosition, Toast.LENGTH_SHORT).show();
                 gallery.setSelection(groupPosition);
+                if ((previousGroup != -1) && (groupPosition != previousGroup)) {
+                    exp_list.collapseGroup(previousGroup);
+                }
+                previousGroup = groupPosition;
             }
         });
 
@@ -109,36 +116,38 @@ public class gallery extends ActionBarActivity {
                 //Toast.makeText(gallery.this, "You Clicked at " + childPosition, Toast.LENGTH_SHORT).show();
                 //Toast.makeText(gallery.this, gg, Toast.LENGTH_SHORT).show();
 
-                if (categori.equals(getString(R.string.text_gastronomia))){
-                    if (subdivicio.equals("Restaurantes") || subdivicio.equals("Pasteleria y Panaderia") || subdivicio.equals("Comida Rapida") ){
-                        if(childPosition==1){
+                if (categori.equals(getString(R.string.text_gastronomia))) {
+                    if (subdivicio.equals("Restaurantes") || subdivicio.equals("Pasteleria y Panaderia") || subdivicio.equals("Comida Rapida")) {
+                        if (childPosition == 1) {
                             LlamarDialog(data);
                         }
-                        if(childPosition==0){
+                        if (childPosition == 0) {
                             ubicarDireccion(data);
                         }
 
                     }
                 }
-                if (categori.equals(getString(R.string.text_hospedaje))){
-                    if (subdivicio.equals("Hoteles") || subdivicio.equals("Hostel") || subdivicio.equals("Lugares de Acampar") ){
-                        if(childPosition==1){
+                if (categori.equals(getString(R.string.text_hospedaje))) {
+                    if (subdivicio.equals("Hoteles") || subdivicio.equals("Hostel") || subdivicio.equals("Lugares de Acampar")) {
+                        if (childPosition == 1) {
                             LlamarDialog(data);
                         }
-                        if(childPosition==0){
+                        if (childPosition == 0) {
                             ubicarDireccion(data);
                         }
 
                     }
                 }
-
 
 
                 return true;
             }
         });
 
+
+
     }
+
 
     public void LlamarDialog(final String tel){
 
