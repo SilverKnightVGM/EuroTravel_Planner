@@ -1049,14 +1049,25 @@ public class gallery extends ActionBarActivity {
 
                 if(subdivicion.equals("Lugares Historicos")){
 
+                    Integer[] p_camp = {R.drawable.bundestag_v,R.drawable.murodeberlin_v};
+                    gallery.setAdapter(new ImageAdapter(this,p_camp));
                 }
                 if(subdivicion.equals("Museos")){
+
+                    Integer[] p_camp = {R.drawable.pergamon_v,R.drawable.neues_museum_dpa_v};
+                    gallery.setAdapter(new ImageAdapter(this,p_camp));
 
                 }
                 if(subdivicion.equals("Playas")){
 
+                    Integer[] p_camp = {R.drawable.strandbadwannsee_v,R.drawable.kuddambeach_v};
+                    gallery.setAdapter(new ImageAdapter(this,p_camp));
+
                 }
                 if(subdivicion.equals("Tour por la ciudad")){
+
+                    Integer[] p_camp = {R.drawable.newberlintours_v,R.drawable.bctberlincitytour_v};
+                    gallery.setAdapter(new ImageAdapter(this,p_camp));
 
                 }
             }
