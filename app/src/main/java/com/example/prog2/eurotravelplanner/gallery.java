@@ -1019,15 +1019,26 @@ public class gallery extends ActionBarActivity {
             if (categoria.equals(getString(R.string.text_entretenimiento))){
 
                 if(subdivicion.equals("Bares")){
-
+                    Integer[] p_camp = {R.drawable.rrivabar_v,R.drawable.ffraganches_v};
+                    gallery.setAdapter(new ImageAdapter(this,p_camp));
                 }
                 if(subdivicion.equals("Discotecas")){
+
+                    Integer[] p_camp = {R.drawable.bberghain_v,R.drawable.tresorclub_vv};
+                    gallery.setAdapter(new ImageAdapter(this,p_camp));
 
                 }
                 if(subdivicion.equals("Clubes")){
 
+                    Integer[] p_camp = {R.drawable.clubmaxxim_v,R.drawable.clubdervisionare_vv};
+                    gallery.setAdapter(new ImageAdapter(this,p_camp));
+
                 }
                 if(subdivicion.equals("Parques de Diversión")){
+
+                    Integer[] p_camp = {R.drawable.jacksfunworld,R.drawable.legolandberlin_v};
+                    gallery.setAdapter(new ImageAdapter(this,p_camp));
+
 
                 }
 
