@@ -618,14 +618,30 @@ public class gallery extends ActionBarActivity {
 
                 if(subdivicion.equals("Bares")){
 
+                    Integer[] p_bar = {R.drawable.bares_madrid_pajaritos_mojados,R.drawable.bares_madrid_taberna_degusta};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_bar));
+
                 }
                 if(subdivicion.equals("Discotecas")){
+
+                    Integer[] p_disco = {R.drawable.discoteca_madrid_teatro_kapital,R.drawable.discoteca_madrid_joy_eslava};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_disco));
 
                 }
                 if(subdivicion.equals("Clubes")){
 
+                    Integer[] p_club = {R.drawable.clubes_madrid_macumba,R.drawable.clubes_madrid_maxime};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_club));
+
                 }
                 if(subdivicion.equals("Parques de Diversión")){
+
+                    Integer[] p_parques = {R.drawable.parques_madrid_madrid_theme_park,R.drawable.parques_madrid_parque_warner};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_parques));
 
                 }
 
@@ -636,8 +652,16 @@ public class gallery extends ActionBarActivity {
 
                 if(subdivicion.equals("Lugares Historicos")){
 
+                    Integer[] p_historia = {R.drawable.lugar_historicos_madrid_real_basilica_de_san_francisco_el_grande,R.drawable.lugar_historicos_madrid_templo_de_debod};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_historia));
+
                 }
                 if(subdivicion.equals("Museos")){
+
+                    Integer[] p_museos = {R.drawable.museos_madrid_museo_del_prado,R.drawable.museos_madrid_museo_centro_de_arte_reina_sofia};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_museos));
 
                 }
                 if(subdivicion.equals("Playas")){
@@ -645,10 +669,18 @@ public class gallery extends ActionBarActivity {
                 }
                 if(subdivicion.equals("Tour por la ciudad")){
 
+                    Integer[] p_tour = {R.drawable.tour_madrid_madrid_city_tour};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_tour));
+
                 }
             }
 
             if (categoria.equals(getString(R.string.text_compras))){
+
+                Integer[] p_compras = {R.drawable.compras_madrid_mercado_san_miguel,R.drawable.compras_madrid_sherry_corner};
+
+                gallery.setAdapter(new ImageAdapter(this,p_compras));
 
             }
 

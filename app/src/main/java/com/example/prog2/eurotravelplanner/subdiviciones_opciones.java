@@ -37,6 +37,9 @@ public class subdiviciones_opciones extends ActionBarActivity {
     public static Integer [] Images_SubLugaresInteres={R.drawable.lugares_historicos,R.drawable.museos,R.drawable.playas,R.drawable.tour};
     public static String [] Texto_SubLugaresInteres={"Lugares Historicos","Museos","Playas","Tour por la ciudad"};
 
+    public static Integer [] Images_SubLugaresInteresMadrid={R.drawable.lugares_historicos,R.drawable.museos,R.drawable.tour};
+    public static String [] Texto_SubLugaresInteresMadrid={"Lugares Historicos","Museos","Tour por la ciudad"};
+
 
 
     @Override
@@ -97,6 +100,9 @@ public class subdiviciones_opciones extends ActionBarActivity {
         // en este método yo valido cual opcion fue lo que clikee (Entretenimiento, hospedaje etc) y luego que valido
         // inserto en el listview las subdivisiones de cada opciones
 
+        Intent recupero_id = getIntent();
+        String id_cuidad = recupero_id.getStringExtra("id_cuidades");
+
         if (tipo_categoria.equals(getString(R.string.text_transporte))){
 
             CustomList adapter = new CustomList(subdiviciones_opciones.this, Texto_SubTransporte, Images_SubTransporte);
@@ -145,12 +151,24 @@ public class subdiviciones_opciones extends ActionBarActivity {
 
         if (tipo_categoria.equals(getString(R.string.text_lugarInteres))){
 
-            CustomList adapter = new CustomList(subdiviciones_opciones.this, Texto_SubLugaresInteres, Images_SubLugaresInteres);
+            if(id_cuidad.equals("madrid")){
 
-            listView_subdiviciones=(ListView) findViewById(R.id.listView_subdiviciones);
+                CustomList adapter = new CustomList(subdiviciones_opciones.this, Texto_SubLugaresInteresMadrid, Images_SubLugaresInteresMadrid);
 
-            listView_subdiviciones.setAdapter(adapter);
+                listView_subdiviciones=(ListView) findViewById(R.id.listView_subdiviciones);
 
+                listView_subdiviciones.setAdapter(adapter);
+
+            }else {
+
+                CustomList adapter = new CustomList(subdiviciones_opciones.this, Texto_SubLugaresInteres, Images_SubLugaresInteres);
+
+                listView_subdiviciones = (ListView) findViewById(R.id.listView_subdiviciones);
+
+                listView_subdiviciones.setAdapter(adapter);
+
+
+            }
             getSupportActionBar().setTitle(getString(R.string.text_lugarInteres));
         }
 
