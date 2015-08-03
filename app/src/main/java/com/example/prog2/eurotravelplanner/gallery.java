@@ -559,14 +559,14 @@ public class gallery extends ActionBarActivity {
                 if(subdivicion.equals("Restaurantes")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'restaurantes'";
 
-                    Integer[] p_rest = {R.drawable.restaurante_madrid_labolataberna,R.drawable.restaurante_madrid_santcelonidos_vdos,R.drawable.restaurante_madrid_rubaiyat};
+                    Integer[] p_rest = {R.drawable.restaurante_madrid_rubaiyat,R.drawable.restaurante_madrid_labolataberna,R.drawable.restaurante_madrid_santcelonidos_vdos};
 
                     gallery.setAdapter(new ImageAdapter(this,p_rest));
                 }
                 if(subdivicion.equals("Pasteleria y Panaderia")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'pasteleria'";
 
-                    Integer[] p_rest = {R.drawable.reposteria_madrid_lamallorquina_v,R.drawable.reposteria_madrid_celicioso_v,R.drawable.reposteria_madrid_martinacocina_v};
+                    Integer[] p_rest = {R.drawable.reposteria_madrid_martinacocina_v,R.drawable.reposteria_madrid_lamallorquina_v,R.drawable.reposteria_madrid_celicioso_v};
 
                     gallery.setAdapter(new ImageAdapter(this,p_rest));
                 }
@@ -580,7 +580,7 @@ public class gallery extends ActionBarActivity {
                 if(subdivicion.equals("Comida Típicas")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'comida_tipica'";
 
-                    Integer[] p_rest = {R.drawable.comidatipica_madrid_tapas_v,R.drawable.comidatipica_madrid_ensaladadesanisidro_vdos,R.drawable.comidatipica_madrid_lechemerengada_v,R.drawable.comidatipica_madrid_bartillo_v,R.drawable.comidatipica_madrid_cocidomadrileno_v};
+                    Integer[] p_rest = {R.drawable.comidatipica_madrid_lechemerengada_v,R.drawable.comidatipica_madrid_tapas_v,R.drawable.comidatipica_madrid_bartillo_v,R.drawable.comidatipica_madrid_cocidomadrileno_v,R.drawable.comidatipica_madrid_ensaladadesanisidro_vdos};
 
                     gallery.setAdapter(new ImageAdapter(this,p_rest));
                 }
