@@ -1189,14 +1189,31 @@ public class gallery extends ActionBarActivity {
 
                 if(subdivicion.equals("Bares")){
 
+                    Integer[] p_bar = {R.drawable.bares_londres_artesian,R.drawable.bares_londres_gordons_wine_bar};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_bar));
+
+
                 }
                 if(subdivicion.equals("Discotecas")){
+
+                    Integer[] p_disco = {R.drawable.discoteca_londres_the_old_school_yard,R.drawable.discoteca_londres_eagle_london};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_disco));
 
                 }
                 if(subdivicion.equals("Clubes")){
 
+                    Integer[] p_club = {R.drawable.club_londres_city_of_london_club,R.drawable.club_londres_carlton_club};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_club));
+
                 }
                 if(subdivicion.equals("Parques de Diversión")){
+
+                    Integer[] p_parque = {R.drawable.parque_londres_chessington_world_of_adventures,R.drawable.parque_londres_winter_wonderland};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_parque));
 
                 }
 
@@ -1207,8 +1224,16 @@ public class gallery extends ActionBarActivity {
 
                 if(subdivicion.equals("Lugares Historicos")){
 
+                    Integer[] p_historia = {R.drawable.lugar_historico_londres_st_paul_cathedral,R.drawable.lugar_historico_londres_big_ben};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_historia));
+
                 }
                 if(subdivicion.equals("Museos")){
+
+                    Integer[] p_parque = {R.drawable.museos_londres_the_national_gallery,R.drawable.museos_londres_the_british_museum};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_parque));
 
                 }
                 if(subdivicion.equals("Playas")){
@@ -1216,10 +1241,18 @@ public class gallery extends ActionBarActivity {
                 }
                 if(subdivicion.equals("Tour por la ciudad")){
 
+                    Integer[] p_tour = {R.drawable.tour_londres_tower_of_london};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_tour));
+
                 }
             }
 
             if (categoria.equals(getString(R.string.text_compras))){
+
+                Integer[] p_parque = {R.drawable.compras_londres_westfield_london,R.drawable.compras_londres_whiteleys};
+
+                gallery.setAdapter(new ImageAdapter(this,p_parque));
 
             }
 
