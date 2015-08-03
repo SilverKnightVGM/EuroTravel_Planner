@@ -37,8 +37,8 @@ public class subdiviciones_opciones extends ActionBarActivity {
     public static Integer [] Images_SubLugaresInteres={R.drawable.lugares_historicos,R.drawable.museos,R.drawable.playas,R.drawable.tour};
     public static String [] Texto_SubLugaresInteres={"Lugares Historicos","Museos","Playas","Tour por la ciudad"};
 
-    public static Integer [] Images_SubLugaresInteresMadrid={R.drawable.lugares_historicos,R.drawable.museos,R.drawable.tour};
-    public static String [] Texto_SubLugaresInteresMadrid={"Lugares Historicos","Museos","Tour por la ciudad"};
+    public static Integer [] Images_SubLugaresInteresNoplayas={R.drawable.lugares_historicos,R.drawable.museos,R.drawable.tour};
+    public static String [] Texto_SubLugaresInteresNoplayas={"Lugares Historicos","Museos","Tour por la ciudad"};
 
 
 
@@ -151,9 +151,9 @@ public class subdiviciones_opciones extends ActionBarActivity {
 
         if (tipo_categoria.equals(getString(R.string.text_lugarInteres))){
 
-            if(id_cuidad.equals("madrid")){
+            if(id_cuidad.equals("madrid") || id_cuidad.equals("roma") || id_cuidad.equals("londres")){
 
-                CustomList adapter = new CustomList(subdiviciones_opciones.this, Texto_SubLugaresInteresMadrid, Images_SubLugaresInteresMadrid);
+                CustomList adapter = new CustomList(subdiviciones_opciones.this, Texto_SubLugaresInteresNoplayas, Images_SubLugaresInteresNoplayas);
 
                 listView_subdiviciones=(ListView) findViewById(R.id.listView_subdiviciones);
 

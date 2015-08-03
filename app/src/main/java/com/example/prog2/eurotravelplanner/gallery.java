@@ -896,14 +896,31 @@ public class gallery extends ActionBarActivity {
 
                 if(subdivicion.equals("Bares")){
 
+                    Integer[] p_camp = {R.drawable.bares_venecia_all_arco,R.drawable.bares_venecia_osteria_antico_dolo};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_camp));
+
                 }
                 if(subdivicion.equals("Discotecas")){
+
+                    Integer[] p_camp = {R.drawable.discotecas_venecia_piccolo_mondo_music_dance,R.drawable.discotecas_venecia_sound_garden};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_camp));
 
                 }
                 if(subdivicion.equals("Clubes")){
 
+                    Integer[] p_camp = {R.drawable.club_venecia_bacaro_jazz,R.drawable.club_venecia_paradiso_perdutto};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_camp));
+
                 }
                 if(subdivicion.equals("Parques de Diversión")){
+
+                    Integer[] p_camp = {R.drawable.parque_venecia_shark_bay};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_camp));
+
 
                 }
 
@@ -914,19 +931,39 @@ public class gallery extends ActionBarActivity {
 
                 if(subdivicion.equals("Lugares Historicos")){
 
+                    Integer[] p_camp = {R.drawable.lugar_historico_venecia_campanile_di_san_marco,R.drawable.lugar_historico_venecia_san_giorgio_maggiore};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_camp));
+
                 }
                 if(subdivicion.equals("Museos")){
+
+                    Integer[] p_camp = {R.drawable.museos_venecia_gallerie_dell_accademia,R.drawable.museos_venecia_palacio_ducal};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_camp));
 
                 }
                 if(subdivicion.equals("Playas")){
 
+                    Integer[] p_camp = {R.drawable.playas_venecia_lido_di_venezia};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_camp));
+
                 }
                 if(subdivicion.equals("Tour por la ciudad")){
+
+                    Integer[] p_camp = {R.drawable.tour_venecia_seevenice,R.drawable.tour_venecia_venice_photo_walk};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_camp));
 
                 }
             }
 
             if (categoria.equals(getString(R.string.text_compras))){
+
+                Integer[] p_camp = {R.drawable.compras_venecia_ca_macana,R.drawable.compras_venecia_raggio_veneziano};
+
+                gallery.setAdapter(new ImageAdapter(this,p_camp));
 
             }
 
