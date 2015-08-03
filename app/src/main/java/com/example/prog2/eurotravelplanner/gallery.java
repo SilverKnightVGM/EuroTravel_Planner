@@ -1074,6 +1074,9 @@ public class gallery extends ActionBarActivity {
 
             if (categoria.equals(getString(R.string.text_compras))){
 
+                Integer[] p_camp = {R.drawable.alexa_v,R.drawable.schohauseralleearcade_v};
+                gallery.setAdapter(new ImageAdapter(this,p_camp));
+
             }
 
         }
