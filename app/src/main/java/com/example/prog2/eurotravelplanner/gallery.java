@@ -1,6 +1,7 @@
 package com.example.prog2.eurotravelplanner;
 
 import android.app.AlertDialog;
+import android.app.SearchManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -16,6 +17,7 @@ import android.widget.BaseAdapter;
 import android.widget.ExpandableListView;
 import android.widget.Gallery;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -88,6 +90,7 @@ public class gallery extends ActionBarActivity {
 
             int previousGroup = -1;
 
+
             @Override
             public void onGroupExpand(int groupPosition) {
                 //Toast.makeText(gallery.this, "You Clicked at " + groupPosition, Toast.LENGTH_SHORT).show();
@@ -108,11 +111,14 @@ public class gallery extends ActionBarActivity {
                 String categori = recupero_id.getStringExtra("tipo_categoria");
                 String subdivicio = recupero_id.getStringExtra("tipo_subdivision");
 
+                Object h = parent.getAdapter().getItem(groupPosition);
+                String opcion = h.toString();
+
 
                 Object g = parent.getExpandableListAdapter().getChild(groupPosition, childPosition);
                 String data = g.toString();
                 //Toast.makeText(gallery.this, "You Clicked at " + childPosition, Toast.LENGTH_SHORT).show();
-                //Toast.makeText(gallery.this, gg, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(gallery.this, opcion, Toast.LENGTH_SHORT).show();
 
                 if (categori.equals(getString(R.string.text_gastronomia))) {
                     if (subdivicio.equals("Restaurantes") || subdivicio.equals("Pasteleria y Panaderia") || subdivicio.equals("Comida Rapida")) {
@@ -120,9 +126,8 @@ public class gallery extends ActionBarActivity {
                             LlamarDialog(data);
                         }
                         if (childPosition == 0) {
-                            ubicarDireccion(data);
+                            ubicarDireccion(opcion,data);
                         }
-
                     }
                 }
                 if (categori.equals(getString(R.string.text_hospedaje))) {
@@ -130,8 +135,9 @@ public class gallery extends ActionBarActivity {
                         if (childPosition == 1) {
                             LlamarDialog(data);
                         }
+
                         if (childPosition == 0) {
-                            ubicarDireccion(data);
+                            ubicarDireccion(opcion,data);
                         }
 
                     }
@@ -173,11 +179,11 @@ public class gallery extends ActionBarActivity {
         dialogDelete.show();
     }
 
-    public void ubicarDireccion(final String direccion){
+    public void ubicarDireccion(final String opcion, final String direccion){
 
         dialogBuilder = new AlertDialog.Builder(this);
 
-        dialogBuilder.setTitle("Desea ubicar esta dirección?");
+        dialogBuilder.setTitle("Desea ubicar dirección de :" + opcion);
         dialogBuilder.setPositiveButton("Ubicar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -186,6 +192,32 @@ public class gallery extends ActionBarActivity {
                 Uri myUri = Uri.parse("geo:0,0?q=" + direccion);
                 showMap(myUri);
 
+            }
+        });
+
+        dialogBuilder.setNegativeButton("Calcelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+        AlertDialog dialogDelete = dialogBuilder.create();
+        dialogDelete.show();
+    }
+
+    public void web(final String opcion,final String direccion_web){
+
+        dialogBuilder = new AlertDialog.Builder(this);
+
+        dialogBuilder.setTitle("Desea buscar sitio web de: "+ opcion);
+        dialogBuilder.setPositiveButton("Buscar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                Uri webpage = Uri.parse(direccion_web);
+                Intent webIntent = new Intent(Intent.ACTION_VIEW,webpage);
+                startActivity(webIntent);
             }
         });
 
@@ -712,17 +744,33 @@ public class gallery extends ActionBarActivity {
 
                 if(subdivicion.equals("Taxi")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'taxi'";
+
+                    Integer[] image = {R.drawable.taxi_roma_pronto_taxi, R.drawable.taxi_roma_la_capitale_taxi,R.drawable.taxi_roma_samarcanda_taxi};
+
+                    gallery.setAdapter(new ImageAdapter(this,image));
                 }
 
                 if(subdivicion.equals("Renta de Autos")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'renta_autos'";
+
+                    Integer[] image = {R.drawable.renta_autos_hertz, R.drawable.renta_autos_avis,R.drawable.renta_autos_europcar};
+
+                    gallery.setAdapter(new ImageAdapter(this,image));
                 }
                 if(subdivicion.equals("Transporte Publico")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'trans_publico'";
 
+                    Integer[] image = {R.drawable.transporte_publico_roma_buses, R.drawable.transporte_publico_roma_tranvias};
+
+                    gallery.setAdapter(new ImageAdapter(this,image));
+
                 }
                 if(subdivicion.equals("Trenes")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'trenes'";
+
+                    Integer[] image = {R.drawable.trenes_roma_linea_a_naranja, R.drawable.trenes_roma_linea_b_azul,R.drawable.trenes_roma_trenes_suburbanos};
+
+                    gallery.setAdapter(new ImageAdapter(this,image));
                 }
 
 
