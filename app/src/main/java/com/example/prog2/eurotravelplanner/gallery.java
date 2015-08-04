@@ -415,17 +415,34 @@ public class gallery extends ActionBarActivity {
 
                 if(subdivicion.equals("Taxi")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'taxi'";
+
+                    Integer[] image = {R.drawable.taxis_paris_taxis_g_siete, R.drawable.taxis_paris_alpha_taxis,R.drawable.taxis_paris_les_taxis_bleus};
+
+                    gallery.setAdapter(new ImageAdapter(this,image));
+
                 }
 
                 if(subdivicion.equals("Renta de Autos")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'renta_autos'";
+
+                    Integer[] image = {R.drawable.renta_autos_europcar, R.drawable.renta_autos_budget,R.drawable.renta_autos_hertz,R.drawable.renta_autos_sixt};
+
+                    gallery.setAdapter(new ImageAdapter(this,image));
                 }
                 if(subdivicion.equals("Transporte Publico")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'trans_publico'";
 
+                    Integer[] image = {R.drawable.transporte_publico_paris_buses, R.drawable.transporte_publico_paris_funicular,R.drawable.transporte_publico_paris_tranvias};
+
+                    gallery.setAdapter(new ImageAdapter(this,image));
+
                 }
                 if(subdivicion.equals("Trenes")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'trenes'";
+
+                    Integer[] image = {R.drawable.trenes_paris_gare_du_nord, R.drawable.trenes_paris_gare_de_l_est,R.drawable.trenes_paris_gare_de_lyon,R.drawable.trenes_paris_gare_d_austerlitz};
+
+                    gallery.setAdapter(new ImageAdapter(this,image));
                 }
 
 
