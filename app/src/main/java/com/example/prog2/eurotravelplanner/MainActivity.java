@@ -24,7 +24,7 @@ public class MainActivity extends ActionBarActivity {
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+                public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this, Destinos.class);
                 startActivity(i);
             }

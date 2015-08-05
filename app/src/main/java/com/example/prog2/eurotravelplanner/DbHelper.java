@@ -11,7 +11,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DbHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME="DB_EuroTravel";
-    private static final int DB_SCHEMA_VESION= 12;
+    private static final int DB_SCHEMA_VESION= 14;
     SQLiteDatabase db;
 
     public static final String TABLE_NAME = "Datos_Generales";
@@ -79,8 +79,11 @@ public class DbHelper extends SQLiteOpenHelper {
 
         InsertarDG(db);
         InsertarTips(db);
+
         InsertarGastronomia(db);
         InsertarHospedaje(db);
+        InsertarLugarInteres(db);
+        InsertarEntretenimiento(db);
 
         //db.execSQL("INSERT INTO "+TABLE_NAME2+" ("+CN_tip+","+ID_ciudad2+" ,"+CN_tipo+") " +
         //        "values('Si viajas desde otro continente, muchas aerolíneas ofrecen tiquetes más baratos hacia ciudades diferentes a París. Puede ser útil arribar primero a otra ciudad y luego llegar a la capital francesa en tren.', 'paris', 'transporte')");
@@ -651,7 +654,7 @@ public class DbHelper extends SQLiteOpenHelper {
                  "values('venecia', 'gastronomia', 'comida_tipica', 'Pez San Pedro', 'Platillo elaborado con pescado de fondo marino y cocido con vino blanco, sal, pimienta y aceite de oliva.')");
 
          db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
-                 "values('venecia', 'gastronomia', 'comida_tipica', 'tCampari', 'Licor elaborado a base de distintas hierbas, ruibardo y naranja amarga, es de color rojo y sabor amargo.')");
+                 "values('venecia', 'gastronomia', 'comida_tipica', 'Campari', 'Licor elaborado a base de distintas hierbas, ruibardo y naranja amarga, es de color rojo y sabor amargo.')");
 
          //madrid(restaurantes)
          //dato 1: direccion dato2: telefono dato3: horario
@@ -953,4 +956,420 @@ public class DbHelper extends SQLiteOpenHelper {
                  "values('berlin', 'hospedaje', 'lugar_acampar', 'Assateague State Park Camping', '7307 Stephen Decatur Highway, Berlin', '+1 410 641 2120','4.6 de 5')");
 
      }
+
+     public void InsertarLugarInteres(SQLiteDatabase db){
+
+        //madrid(lugares historicos)
+        //dato 1: direccion dato2: telefono dato3: rating
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('madrid', 'lugar_interes', 'lugar_historico', 'Real Basilica de San Francisco el Grande', 'Calle de San Buenaventura, 1, 28005 Madrid', '34 913 65 38 00','4.5 de 5')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('madrid', 'lugar_interes', 'lugar_historico', 'Templo de Debod', 'Paseo de Rosales, Madrid', '34 913 66 74 15','4.5 de 5')");
+
+        //madrid(museos)
+        //dato 1: direccion dato2: telefono dato3: rating
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('madrid', 'lugar_interes', 'museos', 'Museo del Prado', 'Paseo del Prado, 28014 ', '34 913 30 28 00','4.6 de 5')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('madrid', 'lugar_interes', 'museos', 'Museo Centro de Arte Reina Sofia', 'Calle de Santa Isabel, 52, 28012 Madrid', '34 917 74 10 00','4.3 de 5')");
+
+        //madrid(tour por la ciudad)
+        //dato 1: direccion dato2: telefono dato3: rating
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('madrid', 'lugar_interes', 'tour_ciudad', 'Madrid’s City Tour', 'Calle de Felipe IV, 28014 Madrid', '34 913 69 27 32','4.0 de 5')");
+
+        //paris(lugares historicos)
+        //dato 1: direccion dato2: telefono dato3: rating
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('paris', 'lugar_interes', 'lugar_historico', 'Torre Eiffel', 'Champ de Mars, 5 Avenue Anatole France, 75007 Paris, Francia', '33 892 70 12 39','4.7 de 5')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('paris', 'lugar_interes', 'lugar_historico', 'Catedral de Notre Dame', '6 Parvis Notre-Dame - Pl. Jean-Paul II, 75004 Paris, Francia', '33 1 42 34 56 10','4.6 de 5')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('paris', 'lugar_interes', 'lugar_historico', 'Arco de Triunfo de Paris', 'Place Charles de Gaulle, 75008 Paris, Francia', '33 1 55 37 73 77','4.5 de 5')");
+
+        //paris(museos)
+        //dato 1: direccion dato2: telefono dato3: rating
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('paris', 'lugar_interes', 'museos', 'Museo del Louvre', '75001 Paris, Francia', '33 1 40 20 50 50','4.6 de 5')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('paris', 'lugar_interes', 'museos', 'Muse d’Orsay', 'Rue de la Legion d Honneur, 75007 Paris', '33 1 40 49 48 14','4.5 de 5')");
+
+
+        //paris(tour por la ciudad)
+        //dato 1: direccion dato2: telefono dato3: rating
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('paris', 'lugar_interes', 'tour_ciudad', 'L’ OpenTour', '13 Rue Auber, 75009 Paris', '33 1 42 66 56 56','2.8 de 5')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('paris', 'lugar_interes', 'tour_ciudad', 'Foxity', '3 Rue de la Chaussee D’ Antin, 75009 Paris', '33 1 40 17 09 22','2.9 de 5')");
+
+
+        //berlin(lugares historicos)
+        //dato 1: direccion dato2: telefono dato3: rating
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('berlin', 'lugar_interes', 'lugar_historico', 'Parlamento Federal(Bundestag) ', 'Platz der Republik, Tiergarten, 11011 Berlin', '49 30 227 32152','4.7 de 5')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('berlin', 'lugar_interes', 'lugar_historico', 'Muro de Berlin', 'Bernauer Strasse 111/119, 13355 Berlin', '49 30 46798666','4.8 de 5')");
+
+
+        //berlin(museos)
+        //dato 1: direccion dato2: telefono dato3: rating
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('berlin', 'lugar_interes', 'museos', 'Pergamonmuseum', 'Bodestraße 1-3, 10178 Berlin', '49 30 266424242','4.4 de 5')");
+
+        db.execSQL("INSERT INTO " + TABLE_NAME4 + " (" + ID_ciudad3 + ", " + CN_categoria + ", " + CN_sub_cat + ",  " + CN_nombre + ", " + CN_dato1 + ", " + CN_dato2 + "," + CN_dato3 + ") " +
+                "values('berlin', 'lugar_interes', 'museos', 'Neues Museum', 'Bodestrasse 1-3, 10178 Berlin', '49 30 266 424242','4.3 de 5')");
+
+
+        //berlin(playas)
+        //dato 1: direccion dato2: telefono dato3: rating
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('belrin', 'lugar_interes', 'playas', 'Strandbad Wannsee ', 'Wannseebadweg 25, 14129 Berlin', '49 30 787325','4.4 de 5')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('belrin', 'lugar_interes', 'playas', 'Ku damm Beach', 'Koenigsallee 5B, 14193 Berlin', '49 30 8928597','3.5 de 5')");
+
+        //berlin(tour por la ciudad)
+        //dato 1: direccion dato2: telefono dato3: rating
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('berlin', 'lugar_interes', 'tour_ciudad', 'New Berlin Tours', 'Pariser Platz 4A, 10117 Berlin', '49 30 51050030','3.9 de 5')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('berlin', 'lugar_interes', 'tour_ciudad', 'BCT Berlin City Tour', 'Bessemerstrasse 84, 12103 Berlin', '49 30 68302641','4.1 de 5')");
+
+
+         //roma(lugares historicos)
+         //dato 1: direccion dato2: telefono dato3: rating
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('roma', 'lugar_interes', 'lugar_historico', 'Coliseo', 'Piazza del Colosseo, 1, 00184 Roma, Italia', '39 06 3996 7700','4.7 de 5')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('roma', 'lugar_interes', 'lugar_historico', 'Panteon de Agripa', 'Piazza della Rotonda, 00186 Roma, Italia', '39 06 6830 0230','4.7 de 5')");
+
+         //roma(museos)
+         //dato 1: direccion dato2: telefono dato3: rating
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('roma', 'lugar_interes', 'museos', 'Museos Vaticanos', 'Viale Vaticano, 00165 Roma, Italia', '39 06 6988 3332','4.5 de 5')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('roma', 'lugar_interes', 'museos', 'Museo Nacional Etrusco', 'Piazzale di Villa Giulia, 9, 00197 Roma RM, Italia', '39 06 320 1706','4.4 de 5')");
+
+
+        //roma(tour por la ciudad)
+        //dato 1: direccion dato2: telefono dato3: rating
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('roma', 'lugar_interes', 'tour_ciudad', 'New Rome Free Tour', 'Piazza di Spagna, 26, 00187 Roma', '39 06 6227 0995','4.2 de 5')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('roma', 'lugar_interes', 'tour_ciudad', 'Rome Segway Tours', 'Via di Santa Eufemia 15, 00187 Roma', '39 055 239 8855','4.9 de 5')");
+
+
+         //venecia(lugares historicos)
+         //dato 1: direccion dato2: telefono dato3: rating
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('venecia', 'lugar_interes', 'lugar_historico', 'San Giorgio Maggiore', 'Isola San Giorgio Maggiore, 30124 Venecia', '39 041 522 7827','4.3 de 5')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('venecia', 'lugar_interes', 'lugar_historico', 'Campanile di San Marco', 'San Marco 328, 31024 Venecia', '39 041 522 5205','3.9 de 5')");
+
+         //venecia(museos)
+         //dato 1: direccion dato2: telefono dato3: rating
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('venecia', 'lugar_interes', 'museos', 'Palacio Ducal', 'San Marco, 1, 30124 Venecia', '39 041 271 5911','4.7 de 5')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('venecia', 'lugar_interes', 'museos', 'Gallerie dell Accademia', 'Campo della Carita, 30130 Venecia', '39 041 520 0345','4.4 de 5')");
+
+         //venecia(playas)
+         //dato 1: direccion dato2: telefono dato3: rating
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('venecia', 'lugar_interes', 'playas', 'Lido di Venezia', 'Lido di Venezia, 30100', '39 041 367 8268','4.2 de 5')");
+
+        //venecia(tour por la ciudad)
+        //dato 1: direccion dato2: telefono dato3: rating
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('venecia', 'lugar_interes', 'tour_ciudad', 'SeeVenice', 'Giudecca, 30133 Venecia', '39 349 084 8303','4.4 de 5')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('venecia', 'lugar_interes', 'tour_ciudad', 'Venice Photo Walk', 'San Marco, 30124 Venecia', '39 041 963 7374','5 de 5')");
+
+         //londres(lugares historicos)
+         //dato 1: direccion dato2: telefono dato3: rating
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('londres', 'lugar_interes', 'lugar_historico', 'St. Paul’s Cathedral', 'St. Paul’s Churchyard, London EC4M 8AD', '44 20 7246 8350','4.3 de 5')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('londres', 'lugar_interes', 'lugar_historico', 'Big Ben', 'Westminster, London SW1A 0AA', '44 20 7219 4272','4.7 de 5')");
+
+         //londres(museos)
+         //dato 1: direccion dato2: telefono dato3: rating
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('londres', 'lugar_interes', 'museos', 'The National gallery', 'Trafalgar Square, London WC2N 5DN', '44 20 7747 2885','4.5 de 5')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('londres', 'lugar_interes', 'museos', 'The British Museum', 'Great Russell St, London WC1B 3DG', '44 20 7323 8299','4,6 de 5')");
+
+         //londres(tour por la ciudad)
+         //dato 1: direccion dato2: telefono dato3: rating
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('londres', 'lugar_interes', 'tour_ciudad', 'Tower of London', 'London EC3N 4AB', '44 844 482 7777','4.4 de 5')");
+
+
+
+
+
+     }
+
+    public void InsertarEntretenimiento(SQLiteDatabase db){
+
+        //madrid(bares)
+        //dato 1: direccion dato2: telefono dato3: rating
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('madrid', 'entretenimiento', 'bares', 'Pajaritos Mojados', 'Calle del Humilladero, 3, Cebada, 28005 Madrid', '34 912 21 88 89','4.2 de 5')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('madrid', 'entretenimiento', 'bares', 'Taberna Degusta', 'Francisco Silvela 83, 28028 Madrid', '34 910 25 71 53','4.3 de 5')");
+
+        //madrid(discotecas)
+        //dato 1: direccion dato2: telefono dato3: rating
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('madrid', 'entretenimiento', 'discotecas', 'Teatro Kapital', 'Calle de Atocha, 125, 28012 Madrid', '34 914 20 29 06','3.8 de 5')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('madrid', 'entretenimiento', 'discotecas', 'Joy Eslava', 'Calle del Arenal, 11, 28013 Madrid', '34 913 66 37 33','3.7 de 5')");
+
+        //madrid(clubes)
+        //dato 1: direccion dato2: telefono dato3: rating
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('madrid', 'entretenimiento', 'clubes', 'Macumba', 'Plaza Estación de Charmartin, Madrid 28036', '34 917 33 35 05','3.4 de 5')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('madrid', 'entretenimiento', 'clubes', 'Maxime', 'Ronda de toledo 1, linea 5 metro', '34 91 733 3505','3.1 de 5')");
+
+
+        //madrid(parque de diversiones)
+        //dato 1: direccion dato2: telefono dato3: rating
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('madrid', 'entretenimiento', 'parque_diversion', 'Madrid Theme Park', 'Casa de campo, s/n, 28011 madrid', '34 902 34 50 01','4.1 de 5')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('madrid', 'entretenimiento', 'parque_diversion', 'Parque Warner', 'M-301, Km 15.5, 28330 San Martin de la Vega', '34 902 02 41 00','4.2 de 5')");
+
+        //paris(bares)
+        //dato 1: direccion dato2: telefono dato3: rating
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('paris', 'entretenimiento', 'bares', 'Brewberry bar et cave à bières', '11/18 Rue du Pot de Fer, 75005 Paris, Francia', '33 1 43 36 53 92','4.4 de 5')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('paris', 'entretenimiento', 'bares', 'Sherry Butt', '20 Rue Beautreillis, 75004 Paris, Francia', '33 9 83 38 47 80','4.5 de 5')");
+
+        //paris(discotecas)
+        //dato 1: direccion dato2: telefono dato3: rating
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('paris', 'entretenimiento', 'discotecas', 'Le Balajo', '9 Rue de Lappe, 75011 Paris', '33 1 47 00 07 87','3.3 de 5')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('paris', 'entretenimiento', 'discotecas', 'Bus Palladium', '6 Rue Pierre Fontaine, 75009', '33 1 45 26 80 35','3.5 de 5')");
+
+        //paris(clubes)
+        //dato 1: direccion dato2: telefono dato3: rating
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('paris', 'entretenimiento', 'clubes', 'Batofar', '11 quai Francois-Mauriac', '33 1 56 29 10 00','4.3 de 5')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('paris', 'entretenimiento', 'clubes', 'Le Truskel', '12 Rue Feydeau, 75002 Paris','33 1 40 26 59 97','3.4 de 5')");
+
+        //paris(parque de diversiones)
+        //dato 1: direccion dato2: telefono dato3: rating
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('paris', 'entretenimiento', 'parque_diversion', 'Disneyland Paris', 'Disneyland Paris, Marne-la-Vallée, Francia', '33 825 30 05 00','4.6 de 5')");
+
+
+        //berlin(bares)
+        //dato 1: direccion dato2: telefono dato3: rating
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('berlin', 'entretenimiento', 'bares', 'Rivabar', 'Dircksenstraße 142, 10178 ', '49 30 24722688','4.2 de 5')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('berlin', 'entretenimiento', 'bares', 'Fragances', 'Potsdamer Platz 3, 76227 Berlin', '49 30 337777','4.0 de 5')");
+
+
+        //belin(discotecas)
+        //dato 1: direccion dato2: telefono dato3: rating
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('berlin', 'entretenimiento', 'discotecas', 'Berghain', 'Am Wriezener Bahnhof, 10243 Berlin', '49 30 29360210','4.1 de 5')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('berlin', 'entretenimiento', 'discotecas', 'Tresor Club', 'Köpenicker Str. 70, 10179 Berlin', '49 30 69537731','4.0 de 6')");
+
+        //berlin(clubes)
+        //dato 1: direccion dato2: telefono dato3: rating
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('berlin', 'entretenimiento', 'clubes', 'Club Maxxim', 'Joachimsthaler Str. 15, 10719 Berlin', '49 30 41766240','2.9 de 5')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('berlin', 'entretenimiento', 'clubes', 'Club der Visionäre', 'Am Flutgraben 1, 12435 Berlin', '49 30 69518942','4.2 de 5')");
+
+        //berlin (parque de diversiones)
+        //dato 1: direccion dato2: telefono dato3: rating
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('berlin', 'entretenimiento', 'parque_diversion', 'Jacks Fun World', 'Miraustraße 38, 13509 Berlin', '49 30 41900242','2.7 de 5')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('berlin', 'entretenimiento', 'parque_diversion', 'LEGOLAND Discovery Centre', 'Postdamer Straße 4, 10785 Berlin', '49 180 6 666901','2.9 de 5')");
+
+
+        //roma(bares)
+        //dato 1: direccion dato2: telefono dato3: rating
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('roma', 'entretenimiento', 'bares', 'Wine and Food Tasting Roscioli', 'Via dei Giubbonari, 21, 00186 Roma, Italia', '39 333 778 0024','5 de 5')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('roma', 'entretenimiento', 'bares', 'Cul de Sac Wine Bar', 'Piazza Pasquino 73, 00186 Roma, Italia', ' 39-06-6880-1094','4.5 de 5')");
+
+        //roma(discotecas)
+        //dato 1: direccion dato2: telefono dato3: rating
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('roma', 'entretenimiento', 'discotecas', 'Level', 'Vicolo del Fico, 3, 00186 Roma', '39 334 850 1706','4 de 5')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('roma', 'entretenimiento', 'discotecas', 'Circolo degli Artisti', 'Via Casilina Vecchia, 42, 00182 Roma', '39 06 7030 5684','4 de 5')");
+
+        //roma(clubes)
+        //dato 1: direccion dato2: telefono dato3: rating
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('roma', 'entretenimiento', 'clubes', 'Colors Club', 'Via della Scala 43, Roma', '39 333 213 9272','4 de 5')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('roma', 'entretenimiento', 'clubes', 'BeBop Jazz Club', 'Via Giuseppe Giulietti, 14, 00154 Roma', '39 06 575 5582','4.3 de 5')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('roma', 'entretenimiento', 'clubes', 'Ice Club', 'Via Madonna dei monti, 18/19, 00184 Roma, Italia', '39 069 784 5581','5 de 5')");
+
+
+        //roma(parque de diversiones)
+        //dato 1: direccion dato2: telefono dato3: rating
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('roma', 'entretenimiento', 'parque_diversion', 'Escape Rome', 'Via Carlo Botta 11, 00184 Roma, Italia', '39 32 4632 0974','5 de 5')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('roma', 'entretenimiento', 'parque_diversion', 'Excape', 'Via di Monserrato, 104, 00186 Roma, Italia', '39 06 6476 0841','5 de 5')");
+
+
+        //venecia(bares)
+        //dato 1: direccion dato2: telefono dato3: rating
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('venecia', 'entretenimiento', 'bares', 'All Arco', 'Sestiere San Polo, 436, 30125 Venecia', '39 041 520 566','4.8 de 5')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('venecia', 'entretenimiento', 'bares', 'Osteria Antico Dolo', 'Ruga Rialto, 778, 30175 Venecia', '39 041 522 6546','3.9 de 5')");
+
+        //venecia(discotecas)
+        //dato 1: direccion dato2: telefono dato3: rating
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('venecia', 'entretenimiento', 'discotecas', 'Piccolo Mondo Music Dance', 'Dorsoduro, 1056/a, 30100 Venecia', '39 041 520 0371','3.8 de 5')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('venecia', 'entretenimiento', 'discotecas', 'Sound Garden', 'Via Aleardi 18A, Venecia', '39 0421 971 902','3.5 de 5')");
+
+        //venecia(clubes)
+        //dato 1: direccion dato2: telefono dato3: rating
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('venecia', 'entretenimiento', 'clubes', 'Bacaro Jazz', 'S. Marco, 5546, 30124 Venecia', '39 041 528 5249','3.3 de 5')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('venecia', 'entretenimiento', 'clubes', 'Paradiso Perdutto', 'Fondamenta della Misericordia, 2540, 30121', '39 041 720581','4.3 de 5')");
+
+        //venecia(parque de diversiones)
+        //dato 1: direccion dato2: telefono dato3: rating
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('venecia', 'entretenimiento', 'parque_diversion', 'Shark Bay', 'Via Michelangelo Buonarroti, 30016 Venecia', '39 042 137 1648','3.8 de 5')");
+
+
+
+        //londres(bares)
+        //dato 1: direccion dato2: telefono dato3: rating
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('londres', 'entretenimiento', 'bares', 'Artesian', 'The Langham, London W1B 1JA', '44 20 7636 1000','4.4 de 5')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('londres', 'entretenimiento', 'bares', 'Gordon’s Wine Bar', '47 Villiers St, London WC2N 6NE', '44 20 7930 11408','4.4 de 5')");
+
+        //londres(discotecas)
+        //dato 1: direccion dato2: telefono dato3: rating
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('londres', 'entretenimiento', 'discotecas', 'The Old School Yard', '109-111 Long Ln, London SE1 4PH', '44 20 7357 6281','4.3 de 5')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('londres', 'entretenimiento', 'discotecas', 'Eagle London', '349 Kennington Ln, London SE11 5QY', '44 20 7793 0903','4.3 de 5')");
+
+        //londres(clubes)
+        //dato 1: direccion dato2: telefono dato3: rating
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('londres', 'entretenimiento', 'clubes', 'City of London Club', '19 Old Broad St, Greater London EC2N 1DS', '44 20 7588 7991','3.9 de 5')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('londres', 'entretenimiento', 'clubes', 'Carlton Club', '68 St James s St, London SW1A 1PJ', '44 20 7493 1164','3.8 de 5')");
+
+        //londres(parque de diversiones)
+        //dato 1: direccion dato2: telefono dato3: rating
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('londres', 'entretenimiento', 'parque_diversion', 'Chessington World of Adventures', 'Leatherhead Rd, Chessinton, Surrey KT9  2NE', '44 871 663 4477','4.1 de 5')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('londres', 'entretenimiento', 'parque_diversion', 'Winter Wonderland', 'Hyde Park, London W2 2ET', '44 20 8241 9818','3.9 de 5')");
+
+
+
+    }
 }

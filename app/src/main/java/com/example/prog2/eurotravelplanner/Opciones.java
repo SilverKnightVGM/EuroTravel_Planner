@@ -43,16 +43,16 @@ public class Opciones extends ActionBarActivity {
 
 
         categorias = (ListView) findViewById(R.id.listView_opciones);
-        tips = (Button) findViewById(R.id.buttonTips);
-        tips.setOnClickListener(new View.OnClickListener() {
+        //tips = (Button) findViewById(R.id.buttonTips);
+        //tips.setOnClickListener(new View.OnClickListener() {
 
-            @Override
+            /*@Override
             public void onClick(View v) {
                 cl = helper.getTips();
                 Opciones.this.showDialog(ALERT_DIALOG);//Llama al metodo que crea el AlertDialog para los Tips
 
             }
-        });
+        });*/
         inserto_banner();
         populateListCategoria();
         populateListView();
@@ -138,29 +138,42 @@ public class Opciones extends ActionBarActivity {
 
     }
 
+    public void onButtonClick(View v){
+        if (v.getId() == R.id.buttonTips){
+            cl = helper.getTips();
+            Opciones.this.showDialog(ALERT_DIALOG);//Llama al metodo que crea el AlertDialog para los Tips
+            cl = null;
+        }
+
+    }
+
     @Override
     protected Dialog onCreateDialog(int id) {
         Dialog dialog=null;
         AlertDialog.Builder builder = new AlertDialog.Builder(this);// Constructor para el AlertDialog de los Tips
-        String text= null;
+        String textDialog= null;
 
         switch (id){
             case ALERT_DIALOG:
 
                 if (cl.moveToFirst())  {
-                    text = cl.getString(0);
+                    textDialog = cl.getString(0);
                 }
-                if (text != null && !text.toString().isEmpty()) {
-                builder.setMessage(text).setPositiveButton("Ok", new DialogInterface.OnClickListener() { //Se establece el mensage y el label del boton para el AlertDialog
+                if (textDialog != null && !textDialog.toString().isEmpty()) {
+                    builder.setMessage(textDialog).setPositiveButton("Ok", new DialogInterface.OnClickListener() { //Se establece el mensage y el label del boton para el AlertDialog
 
                     public void onClick(DialogInterface dialog, int id) {
 
                 }
 
-            })
+            }
+
+                    )
                         .setCancelable(false);
             dialog=builder.create(); //Ejecuta el constructor del AlertDialog de los tips para crearlo
-                break;}
+                break;
+                }
+
             default:
 
         }

@@ -1,7 +1,6 @@
 package com.example.prog2.eurotravelplanner;
 
 import android.app.AlertDialog;
-import android.app.SearchManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -17,7 +16,6 @@ import android.widget.BaseAdapter;
 import android.widget.ExpandableListView;
 import android.widget.Gallery;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -542,28 +540,28 @@ public class gallery extends ActionBarActivity {
             if (categoria.equals(getString(R.string.text_entretenimiento))){
 
                 if(subdivicion.equals("Bares")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'bares'";
                     Integer[] p_camp = {R.drawable.bares_paris_brewberry_bar_et_cave_a_bieres,R.drawable.bares_paris_sherry_butt};
 
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
 
                 }
                 if(subdivicion.equals("Discotecas")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'discotecas'";
                     Integer[] p_camp = {R.drawable.discoteca_paris_le_balajo,R.drawable.discoteca_paris_bus_palladium};
 
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
 
                 }
                 if(subdivicion.equals("Clubes")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'clubes'";
                     Integer[] p_camp = {R.drawable.clubes_paris_batofar,R.drawable.clubes_paris_le_truskel};
 
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
 
                 }
                 if(subdivicion.equals("Parques de Diversión")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'parque_diversion'";
                     Integer[] p_camp = {R.drawable.parques_paris_disneyland_paris};
 
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
@@ -576,14 +574,14 @@ public class gallery extends ActionBarActivity {
             if (categoria.equals(getString(R.string.text_lugarInteres))){
 
                 if(subdivicion.equals("Lugares Historicos")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'lugar_historico'";
                     Integer[] p_camp = {R.drawable.lugar_historico_paris_torre_eiffel,R.drawable.lugar_historico_paris_catedral_de_notre_dame,R.drawable.lugar_historico_paris_arco_de_triunfo_de_paris};
 
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
 
                 }
                 if(subdivicion.equals("Museos")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'museos'";
                     Integer[] p_camp = {R.drawable.museos_paris_museo_del_louvre,R.drawable.museos_paris_muse_d_orsay};
 
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
@@ -593,7 +591,7 @@ public class gallery extends ActionBarActivity {
 
                 }
                 if(subdivicion.equals("Tour por la ciudad")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'tour_ciudad'";
                     Integer[] p_camp = {R.drawable.tour_paris_l_open_tour,R.drawable.tour_paris_foxity};
 
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
@@ -698,28 +696,28 @@ public class gallery extends ActionBarActivity {
             if (categoria.equals(getString(R.string.text_entretenimiento))){
 
                 if(subdivicion.equals("Bares")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'bares'";
                     Integer[] p_bar = {R.drawable.bares_madrid_pajaritos_mojados,R.drawable.bares_madrid_taberna_degusta};
 
                     gallery.setAdapter(new ImageAdapter(this,p_bar));
 
                 }
                 if(subdivicion.equals("Discotecas")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'discotecas'";
                     Integer[] p_disco = {R.drawable.discoteca_madrid_teatro_kapital,R.drawable.discoteca_madrid_joy_eslava};
 
                     gallery.setAdapter(new ImageAdapter(this,p_disco));
 
                 }
                 if(subdivicion.equals("Clubes")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'clubes'";
                     Integer[] p_club = {R.drawable.clubes_madrid_macumba,R.drawable.clubes_madrid_maxime};
 
                     gallery.setAdapter(new ImageAdapter(this,p_club));
 
                 }
                 if(subdivicion.equals("Parques de Diversión")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'parque_diversion'";
                     Integer[] p_parques = {R.drawable.parques_madrid_madrid_theme_park,R.drawable.parques_madrid_parque_warner};
 
                     gallery.setAdapter(new ImageAdapter(this,p_parques));
@@ -732,14 +730,14 @@ public class gallery extends ActionBarActivity {
             if (categoria.equals(getString(R.string.text_lugarInteres))){
 
                 if(subdivicion.equals("Lugares Historicos")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'lugar_historico'";
                     Integer[] p_historia = {R.drawable.lugar_historicos_madrid_real_basilica_de_san_francisco_el_grande,R.drawable.lugar_historicos_madrid_templo_de_debod};
 
                     gallery.setAdapter(new ImageAdapter(this,p_historia));
 
                 }
                 if(subdivicion.equals("Museos")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'museos'";
                     Integer[] p_museos = {R.drawable.museos_madrid_museo_del_prado,R.drawable.museos_madrid_museo_centro_de_arte_reina_sofia};
 
                     gallery.setAdapter(new ImageAdapter(this,p_museos));
@@ -749,7 +747,7 @@ public class gallery extends ActionBarActivity {
 
                 }
                 if(subdivicion.equals("Tour por la ciudad")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'tour_ciudad'";
                     Integer[] p_tour = {R.drawable.tour_madrid_madrid_city_tour};
 
                     gallery.setAdapter(new ImageAdapter(this,p_tour));
@@ -870,28 +868,28 @@ public class gallery extends ActionBarActivity {
             if (categoria.equals(getString(R.string.text_entretenimiento))){
 
                 if(subdivicion.equals("Bares")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'bares'";
                     Integer[] p_camp = {R.drawable.bares_roma_wine_and_food_tasting_roscioli,R.drawable.bares_roma_cul_de_sac_wine_bar};
 
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
 
                 }
                 if(subdivicion.equals("Discotecas")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'discotecas'";
                     Integer[] p_camp = {R.drawable.discoteca_roma_level,R.drawable.discoteca_roma_circolo_degli_artisti};
 
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
 
                 }
                 if(subdivicion.equals("Clubes")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'clubes'";
                     Integer[] p_camp = {R.drawable.clubes_roma_ice_club,R.drawable.clubes_roma_colors_club,R.drawable.clubes_roma_bebop_jazz_club};
 
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
 
                 }
                 if(subdivicion.equals("Parques de Diversión")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'parque_diversion'";
                     Integer[] p_camp = {R.drawable.parque_roma_escape_rome,R.drawable.parque_roma_excape};
 
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
@@ -904,14 +902,14 @@ public class gallery extends ActionBarActivity {
             if (categoria.equals(getString(R.string.text_lugarInteres))){
 
                 if(subdivicion.equals("Lugares Historicos")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'lugar_historico'";
                     Integer[] p_camp = {R.drawable.lugar_historico_roma_coliseo,R.drawable.lugar_historico_roma_panteon_de_agripa};
 
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
 
                 }
                 if(subdivicion.equals("Museos")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'museos'";
                     Integer[] p_camp = {R.drawable.museos_roma_museos_vaticanos,R.drawable.museos_roma_museo_nacional_etrusco};
 
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
@@ -921,7 +919,7 @@ public class gallery extends ActionBarActivity {
 
                 }
                 if(subdivicion.equals("Tour por la ciudad")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'tour_ciudad'";
                     Integer[] p_camp = {R.drawable.tour_roma_new_rome_free_tour,R.drawable.tour_roma_rome_segway_tours};
 
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
@@ -1040,28 +1038,28 @@ public class gallery extends ActionBarActivity {
             if (categoria.equals(getString(R.string.text_entretenimiento))){
 
                 if(subdivicion.equals("Bares")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'bares'";
                     Integer[] p_camp = {R.drawable.bares_venecia_all_arco,R.drawable.bares_venecia_osteria_antico_dolo};
 
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
 
                 }
                 if(subdivicion.equals("Discotecas")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'discotecas'";
                     Integer[] p_camp = {R.drawable.discotecas_venecia_piccolo_mondo_music_dance,R.drawable.discotecas_venecia_sound_garden};
 
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
 
                 }
                 if(subdivicion.equals("Clubes")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'clubes'";
                     Integer[] p_camp = {R.drawable.club_venecia_bacaro_jazz,R.drawable.club_venecia_paradiso_perdutto};
 
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
 
                 }
                 if(subdivicion.equals("Parques de Diversión")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'parque_diversion'";
                     Integer[] p_camp = {R.drawable.parque_venecia_shark_bay};
 
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
@@ -1075,28 +1073,28 @@ public class gallery extends ActionBarActivity {
             if (categoria.equals(getString(R.string.text_lugarInteres))){
 
                 if(subdivicion.equals("Lugares Historicos")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'lugar_historico'";
                     Integer[] p_camp = {R.drawable.lugar_historico_venecia_campanile_di_san_marco,R.drawable.lugar_historico_venecia_san_giorgio_maggiore};
 
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
 
                 }
                 if(subdivicion.equals("Museos")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'museos'";
                     Integer[] p_camp = {R.drawable.museos_venecia_gallerie_dell_accademia,R.drawable.museos_venecia_palacio_ducal};
 
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
 
                 }
                 if(subdivicion.equals("Playas")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'playas'";
                     Integer[] p_camp = {R.drawable.playas_venecia_lido_di_venezia};
 
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
 
                 }
                 if(subdivicion.equals("Tour por la ciudad")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'tour_ciudad'";
                     Integer[] p_camp = {R.drawable.tour_venecia_seevenice,R.drawable.tour_venecia_venice_photo_walk};
 
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
@@ -1201,23 +1199,25 @@ public class gallery extends ActionBarActivity {
             if (categoria.equals(getString(R.string.text_entretenimiento))){
 
                 if(subdivicion.equals("Bares")){
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'bares'";
                     Integer[] p_camp = {R.drawable.rrivabar_v,R.drawable.ffraganches_v};
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
                 }
                 if(subdivicion.equals("Discotecas")){
 
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'discotecas'";
                     Integer[] p_camp = {R.drawable.bberghain_v,R.drawable.tresorclub_vv};
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
 
                 }
                 if(subdivicion.equals("Clubes")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'clubes'";
                     Integer[] p_camp = {R.drawable.clubmaxxim_v,R.drawable.clubdervisionare_vv};
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
 
                 }
                 if(subdivicion.equals("Parques de Diversión")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'parque_diversion'";
                     Integer[] p_camp = {R.drawable.jacksfunworld,R.drawable.legolandberlin_v};
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
 
@@ -1230,24 +1230,24 @@ public class gallery extends ActionBarActivity {
             if (categoria.equals(getString(R.string.text_lugarInteres))){
 
                 if(subdivicion.equals("Lugares Historicos")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'lugar_historico'";
                     Integer[] p_camp = {R.drawable.bundestag_v,R.drawable.murodeberlin_v};
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
                 }
                 if(subdivicion.equals("Museos")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'museos'";
                     Integer[] p_camp = {R.drawable.pergamon_v,R.drawable.neues_museum_dpa_v};
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
 
                 }
                 if(subdivicion.equals("Playas")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'playas'";
                     Integer[] p_camp = {R.drawable.strandbadwannsee_v,R.drawable.kuddambeach_v};
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
 
                 }
                 if(subdivicion.equals("Tour por la ciudad")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'tour_ciudad'";
                     Integer[] p_camp = {R.drawable.newberlintours_v,R.drawable.bctberlincitytour_v};
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
 
@@ -1344,7 +1344,7 @@ public class gallery extends ActionBarActivity {
             if (categoria.equals(getString(R.string.text_entretenimiento))){
 
                 if(subdivicion.equals("Bares")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'bares'";
                     Integer[] p_bar = {R.drawable.bares_londres_artesian,R.drawable.bares_londres_gordons_wine_bar};
 
                     gallery.setAdapter(new ImageAdapter(this,p_bar));
@@ -1352,21 +1352,21 @@ public class gallery extends ActionBarActivity {
 
                 }
                 if(subdivicion.equals("Discotecas")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'discotecas'";
                     Integer[] p_disco = {R.drawable.discoteca_londres_the_old_school_yard,R.drawable.discoteca_londres_eagle_london};
 
                     gallery.setAdapter(new ImageAdapter(this,p_disco));
 
                 }
                 if(subdivicion.equals("Clubes")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'clubes'";
                     Integer[] p_club = {R.drawable.club_londres_city_of_london_club,R.drawable.club_londres_carlton_club};
 
                     gallery.setAdapter(new ImageAdapter(this,p_club));
 
                 }
                 if(subdivicion.equals("Parques de Diversión")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'parque_diversion'";
                     Integer[] p_parque = {R.drawable.parque_londres_chessington_world_of_adventures,R.drawable.parque_londres_winter_wonderland};
 
                     gallery.setAdapter(new ImageAdapter(this,p_parque));
@@ -1379,14 +1379,14 @@ public class gallery extends ActionBarActivity {
             if (categoria.equals(getString(R.string.text_lugarInteres))){
 
                 if(subdivicion.equals("Lugares Historicos")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'lugar_historico'";
                     Integer[] p_historia = {R.drawable.lugar_historico_londres_st_paul_cathedral,R.drawable.lugar_historico_londres_big_ben};
 
                     gallery.setAdapter(new ImageAdapter(this,p_historia));
 
                 }
                 if(subdivicion.equals("Museos")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'museos'";
                     Integer[] p_parque = {R.drawable.museos_londres_the_national_gallery,R.drawable.museos_londres_the_british_museum};
 
                     gallery.setAdapter(new ImageAdapter(this,p_parque));
@@ -1396,7 +1396,7 @@ public class gallery extends ActionBarActivity {
 
                 }
                 if(subdivicion.equals("Tour por la ciudad")){
-
+                    helper.where3 += " AND "+helper.CN_sub_cat+" = 'tour_ciudad'";
                     Integer[] p_tour = {R.drawable.tour_londres_tower_of_london};
 
                     gallery.setAdapter(new ImageAdapter(this,p_tour));

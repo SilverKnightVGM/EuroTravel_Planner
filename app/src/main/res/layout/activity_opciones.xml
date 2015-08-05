@@ -43,7 +43,8 @@
             android:layout_alignParentEnd="true"
             android:layout_weight="80"
             android:gravity="fill"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:onClick="onButtonClick" />
     </LinearLayout>
 
     <ListView
