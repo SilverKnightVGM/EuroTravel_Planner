@@ -17,16 +17,23 @@ public class LugaresAdapter extends BaseExpandableListAdapter{
 
     private Context ctx;
     private String subdivision;
-    String categoria;
+    private String categoria;
     private HashMap<String, List<String>> lista_lugares;
     private List<String> lugares_detalles;
+    private String gastronomia;
+    private String lugares_interes;
+    private String comida_tipicas;
 
-    public LugaresAdapter(Context ctx, HashMap<String, List<String>> lista_lugares, List<String> lugares_detalles, String categoria, String subdivision ){
+    public LugaresAdapter(Context ctx, HashMap<String, List<String>> lista_lugares, List<String> lugares_detalles,
+                          String categoria, String subdivision, String gastronomia, String lugares_interes, String comida_tipicas ){
         this.ctx=ctx;
         this.lista_lugares = lista_lugares;
         this.lugares_detalles = lugares_detalles;
         this.categoria=categoria;
         this.subdivision = subdivision;
+        this.gastronomia = gastronomia;
+        this.lugares_interes = lugares_interes;
+        this.comida_tipicas=comida_tipicas;
     }
 
 
@@ -81,6 +88,8 @@ public class LugaresAdapter extends BaseExpandableListAdapter{
     @Override
     public View getChildView(int parent, int child, boolean lastChild,
                              View convertView, ViewGroup parentview) {
+
+
         String child_title = (String) getChild(parent, child);
 
         if (convertView == null) {
@@ -96,10 +105,10 @@ public class LugaresAdapter extends BaseExpandableListAdapter{
             if(subdivision.equals("Renta de Autos")) {
                 switch (child) {
                     case 0:
-                        textViewTitulo.setText("Ubicaicon");
+                        textViewTitulo.setText("Ubicaci贸n");
                         break;
                     case 1:
-                        textViewTitulo.setText("Descripcion");
+                        textViewTitulo.setText("Descripci贸n");
                         break;
                     case 2:
                         textViewTitulo.setText("Link");
@@ -108,52 +117,52 @@ public class LugaresAdapter extends BaseExpandableListAdapter{
             }else if(subdivision.equals("Taxi")){
                 switch (child) {
                     case 0:
-                        textViewTitulo.setText("Descripcion");
+                        textViewTitulo.setText("Descripci贸n");
                         break;
                     case 1:
-                        textViewTitulo.setText("Telefono");
+                        textViewTitulo.setText("Tel茅fono");
                         break;
 
                 }
             }else{
                 switch (child) {
                     case 0:
-                        textViewTitulo.setText("Descripcion");
+                        textViewTitulo.setText("Descripci贸n");
                         break;
                 }
             }
-        }
-        //
-        if (categoria.equals("Gastronom韆")) {
-            if(subdivision.equals("Comida T韕icas")) {
+        }else if (categoria.equals(gastronomia)) {
+
+
+
+            if(subdivision.equals(comida_tipicas)) {
                 switch (child) {
                     case 0:
-                        textViewTitulo.setText("Descripcion");
+                        textViewTitulo.setText("Descripci贸n");
                         break;
 
                 }
             }else{
                 switch (child) {
                     case 0:
-                        textViewTitulo.setText("Direccion");
+                        textViewTitulo.setText("Direcci贸n");
                         break;
                     case 1:
-                        textViewTitulo.setText("Telefono");
+                        textViewTitulo.setText("Tel茅fono");
                         break;
                     case 2:
                         textViewTitulo.setText("Horario");
                         break;
                 }
             }
-         }
-        if(categoria.equals("Hospedaje")){
+         }else{
 
             switch (child) {
                 case 0:
-                    textViewTitulo.setText("Direccion");
+                    textViewTitulo.setText("Direcci贸n");
                     break;
                 case 1:
-                    textViewTitulo.setText("Telefono");
+                    textViewTitulo.setText("Tel茅fono");
                     break;
                 case 2:
                     textViewTitulo.setText("Rating");
@@ -163,57 +172,7 @@ public class LugaresAdapter extends BaseExpandableListAdapter{
             }
 
         }
-        if(categoria.equals("Entretenimiento")){
 
-            switch (child) {
-                case 0:
-                    textViewTitulo.setText("Direccion");
-                    break;
-                case 1:
-                    textViewTitulo.setText("Telefono");
-                    break;
-                case 2:
-                    textViewTitulo.setText("Rating");
-                    break;
-
-
-            }
-
-        }
-        if(categoria.equals("Lugares de inter閟")){
-
-            switch (child) {
-                case 0:
-                    textViewTitulo.setText("Direccion");
-                    break;
-                case 1:
-                    textViewTitulo.setText("Telefono");
-                    break;
-                case 2:
-                    textViewTitulo.setText("Rating");
-                    break;
-
-
-            }
-
-        }
-        if(categoria.equals("Compras")){
-
-            switch (child) {
-                case 0:
-                    textViewTitulo.setText("Direccion");
-                    break;
-                case 1:
-                    textViewTitulo.setText("Telefono");
-                    break;
-                case 2:
-                    textViewTitulo.setText("Rating");
-                    break;
-
-
-            }
-
-        }
 
 
         return convertView;

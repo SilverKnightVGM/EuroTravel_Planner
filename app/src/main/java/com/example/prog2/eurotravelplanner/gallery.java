@@ -31,7 +31,9 @@ public class gallery extends ActionBarActivity {
     LugaresAdapter adapter; //Adapter para el list view desplegable
     DbHelper helper = new DbHelper(this);
     private AlertDialog.Builder dialogBuilder;
-
+    String gastronomia;
+    String lugares_interes;
+    String comida_tipicas;
 
     // este Integer{} son las imagenes que inserto en la galeria, estas dos imagenes son de prueba
 
@@ -81,7 +83,7 @@ public class gallery extends ActionBarActivity {
         lista_lugares = getInfo();//Obtiene el HashMap creado en la clase DataProvider
         //lista_lugares = DataProvider.getInfo(ciudad, categoria, subdivicion);//Obtiene el HashMap creado en la clase DataProvider
         lugares_detalles = new ArrayList<String>(lista_lugares.keySet());//Inicia la lista de descripciones a partir de lo que contiene el HashMap
-        adapter = new LugaresAdapter(this, lista_lugares, lugares_detalles, categoria, subdivicion);
+        adapter = new LugaresAdapter(this, lista_lugares, lugares_detalles, categoria, subdivicion, gastronomia, lugares_interes, comida_tipicas);
         exp_list.setAdapter(adapter);
 
         exp_list.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
@@ -166,7 +168,7 @@ public class gallery extends ActionBarActivity {
             }
         });
 
-        dialogBuilder.setNegativeButton("Calcelar", new DialogInterface.OnClickListener() {
+        dialogBuilder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
@@ -193,7 +195,7 @@ public class gallery extends ActionBarActivity {
             }
         });
 
-        dialogBuilder.setNegativeButton("Calcelar", new DialogInterface.OnClickListener() {
+        dialogBuilder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
@@ -219,7 +221,7 @@ public class gallery extends ActionBarActivity {
             }
         });
 
-        dialogBuilder.setNegativeButton("Calcelar", new DialogInterface.OnClickListener() {
+        dialogBuilder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
@@ -440,6 +442,9 @@ public class gallery extends ActionBarActivity {
 //-----------------------------------------------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------------------------------------------
         if(ciudad.equals("paris")){
+           gastronomia=getString(R.string.text_gastronomia);
+            lugares_interes=getString(R.string.text_lugarInteres);
+            comida_tipicas = getString(R.string.text_comida_tipicas);
             helper.where3 = helper.ID_ciudad3 +" = 'paris'";
             if (categoria.equals(getString(R.string.text_transporte))){
 
