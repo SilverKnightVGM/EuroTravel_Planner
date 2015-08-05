@@ -543,14 +543,30 @@ public class gallery extends ActionBarActivity {
 
                 if(subdivicion.equals("Bares")){
 
+                    Integer[] p_camp = {R.drawable.bares_paris_brewberry_bar_et_cave_a_bieres,R.drawable.bares_paris_sherry_butt};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_camp));
+
                 }
                 if(subdivicion.equals("Discotecas")){
+
+                    Integer[] p_camp = {R.drawable.discoteca_paris_le_balajo,R.drawable.discoteca_paris_bus_palladium};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_camp));
 
                 }
                 if(subdivicion.equals("Clubes")){
 
+                    Integer[] p_camp = {R.drawable.clubes_paris_batofar,R.drawable.clubes_paris_le_truskel};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_camp));
+
                 }
                 if(subdivicion.equals("Parques de Diversión")){
+
+                    Integer[] p_camp = {R.drawable.parques_paris_disneyland_paris};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_camp));
 
                 }
 
@@ -561,8 +577,16 @@ public class gallery extends ActionBarActivity {
 
                 if(subdivicion.equals("Lugares Historicos")){
 
+                    Integer[] p_camp = {R.drawable.lugar_historico_paris_torre_eiffel,R.drawable.lugar_historico_paris_catedral_de_notre_dame,R.drawable.lugar_historico_paris_arco_de_triunfo_de_paris};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_camp));
+
                 }
                 if(subdivicion.equals("Museos")){
+
+                    Integer[] p_camp = {R.drawable.museos_paris_museo_del_louvre,R.drawable.museos_paris_muse_d_orsay};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_camp));
 
                 }
                 if(subdivicion.equals("Playas")){
@@ -570,10 +594,18 @@ public class gallery extends ActionBarActivity {
                 }
                 if(subdivicion.equals("Tour por la ciudad")){
 
+                    Integer[] p_camp = {R.drawable.tour_paris_l_open_tour,R.drawable.tour_paris_foxity};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_camp));
+
                 }
             }
 
             if (categoria.equals(getString(R.string.text_compras))){
+
+                Integer[] p_camp = {R.drawable.compras_paris_la_galerie_du_carrousel_du_louvre,R.drawable.compras_paris_passy_plaza,R.drawable.compras_paris_hermes,R.drawable.compras_paris_chanel_cambon};
+
+                gallery.setAdapter(new ImageAdapter(this,p_camp));
 
             }
 
@@ -839,14 +871,30 @@ public class gallery extends ActionBarActivity {
 
                 if(subdivicion.equals("Bares")){
 
+                    Integer[] p_camp = {R.drawable.bares_roma_wine_and_food_tasting_roscioli,R.drawable.bares_roma_cul_de_sac_wine_bar};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_camp));
+
                 }
                 if(subdivicion.equals("Discotecas")){
+
+                    Integer[] p_camp = {R.drawable.discoteca_roma_level,R.drawable.discoteca_roma_circolo_degli_artisti};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_camp));
 
                 }
                 if(subdivicion.equals("Clubes")){
 
+                    Integer[] p_camp = {R.drawable.clubes_roma_ice_club,R.drawable.clubes_roma_colors_club,R.drawable.clubes_roma_bebop_jazz_club};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_camp));
+
                 }
                 if(subdivicion.equals("Parques de Diversión")){
+
+                    Integer[] p_camp = {R.drawable.parque_roma_escape_rome,R.drawable.parque_roma_excape};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_camp));
 
                 }
 
@@ -857,8 +905,16 @@ public class gallery extends ActionBarActivity {
 
                 if(subdivicion.equals("Lugares Historicos")){
 
+                    Integer[] p_camp = {R.drawable.lugar_historico_roma_coliseo,R.drawable.lugar_historico_roma_panteon_de_agripa};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_camp));
+
                 }
                 if(subdivicion.equals("Museos")){
+
+                    Integer[] p_camp = {R.drawable.museos_roma_museos_vaticanos,R.drawable.museos_roma_museo_nacional_etrusco};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_camp));
 
                 }
                 if(subdivicion.equals("Playas")){
@@ -866,10 +922,18 @@ public class gallery extends ActionBarActivity {
                 }
                 if(subdivicion.equals("Tour por la ciudad")){
 
+                    Integer[] p_camp = {R.drawable.tour_roma_new_rome_free_tour,R.drawable.tour_roma_rome_segway_tours};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_camp));
+
                 }
             }
 
             if (categoria.equals(getString(R.string.text_compras))){
+
+                Integer[] p_camp = {R.drawable.compras_roma_stone_island_roma,R.drawable.compras_roma_subdued};
+
+                gallery.setAdapter(new ImageAdapter(this,p_camp));
 
             }
 

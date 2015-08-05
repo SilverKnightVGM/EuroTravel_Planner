@@ -151,7 +151,7 @@ public class subdiviciones_opciones extends ActionBarActivity {
 
         if (tipo_categoria.equals(getString(R.string.text_lugarInteres))){
 
-            if(id_cuidad.equals("madrid") || id_cuidad.equals("roma") || id_cuidad.equals("londres")){
+            if(id_cuidad.equals("madrid") || id_cuidad.equals("roma") || id_cuidad.equals("londres") || id_cuidad.equals("paris")){
 
                 CustomList adapter = new CustomList(subdiviciones_opciones.this, Texto_SubLugaresInteresNoplayas, Images_SubLugaresInteresNoplayas);
 
