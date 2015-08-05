@@ -1393,15 +1393,24 @@ public class gallery extends ActionBarActivity {
 
                 if(subdivicion.equals("Restaurantes")){
                     helper.where3+=" AND "+helper.CN_sub_cat+"='restaurantes'";
+                    Integer[] p_camp = {R.drawable.restaurant_londres_canvas_v,R.drawable.restaurant_londres_theledbury_v,R.drawable.restaurant_londres_gordonramsay_v,R.drawable.restaurant_londres_thefivefields_v,R.drawable.restaurant_londres_legavroche_v };
+                    gallery.setAdapter(new ImageAdapter(this,p_camp));
                 }
                 if(subdivicion.equals("Pasteleria y Panaderia")){
                     helper.where3+=" AND "+helper.CN_sub_cat+"='pasteleria'";
+                    Integer[] p_camp = {R.drawable.pasteleria_londres_benscookies_v,R.drawable.pasteleria_londres_BrickLaneBeigelBakery_v,R.drawable.pasteleria_londres_palmcourt_v,R.drawable.pasteleria_londres_exmouthcoffee_v,R.drawable.pasteleria_londres_juiceandpublic_v};
+                    gallery.setAdapter(new ImageAdapter(this,p_camp));
+
                 }
                 if(subdivicion.equals("Comida Rapida")){
                     helper.where3+=" AND "+helper.CN_sub_cat+"='comida_rapida'";
+                    Integer[] p_camp = {R.drawable.comidarapida_londres_caffecrema_v,R.drawable.comidarapida_londres_monmouth_v,R.drawable.comidarapida_londres_littlefrankie_v,R.drawable.comidarapida_londres_apostrophe_v,R.drawable.comidarapida_londres_theclarence_v };
+                    gallery.setAdapter(new ImageAdapter(this,p_camp));
                 }
                 if(subdivicion.equals("Comida Típicas")){
                     helper.where3+=" AND "+helper.CN_sub_cat+"='comida_tipica'";
+                    Integer[] p_camp = {R.drawable.comidatipica_londres_fishandships_v,R.drawable.comidatipica_londres_wellingtonbeef_v,R.drawable.comidatipica_londres_yorkshire_v,R.drawable.comidatipica_londres_roastbeef_v,R.drawable.afternoontea_v };
+                    gallery.setAdapter(new ImageAdapter(this,p_camp));
                 }
 
             }
