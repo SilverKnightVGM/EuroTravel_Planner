@@ -11,7 +11,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DbHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME="DB_EuroTravel";
-    private static final int DB_SCHEMA_VESION= 14;
+    private static final int DB_SCHEMA_VESION= 15;
     SQLiteDatabase db;
 
     public static final String TABLE_NAME = "Datos_Generales";
@@ -65,7 +65,7 @@ public class DbHelper extends SQLiteOpenHelper {
             " "+CN_comp+" Integer)";
 
     private static final String TABLE_CREATE4="CREATE TABLE "+TABLE_NAME4+" ("+ID_info+" INTEGER PRIMARY KEY AUTOINCREMENT, "+
-            " "+ID_ciudad3+" text not null, "+CN_categoria+" text not null, "+CN_sub_cat+" text not null,"+CN_nombre+" text not null,"+
+            " "+ID_ciudad3+" text not null, "+CN_categoria+" text not null, "+CN_sub_cat+" text,"+CN_nombre+" text not null,"+
             " "+CN_dato1+" text not null, "+CN_dato2+" text, "+CN_dato3+" text)";
 
 
@@ -84,6 +84,7 @@ public class DbHelper extends SQLiteOpenHelper {
         InsertarHospedaje(db);
         InsertarLugarInteres(db);
         InsertarEntretenimiento(db);
+        InsertarCompras(db);
 
         //db.execSQL("INSERT INTO "+TABLE_NAME2+" ("+CN_tip+","+ID_ciudad2+" ,"+CN_tipo+") " +
         //        "values('Si viajas desde otro continente, muchas aerolíneas ofrecen tiquetes más baratos hacia ciudades diferentes a París. Puede ser útil arribar primero a otra ciudad y luego llegar a la capital francesa en tren.', 'paris', 'transporte')");
@@ -1146,7 +1147,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
      }
 
-    public void InsertarEntretenimiento(SQLiteDatabase db){
+     public void InsertarEntretenimiento(SQLiteDatabase db){
 
         //madrid(bares)
         //dato 1: direccion dato2: telefono dato3: rating
@@ -1372,4 +1373,71 @@ public class DbHelper extends SQLiteOpenHelper {
 
 
     }
+
+     public void  InsertarCompras(SQLiteDatabase db){
+
+        //madrid(compras)
+        //dato 1: direccion dato2: telefono dato3: rating
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('madrid', 'compras','Mercado San Miguel', 'Plaza de San Miguel, 28005 Madrid', '34 915 42 49 36','4.0 de 5')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('madrid', 'compras','Sherry Corner', 'Plaza de San Miguel, 28013 Madrid', '34 681 00 77 00','4.1 de 5')");
+
+         //paris(compras)
+        //dato 1: direccion dato2: telefono dato3: rating
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('paris', 'compras','La Galerie du Carrousel du Louvre', '99 Rue de Rivoli, 75001 Paris, Francia', '33 1 43 16 47 10','4.2 de 5')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('paris', 'compras','Passy Plaza', '3 Rue Jean Bologne, 75016 Paris, Francia', '33 1 40 50 09 07','4.2 de 5')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('paris', 'compras','Hermès', '42 Avenue George V, 75008 Paris, Francia', '33 1 47 20 48 51','4.3 de 5')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('paris', 'compras','Chanel Cambon', '31 Rue Cambon, 75001 Paris, Francia', '33 1 44 50 66 00','4.6 de 5')");
+
+         //berlin(compras)
+         //dato 1: direccion dato2: telefono dato3: rating
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('berlin', 'compras','ALEXA', 'Grunestr, 20 Berlin', '49 30 2693400','4.0 de 5')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('berlin', 'compras','Schönhauser Allee Arcaden', 'Alte Postdamer Str. 7 Berlin', '49 30 2559270','3.1 de 5')");
+
+         //roma(compras)
+         //dato 1: direccion dato2: telefono dato3: rating
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('roma', 'compras','Stone Island Roma', 'Via del Babuino, 174, 00187 Roma', '39 06 3600 0836','4.8 de 5')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('roma', 'compras','Subdued', 'Via Laurina, 37, Roma', '39 06 8916 5427','4.5 de 5')");
+
+         //venecia(compras)
+         //dato 1: direccion dato2: telefono dato3: rating
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('venecia', 'compras','Ca’ MAcana', 'Calle delle Botteghe 30123 Venecia', '39 41 277 6142','4.6 de 5')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('venecia', 'compras','Raggio Veneziano', 'San Marco 2953 Venecia', '39 041 241 2712','4.4 de 5')");
+
+
+        //londres(compras)
+        //dato 1: direccion dato2: telefono dato3: rating
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('londres', 'compras','Westfield London', '4006, Ariel Way, London W12 7GF', '44 20 3371 2300','4.4 de 5')");
+
+         db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                 "values('londres', 'compras','Whiteleys', 'Queensway, London W2 4YN', '44 20 7229 8844','3.7 de 5')");
+
+
+
+     }
 }

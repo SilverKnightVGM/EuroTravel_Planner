@@ -600,7 +600,7 @@ public class gallery extends ActionBarActivity {
             }
 
             if (categoria.equals(getString(R.string.text_compras))){
-
+                helper.where3 += " AND "+helper.CN_categoria+" = 'compras'";
                 Integer[] p_camp = {R.drawable.compras_paris_la_galerie_du_carrousel_du_louvre,R.drawable.compras_paris_passy_plaza,R.drawable.compras_paris_hermes,R.drawable.compras_paris_chanel_cambon};
 
                 gallery.setAdapter(new ImageAdapter(this,p_camp));
@@ -756,7 +756,7 @@ public class gallery extends ActionBarActivity {
             }
 
             if (categoria.equals(getString(R.string.text_compras))){
-
+                helper.where3 += " AND "+helper.CN_categoria+" = 'compras'";
                 Integer[] p_compras = {R.drawable.compras_madrid_mercado_san_miguel,R.drawable.compras_madrid_sherry_corner};
 
                 gallery.setAdapter(new ImageAdapter(this,p_compras));
@@ -928,7 +928,7 @@ public class gallery extends ActionBarActivity {
             }
 
             if (categoria.equals(getString(R.string.text_compras))){
-
+                helper.where3 += " AND "+helper.CN_categoria+" = 'compras'";
                 Integer[] p_camp = {R.drawable.compras_roma_stone_island_roma,R.drawable.compras_roma_subdued};
 
                 gallery.setAdapter(new ImageAdapter(this,p_camp));
@@ -1103,7 +1103,7 @@ public class gallery extends ActionBarActivity {
             }
 
             if (categoria.equals(getString(R.string.text_compras))){
-
+                helper.where3 += " AND "+helper.CN_categoria+" = 'compras'";
                 Integer[] p_camp = {R.drawable.compras_venecia_ca_macana,R.drawable.compras_venecia_raggio_veneziano};
 
                 gallery.setAdapter(new ImageAdapter(this,p_camp));
@@ -1255,7 +1255,7 @@ public class gallery extends ActionBarActivity {
             }
 
             if (categoria.equals(getString(R.string.text_compras))){
-
+                helper.where3 += " AND "+helper.CN_categoria+" = 'compras'";
                 Integer[] p_camp = {R.drawable.alexa_v,R.drawable.schohauseralleearcade_v};
                 gallery.setAdapter(new ImageAdapter(this,p_camp));
 
@@ -1405,7 +1405,7 @@ public class gallery extends ActionBarActivity {
             }
 
             if (categoria.equals(getString(R.string.text_compras))){
-
+                helper.where3 += " AND "+helper.CN_categoria+" = 'compras'";
                 Integer[] p_parque = {R.drawable.compras_londres_westfield_london,R.drawable.compras_londres_whiteleys};
 
                 gallery.setAdapter(new ImageAdapter(this,p_parque));
