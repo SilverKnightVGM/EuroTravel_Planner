@@ -25,6 +25,7 @@
     <string name="text_entretenimiento">Entretenimiento</string>
     <string name="text_lugarInteres">Lugares de interés</string>
     <string name="text_compras">Compras</string>
+    <string name="string_welcome">Welcome, </string>
     <string-array name="monedas">
         <item>Peso Dominicano(DOP)</item>
         <item>Dolares Estadounidense(USD)</item>

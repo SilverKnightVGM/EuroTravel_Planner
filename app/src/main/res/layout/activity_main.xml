@@ -26,7 +26,7 @@
     <Button
         android:layout_width="480dp"
         android:layout_height="45dp"
-        android:text="Login (without account)"
+        android:text="Continue"
         android:textColor="@color/white"
         android:textStyle="bold"
         android:id="@+id/btnlogin"
@@ -46,6 +46,8 @@
         android:layout_centerHorizontal="true"
         tools:layout="@layout/facebook_fragment"
         android:layout_alignParentEnd="false"
+        android:layout_alignParentRight="false"
+        android:layout_alignParentLeft="false"
         android:layout_alignParentStart="false" />
 
 

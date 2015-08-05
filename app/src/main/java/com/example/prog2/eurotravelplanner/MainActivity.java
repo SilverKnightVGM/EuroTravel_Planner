@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends ActionBarActivity {
-    Button btnRegister, btnLogin;
+    Button btnLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,9 +18,7 @@ public class MainActivity extends ActionBarActivity {
 
         setContentView(R.layout.activity_main);
 
-//        btnRegister = (Button) findViewById(R.id.btnRegistrarse);
         btnLogin = (Button) findViewById(R.id.btnlogin);
-
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -29,12 +27,6 @@ public class MainActivity extends ActionBarActivity {
                 startActivity(i);
             }
         });
-
-//        btnRegister.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//            }
-//        });
     }
 
     @Override

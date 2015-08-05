@@ -22,4 +22,5 @@
     <string name="text_hospedaje">Lodging</string>
     <string name="text_lugarInteres">Places of interest</string>
     <string name="text_transporte">Transportation</string>
+    <string name="string_welcome">Welcome, </string>
 </resources>

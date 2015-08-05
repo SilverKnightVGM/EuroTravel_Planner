@@ -40,6 +40,9 @@ public class FacebookFragment extends Fragment {
             AccessToken accessToken = loginResult.getAccessToken();
             Profile profile = Profile.getCurrentProfile();
             mTextDetails.setText(constructWelcomeMessage(profile));
+            //Continue after login
+            Intent i = new Intent(getActivity(), Destinos.class);
+            startActivity(i);
         }
 
         @Override
@@ -141,14 +144,14 @@ public class FacebookFragment extends Fragment {
         LoginButton mButtonLogin = (LoginButton) view.findViewById(R.id.login_button);
         mButtonLogin.setFragment(this);
 //        mButtonLogin.setReadPermissions("user_friends");
-//        mButtonLogin.setReadPermissions("public_profile");
+        mButtonLogin.setReadPermissions("public_profile");
         mButtonLogin.registerCallback(mCallbackManager, mFacebookCallback);
     }
 
     private String constructWelcomeMessage(Profile profile) {
         StringBuffer stringBuffer = new StringBuffer();
         if (profile != null) {
-            stringBuffer.append("Welcome " + profile.getName());
+            stringBuffer.append(getActivity().getString(R.string.string_welcome) +' '+ profile.getName());
         }
         return stringBuffer.toString();
     }
