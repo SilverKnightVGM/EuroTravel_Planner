@@ -1023,7 +1023,7 @@ public class gallery extends ActionBarActivity {
                 if(subdivicion.equals("Taxi")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'taxi'";
 
-                    Integer[] p_tipica = {R.drawable.consorziomotoscafivenezia_v, R.drawable.radiotaxi_venecia_v};
+                    Integer[] p_tipica = {R.drawable.consorziomotoscafivenezia_v, R.drawable.radiotaxi_venecia_v,R.drawable.taxi_venecia_venezia_taxi};
 
                     gallery.setAdapter(new ImageAdapter(this,p_tipica));
                 }
