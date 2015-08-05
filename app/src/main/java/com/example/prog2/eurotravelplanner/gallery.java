@@ -1143,6 +1143,7 @@ public class gallery extends ActionBarActivity {
                     Integer[] p_camp = {R.drawable.taxiberlin2_v,R.drawable.wurfelfunk_v,R.drawable.qualitytaxi_v};
 
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
+                    //
                 }
 
                 if(subdivicion.equals("Renta de Autos")){
