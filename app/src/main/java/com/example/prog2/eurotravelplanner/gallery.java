@@ -883,17 +883,33 @@ public class gallery extends ActionBarActivity {
 
                 if(subdivicion.equals("Taxi")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'taxi'";
+
+                    Integer[] p_tipica = {R.drawable.consorziomotoscafivenezia_v, R.drawable.radiotaxi_venecia_v};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_tipica));
                 }
 
                 if(subdivicion.equals("Renta de Autos")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'renta_autos'";
+
+                    Integer[] p_tipica = {R.drawable.renta_autos_avis,R.drawable.renta_autos_hertz,R.drawable.renta_autos_budget};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_tipica));
                 }
                 if(subdivicion.equals("Transporte Publico")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'trans_publico'";
 
+                    Integer[] p_tipica = {R.drawable.transporte_venecia_vaporetto_v, R.drawable.transporte_venecia_gondola_v, R.drawable.transporte_venecia_traghetto_v, R.drawable.transporte_venecia_autobus_v};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_tipica));
+
                 }
                 if(subdivicion.equals("Trenes")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'trenes'";
+
+                    Integer[] p_tipica = {R.drawable.estacionsantalucia_v};
+
+                    gallery.setAdapter(new ImageAdapter(this,p_tipica));
                 }
 
 
@@ -1193,17 +1209,28 @@ public class gallery extends ActionBarActivity {
 
                 if(subdivicion.equals("Taxi")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'taxi'";
+                    Integer[] p_camp = {R.drawable.callacab_lond_v,R.drawable.combcab_lond_v,R.drawable.dialacab_lond_v};
+                    gallery.setAdapter(new ImageAdapter(this,p_camp));
                 }
 
                 if(subdivicion.equals("Renta de Autos")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'renta_autos'";
+
+                    Integer[] p_camp = {R.drawable.renta_autos_enterprise,R.drawable.renta_autos_hertz,R.drawable.renta_autos_avis};
+                    gallery.setAdapter(new ImageAdapter(this,p_camp));
                 }
                 if(subdivicion.equals("Transporte Publico")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'trans_publico'";
 
+                    Integer[] p_camp = {R.drawable.autobus_lond_v,R.drawable.bici_lond_v};
+                    gallery.setAdapter(new ImageAdapter(this,p_camp));
+
                 }
                 if(subdivicion.equals("Trenes")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'trenes'";
+
+                    Integer[] p_camp = {R.drawable.bakerloo_lond_v,R.drawable.centralline_lond_v,R.drawable.circleline_lond_v  };
+                    gallery.setAdapter(new ImageAdapter(this,p_camp));
                 }
 
 
