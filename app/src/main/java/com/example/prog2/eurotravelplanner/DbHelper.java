@@ -11,7 +11,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DbHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME="DB_EuroTravel";
-    private static final int DB_SCHEMA_VESION= 15;
+    private static final int DB_SCHEMA_VESION= 16;
     SQLiteDatabase db;
 
     public static final String TABLE_NAME = "Datos_Generales";
@@ -85,6 +85,7 @@ public class DbHelper extends SQLiteOpenHelper {
         InsertarLugarInteres(db);
         InsertarEntretenimiento(db);
         InsertarCompras(db);
+        InsertarTransporte(db);
 
         //db.execSQL("INSERT INTO "+TABLE_NAME2+" ("+CN_tip+","+ID_ciudad2+" ,"+CN_tipo+") " +
         //        "values('Si viajas desde otro continente, muchas aerolíneas ofrecen tiquetes más baratos hacia ciudades diferentes a París. Puede ser útil arribar primero a otra ciudad y luego llegar a la capital francesa en tren.', 'paris', 'transporte')");
@@ -1440,4 +1441,301 @@ public class DbHelper extends SQLiteOpenHelper {
 
 
      }
+
+     public void InsertarTransporte(SQLiteDatabase db){
+
+        //paris(rent car)
+        //dato 1: direccion dato2: descripcion dato3: link
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('paris', 'transporte', 'renta_autos', 'Europcar', '4 Rue Du Pont Neuf Parking Q-Park, Paris, FRA', 'Te ofrecemos vehículos espaciosos y cómodos. ¿Prefieres un coche pequeño y económico? Te brindamos utilitarios a precios módicos que consumen muy poco. ¿Quieres vivir tu estancia a lo grande? También contamos con coches de alta gama con los cuales podrás darte un capricho. Además, hemos diseñado diversas ofertas especiales con las cuales podrás ahorrar. ','https://www.europcar.es/oficinas/francia/paris#sthash.wFOwoRuz.dpuf')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('paris', 'transporte', 'renta_autos', 'Hertz', 'Carrousel-Louvre, Paris, FRA', 'Hertz cuenta con un excelente servicio de alquiler de coches en Paris, una de las ciudades más fascinantes de Europa. Resulta imposible enumerar todo los lugares que hay para visitar en “la ciudad de las luces”, son incontables. Los turistas encontrarán una amplia gama de hoteles en los que hospedarse, en función de su presupuesto.','https://www.hertz.es/p/alquiler-de-coches/francia/paris')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('paris', 'transporte', 'renta_autos', 'Budget', '15 Rue Des Pyramides, Paris, FRA', 'Budget posee una gran flota vehícular, sus vehículos son de diferentes modelos. Se puede reservar un auto de Budget mediante la página web o acercarse a la oficina ubicada dentro del aeropuerto desde las 6:30 hasta las 23:00 horas, de lunes a domingo.','http://www.budget.es/rental-locations/paris-orly-aeropuerto.html')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('paris', 'transporte', 'renta_autos', 'Sixt', '10 rue de la Paix, Paris, FRA', 'Sixt es una empresa europea de alquiler de vehículos. La empresa cuenta con más de 4000 puntos de servicio en más de 104 países. Martin Sixt fundó la empresa en Múnich en 1912.','http://www.sixt.es/alquiler-coches/francia/paris')");
+
+
+        //paris(taxi)
+        //dato 1: descripcion dato2: telefono
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+") " +
+                "values('paris', 'transporte', 'taxi', 'Taxis G7', 'El tamaño de su flota y su desarrollo de herramientas de alta tecnología significa que TAXIS G7 está en condiciones de garantizar un servicio de calidad y tiempos mínimos de espera para todos sus clientes. La única empresa de su sector en recibir certificación de calidad ISO 9001, TAXIS G7 promueve una política sostenible y favorable al medio ambiente. ', '+33 (0)1 41 27 66 99')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+") " +
+                "values('paris', 'transporte', 'taxi', 'Alpha Taxis', 'Usar Alpha Taxis, es tener la comodidad y acceso 24h / 24 - 7j / 7: a un gran número de flotas que permite simplificar cada una de sus pedidos, una línea prioritaria, sin una sobretasa y sin contestador, un acceso privilegiado sobre nuestra página internet y una aplicación móvil.', '01.45.85.85.85')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+") " +
+                "values('paris', 'transporte', 'taxi', 'Taxis Blue', 'Con más de 3000 vehículos, Les Taxis Bleus, líder del radiotaxi le ofrecemos una gama de servicios para todos sus desplazamientos en Francia. Nuestra red nacional de socios nos permite cubrir todas las demandas al principio de las principales ciudades de provincia.', '0 891 70 10 10')");
+
+
+        //paris(transporte publico)
+        //dato 1: descripcion
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                "values('paris', 'transporte', 'trans_publico', 'Autobuses', 'El horario de los autobuses en París varía mucho dependiendo de la línea. De forma general, los autobuses operan de lunes a sábado de 07:00 a 20:30 horas, aunque las líneas principales circulan hasta las 00:30 horas. Los domingos y festivos hay muchas líneas que no operan.')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                "values('paris', 'transporte', 'trans_publico', 'Funicular', 'El Funicular de Montmartre es una especie de tranvía que comunica la parte baja del barrio de Montmartre con su parte alta, donde se encuentra la Basílica del Sagrado Corazón y la Plaza du Tertre.')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                "values('paris', 'transporte', 'trans_publico', 'Tranvías', 'Desde el punto de vista turístico los tranvías no merecen la pena. Actualmente las líneas sólo recorren el extrarradio de París y no resultan interesantes.La línea más interesante podría ser la 1, ya que llega hasta la Basílica de Saint-Denis, pero allí también llega la línea 13 de metro.')");
+
+        //paris(trenes)
+        //dato 1: descripcion
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                "values('paris', 'transporte', 'trenes', 'Gare du Nord', 'Es probablemente la estación más grande. Es la estación destino y partida del Eurostar. Punto de partida para los trenes hacia el norte, a ciudades como Lille, Calais, Bruselas, Amsterdam y Colonia. ')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                "values('paris', 'transporte', 'trenes', 'Gare de l’Est', 'Por ella transitan numerosas líneas de alta velocidad, tanto nacionales como internacionales. Punto de partida para los trenes que van hacia el este, entre ellos Estrasburgo, Frankfurt y Stuttgart.')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                "values('paris', 'transporte', 'trenes', 'Gare de Lyon', 'Entre sus rutas se encuentran Marsella, Niza, Monte Carlo, Perpignan y los destinos en Italia y Suiza como Milán, Venecia, Torino, Ginebra, Berna y Zurich.')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                "values('paris', 'transporte', 'trenes', 'Gare d’Austerlitz', 'Ofrece conexiones con el metro y la red de autobuses urbanos. Es el punto de partida para los trenes a Toulouse y los trenes nocturnos hacia Niza y otras ciudades de la Costa Azul.')");
+
+
+        //roma(rent car)
+        //dato 1: direccion dato2: descripcion dato3: link
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('roma', 'transporte', 'renta_autos', 'Hertz', 'Via Sardegna, 30 00187 Roma', 'Alquilar un coche con Hertz es una gran idea; podrá explorar todos los lugares interesantes de Roma y de sus alrededores.','https://www.hertz.es/p/alquiler-de-coches/italia/roma')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('roma', 'transporte', 'renta_autos', 'Avis', 'Aeroporto Roma Ciampino, Roma, 00043, Italia', 'Desde su patrimonio arqueológico, sus monumentos célebres y otros recién descubiertos, sus plazas y museos, el Vaticano y sus osterías, Avis te ayudará a sumergirte en la capital del Imperio Romano. ','http://www.avis.es/Alquilerdecoches/Europa/Italia/Roma')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('roma', 'transporte', 'renta_autos', 'Europcar', 'Via Giolitti 34 00185 Roma, Italia', 'Alquila un coche en Roma con  Europcar y descubre una ciudad fascinante de una forma diferente. Tener tu propio vehículo te dará la independencia necesaria para hacer un viaje cómodo que se adapte a tus necesidades. ','https://www.europcar.es/oficinas/italia/roma')");
+
+        //roma(taxi)
+        //dato 1: descripcion dato2: telefono
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+") " +
+                "values('roma', 'transporte', 'taxi', 'Pronto Taxi', 'Autos bastante limpios, muy  cooperativos, raramente se  atrasan nunca más de 2-3 minutos, muy recomendado', '+06-6645')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+") " +
+                "values('roma', 'transporte', 'taxi', 'La Capitale Taxi', 'Una amplia gama de vehículos variados a tu disposición', '+06-4994')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+") " +
+                "values('roma', 'transporte', 'taxi', 'Samarcanda Taxi', 'Samarcanda tiene el deseo de mejorar, y es un viaje hacia la mejora. Nuestro elemento simbólico es un vuelo hacia el horizonte. Seguimos gastando todas nuestras energías para alcanzar nuevos objetivos.', '+06-5551')");
+
+
+        //roma(transporte publico)
+        //dato 1: descripcion
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                "values('roma', 'transporte', 'trans_publico', 'Autobús', 'Si bien el metro queda algo distante de ciertos lugares, la red de autobuses cubre Roma por completo. En la ciudad hay más de 350 líneas.')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                "values('roma', 'transporte', 'trans_publico', 'Tranvía', 'A pesar de ser más limpio y romántico que el autobús, la limitada extensión de la red de tranvía y que no circule por el centro de Roma hace que no sea muy útil.')");
+
+        //roma(trenes)
+        //dato 1: descripcion
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                "values('roma', 'transporte', 'trenes', 'Línea A (Naranja)', 'Recorre Roma de noroeste a sureste, desde Battistini a Anagnina. Las paradas más importantes comenzando por el oeste son:  Cipro - Musei Vaticani, Ottaviano - San Pietro.')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                "values('roma', 'transporte', 'trenes', 'Línea B (Azul)', 'Recorre Roma de noreste a sur, desde Rebibbia a Laurentina. Las paradas más importantes comenzando por el norte son: Colosseo y Piramide.')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                "values('roma', 'transporte', 'trenes', 'Trenes suburbanos ', 'Los trenes suburbanos de Roma complementan la red de metro, están gestionados por la misma empresa, comparten las mismas tarifas y utilizan los mismos billetes. Siguiendo la red de Roma-Lido se hace parada en Ostia Antica ')");
+
+
+
+        //venecia(rent car)
+        //dato 1: direccion dato2: descripcion dato3: link
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('venecia', 'transporte', 'renta_autos', 'Avis', 'Piazzale Roma, 496 Venezia, Italia', 'Este maravilloso destino es único en el mundo, al que siempre se sueña con ir. Si ya has estado allí, seguro que te encantará volver y, si es tu primera visita, te fascinará y antes de marcharte ya estarás pensando en volver. ¿Qué te parecería hacerlo con tu coche de alquiler Avis? ','http://www.avis.es/Alquilerdecoches/Europa/Italia/Venecia')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('venecia', 'transporte', 'renta_autos', 'Hertz', 'Viale Stazione 18/F 30171 Venezia Italia', 'Venecia es una ciudad con un encanto especial, una obra de arte, un gran museo al aire libre, declarado Patrimonio de la Humanidad por la UNESCO en 1979. Recórrala libremente con Hertz.','https://www.hertz.es/rentacar/location/VCET50')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('venecia', 'transporte', 'renta_autos', 'Budget', 'Venice Marco Polo Airport Venice 30173', 'Conocida como una de las ciudades más románticas y visitadas del mundo, Venecia ofrece a los visitantes una experiencia como ninguna otra. Situada al noreste de Italia, es la capital de la región del Véneto. La totalidad de Venecia no es una sola isla, como cree la mayor parte de la gente, sino una serie de islas. Recórrela con Budget y su gran flotilla a elegir.','http://www.budget.es/rental-locations/venecia-aeropuerto.html')");
+
+
+        //venecia(taxi)
+        //dato 1: descripcion dato2: telefono
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+") " +
+                "values('venecia', 'transporte', 'taxi', 'Consorzio Motoscafi Venezia', 'El Consorzio Motoscafi Venezia nace de la colaboración entre las compañías líderes en el campo de los transportes acuáticos de la Laguna de Venecia. Cada día pone a disposición de sus clientes un servicio taxi desde y hacia el aeropuerto de Venecia y para otros desplazamientos.', '+39 041 5222303')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+") " +
+                "values('venecia', 'transporte', 'taxi', 'Venezia Taxi', 'En el puerto de Venecia, el personal en nuestro mostrador en la sala de llegadas y en nuestros embarcaderos privados, estará a su completa disposición para indicarles el mejor trayecto para llegar a su destino y reservar su lancha.', '+39 328 2389661')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+") " +
+                "values('venecia', 'transporte', 'taxi', 'Cooperativa Artigiana Radiotaxi', 'La principal empresa de taxis autorizadas en la ciudad de Venecia) ofrece servicios de transporte de pasajeros con estándares superiores garantizados de calidad y profesionalismo. Elija nuestros taxis para un viaje rápido con total seguridad con el aeropuerto Marco Polo de Venecia, Venecia Pasajero / terminal de cruceros, la estación de tren de Venezia-Mestre, el Puerto de Venecia y cualquier otro destino.', '+39.041.59.64')");
+
+
+        //venecia(transporte publico)
+        //dato 1: descripcion
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                "values('venecia', 'transporte', 'trans_publico', 'Vaporettos', ' Los habitantes venecianos y turistas en general suelen desplazarse por la ciudad mediante los vaporettos, éstos son el equivalente más parecido a los autobuses de transporte colectivo convencionales que operan en cualquier ciudad que tenga asfalto en sus calles en lugar de agua.  Los vaporettos recorren rutas regulares y hay estaciones distribuidas por la mayoría de las islas que componen Venecia.')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                "values('venecia', 'transporte', 'trans_publico', 'Góndolas', 'Al menos una vez en la vida hay que subir en una góndola. Esta es, sin duda, la embarcación por excelencia de Venecia, única en el mundo también por sus características constructivas. Es asimétrica, el lado izquierdo es más ancho que el derecho haciendo que se incline, lo que ayuda a favorecer el remar del gondolero veneciano.')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                "values('venecia', 'transporte', 'trans_publico', 'Traghetto', 'Los traghettos son góndolas que se utilizan para cruzar el Gran Canal por los lugares donde no existe ningún puente. Son muy cómodos y económicos.')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                "values('venecia', 'transporte', 'trans_publico', 'Autobús', 'Aunque a la hora de desplazarse por el centro de Venecia los autobuses no son una opción factible, para llegar a ciertos lugares como Mestre son interesantes.')");
+
+        //venecia(trenes)
+        //dato 1: descripcion
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                "values('venecia', 'transporte', 'trenes', 'Estación de tren de Santa Lucía', 'La Estación de Santa Lucía es la estación de trenes de Venecia. Por su situación, bastante céntrica, viajar en tren es la forma más cómoda de trasladarse a otras ciudades de Italia como Roma o Florencia.')");
+
+
+        //londres(rent car)
+        //dato 1: direccion dato2: descripcion dato3: link
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('londres', 'transporte', 'renta_autos', 'Enterprise', 'Russel Square 49 Woburn Place, Bloomsbury, London WC1H 0JZ', 'Rentar un auto en Londres nunca ha sido más fácil! Para su comodidad, Enterprise Rent-A-Car cuenta con tantas oficinas de renta de autos en Londres, que siempre hay una cerca de usted.','http://www.enterprise.co.uk/car_rental/deeplinkmap.do?cnty=GB&gpbr=U146&bid=004')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('londres', 'transporte', 'renta_autos', 'Hertz', 'London, Islington - Unit 9 Balmoral Grove London N7 9NQ Reino Unido', 'Londres es la capital y la ciudad más grande tanto del Reino Unido como de Inglaterra, también es la ciudad más grande de Europa Occidental y de la Unión Europea. Se encuentra situada a orillas del río Támesis. Hertz cuenta con oficinas de alquiler de coches estratégicamente situadas a lo largo de Londres y Reino Unido, siendo una excelente opción a la hora de viajar.','https://www.hertz.com/rentacar/specialoffers/index.jsp?targetPage=SourceLAMC15PCES.xml&Category=F&gclid=CjwKEAjwovytBRCdxtyKqfL5nUISJACaugG1pqMZc57gmkkUgx-95QQZ2Yae5woGYe7OWjULbcZZPRoCXvTw_wcB')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('londres', 'transporte', 'renta_autos', 'Avis', '88 Eversholt St London NW1 1BP Reino Unido', 'Londres es una ciudad que te sorprenderá a la par que te remitirá a imágenes guardadas en tu memoria. Las espectaculares vistas desde el London Eye te dejarán sin habla, mientras que pasear junto a las Casas del Parlamento y el Big Ben te recordará a la cortinilla de viejas series inglesas. Podrás recorrerla libremente con Avis.','http://www.avis.es/Alquilerdecoches/Europa/Reino-Unido/Inglaterra/Londres')");
+
+        //londres(taxi)
+        //dato 1: descripcion dato2: telefono
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+") " +
+                "values('londres', 'transporte', 'taxi', 'Call a Cab', 'Un llamado un taxi es: seguro  asequible,  conveniente y confiable, disponible para reservas inmediatas o anticipadas  24 horas / 365 días al año', '020 8901 4444')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+") " +
+                "values('londres', 'transporte', 'taxi', 'ComCab', 'Con operaciones en Londres y los suburbios, COMCAB es la flota de taxis ideal para servir a la comunidad de negocios de Londres y los particulares.', '0207 432 1432')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+") " +
+                "values('londres', 'transporte', 'taxi', 'Dial a Cab', 'Con una flota de más de 2.500 taxis, Dial-a-Cab son el mayor proveedor de taxis con licencia en el centro de Londres. Si usted es un individuo, de la pequeña empresa o corporación, podemos a su disposición un servicio de taxi confiable eficiente, las 24 horas del día, los 365 días del año.', '020 7426 3420')");
+
+        //londres(transporte publico)
+        //dato 1: descripcion
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                "values('londres', 'transporte', 'trans_publico', 'Autobús', 'Aunque no es el medio de transporte más rápido, los famosos autobuses rojos de dos pisos constituyen una bonita forma de recorrer el centro de Londres.')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                "values('londres', 'transporte', 'trans_publico', 'Bicicletas de Alquiler', 'A pesar de que la extensión y el clima de Londres no invitan a ello, son muchos los londinenses que optan por la bicicleta para desplazarse por la ciudad.')");
+
+
+        //londres(trenes)
+        //dato 1: descripcion
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                "values('londres', 'transporte', 'trenes', 'Bakerloo Line', 'La línea Bakerloo es una línea del metro de Londres, que se identifica con el color marrón en el mapa. Discurre tanto en superficie como bajo tierra, desde Elephant And Castle en el sureste hasta Harlow and Wealdstone en el noroeste de Londres. Cubre 25 estaciones, de las cuales 15 son subterráneas. Es la séptima línea más utilizada de la red.')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                "values('londres', 'transporte', 'trenes', 'Central Line', 'Central Line es una línea del Metro de Londres que aparece en color rojo en los mapas. Esta línea es del tipo \"tube\": tiene túneles en forma de tubo a gran profundidad. Su recorrido es este-oeste a través de Londres, y es la línea de mayor longitud (aunque no cuenta con la línea continua más larga). Hasta el cierre de la sección entre Epping y Ongar, la estación término de Ongar era el punto más alejado de Londres perteneciente a la red.')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                "values('londres', 'transporte', 'trenes', 'Circle Line', 'Circle Line es el nombre de una línea del Metro de Londres. Empezó a conocerse por esta denominación desde 1949, cuando su trayecto se independizó de las líneas Metropolitan y District, aunque ya en 1947 aparecía en los mapas de la red de Metro. En muchas ocasiones se la denomina \"línea virtual\", ya que no tiene estaciones que use de forma exclusiva. Esto se debe a que la línea se creó a partir de dos líneas ya existentes.')");
+
+
+
+        //madrid(rent car)
+        //dato 1: direccion dato2: descripcion dato3: link
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('madrid', 'transporte', 'renta_autos', 'EuropCar', 'Barajas Airport Terminal 4 28042 Madrid España', 'Si viajas a Madrid, sea por negocio o por placer, podrás alquilar un coche en Madrid Aeropuerto Terminal 4. En Europcar encontrarás coches nuevos para un alquiler de coche barato. Encuentra en Madrid Aeropuerto Terminal 4 el vehículo que más se ajuste a tus necesidades. Alquilar un coche en europcar.es es la forma más sencilla de moverte por la capital.','https://www.europcar.es/oficinas/espana/madrid/madrid-aeropuerto-terminal-4')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('madrid', 'transporte', 'renta_autos', 'Avis', 'Railway St Ave&Cercania, Glorieta De Atocha S/N, 28045 Madrid, España', 'Contamos con gran cantidad de oficinas repartidas por la ciudad, en puntos como el aeropuerto de Barajas, Gran Vía y la estación de Atocha. Además de disfrutar de ventajas como asistencia en carretera y devolución fuera de horarios, también podrás alquilar cadenas, portaesquíes, sistemas de navegación y asientos para bebés.','http://www.avis.es/Alquilerdecoches/Europa/Espana/Madrid')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('madrid', 'transporte', 'renta_autos', 'Hertz', 'Intercambiador de Plaza de Castilla, Intercambiador Plaza de Castilla, s/n, Madrid, España', 'Hertz cuenta con un excelente servicio de alquiler de coches en Madrid, la capital de Espana. Es tambien la ciudad con mayor densidad de poblacion y la mas grande de Espana. Hertz te ofrece un excelente servicio de alquiler de coches para cumplir con tus necesidades de viaje. Sácale el máximo provecho a tu viaje con Hertz, tu servicio de alquiler de coches en Madrid.','https://www.hertz.es/p/alquiler-de-coches/espana/madrid')");
+
+        //madrid(taxi)
+        //dato 1: descripcion dato2: telefono
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+") " +
+                "values('madrid', 'transporte', 'taxi', 'Radioteléfono Taxi', 'Radioteléfono Pidetaxi le ofrece soluciones para todas sus necesidades de transporte en el área de Madrid. Le aseguramos un servicio puntual, de calidad y eficiente, 3.500 vehículos distribuidos por toda el área de Prestación conjunta de la Comunidad de Madrid.', '915478200')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+") " +
+                "values('madrid', 'transporte', 'taxi', 'Taxi Reserva', 'Servicio de taxi Madrid, reservas y traslados al aeropuerto, nos adaptamos a todas sus necesidades de transporte en el área de Madrid. Le ofrecemos un sistema de reservas de taxi eficaz, puntual y comprometido con la máxima calidad de servicio. Trabajamos 24 horas al día y 7 días a la semana.', '91 085 54 44')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+") " +
+                "values('madrid', 'transporte', 'taxi', 'Madrid Taxi', 'MadridTaxi.es nace para satisfacer la demanda actual de taxistas de confianza. Un taxi siempre le llevará cómodamente donde desee, sin necesidad de cargar con pesadas maletas o sufrir las largas esperas de otros transportes públicos. Pero es que, además, en MadridTaxi.es ponemos a su disposición todo un Toyota Prius ecológico, para que además de viajar cómodamente colabore con el cuidado al medio ambiente.', '635319928')");
+
+        //madrid(transporte publico)
+        //dato 1: descripcion
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                "values('madrid', 'transporte', 'trans_publico', 'Autobús', 'Con una flota de 2.000 autobuses que realizan los recorridos de más de 200 líneas, los autobuses a veces son la mejor forma de llegar a ciertos destinos.')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                "values('madrid', 'transporte', 'trans_publico', 'Tren de cercanía', 'Los trenes de cercanías conectan diferentes puntos de la ciudad entre sí llegando también a las principales poblaciones de la Comunidad de Madrid.')");
+
+        //madrid(trenes)
+        //dato 1: descripcion
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                "values('madrid', 'transporte', 'trenes', 'Línea C-1', 'La Línea C-1 de Cercanías de Madrid, une la estación de Príncipe Pío, el centro de Madrid, con el Aeropuerto de Madrid-Barajas. En su recorrido atraviesa 10 estaciones (próximamente 11 cuando se inaugure Valdebebas) incluyendo las dos principales estaciones de la capital, Atocha-Cercanías y Chamartín.')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                "values('madrid', 'transporte', 'trenes', 'Línea C-2', 'La línea C-2 de Cercanías Madrid recorre 64,5 km a lo largo del corredor del Henares de la Comunidad de Madrid y parte de la provincia de Guadalajara entre las estaciones de Guadalajara y Chamartín pasando por la estación de Atocha. En su recorrido discurre por los municipios de Guadalajara (1 estación), Azuqueca de Henares (1 estación), Meco (1 estación), Alcalá de Henares (3 estaciones), Torrejón de Ardoz (1 estación), Coslada (2 estaciones) y Madrid (9 estaciones).')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                "values('madrid', 'transporte', 'trenes', 'Línea C-3', 'La línea C-3 de Cercanías Madrid recorre 106 km a lo largo de la Comunidad de Madrid y parte de la provincia de Toledo (España) entre las estaciones de El Escorial y Aranjuez. A su paso, discurre por los municipios de El Escorial, Collado Villalba, Galapagar, Torrelodones, Las Rozas, Madrid, Getafe, Pinto, Valdemoro, Ciempozuelos, Seseña y Aranjuez, efectuando parada en todos ellos, salvo en el municipio toledano de Seseña, cuyo apeadero dejó de prestar servicio el 11 de abril de 2007.')");
+
+
+        //berlin(rent car)
+        //dato 1: direccion dato2: descripcion dato3: link
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('berlin', 'transporte', 'renta_autos', 'Enterprise', 'Berlin Mitte Friedrichstrasse 200 10117 Berlin', '¿Tiene pensado hacer un viaje a Berlín? Enterprise Rent-A-Car cuenta con oficinas de renta de autos en Berlín y sus alrededores. Enterprise ofrece una amplia variedad de autos de renta, desde autos mini hasta autobuses.','http://www.enterprise.de/car_rental/deeplinkmap.do?cnty=DE&gpbr=G609&bid=004')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('berlin', 'transporte', 'renta_autos', 'Sixt', 'Flughafen Tegel, Berlin Tegel Airport (TXL), 13405 Berlin', 'Sixt rent a car le da la bienvenida y le desea una feliz estancia en Berlín. Aproveche su viaje de placer, o de negocios, para moverse libremente por la capital de Alemania y para visitar, con un coche de alquiler barato de Sixt, todos los puntos de interés de la ciudad y de los alrededores.','http://www.sixt.es/alquiler-coches/alemania/berlin')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+","+CN_dato3+") " +
+                "values('berlin', 'transporte', 'renta_autos', 'Europcar', 'Europaplatz 1Carreturn: clara-jaschke-str. ug310557, Berlin, Alemania', 'Alquile un coche con Europcar y descubra Berlín Berlín tiene una rica arquitectura que refleja a la perfección los enormes cambios que la ciudad ha experimentado, especialmente en los últimos 50 años. Berlín nos ofrece numerosas cosas que ver, desde el centro de la ciudad hasta las afueras. Visite la \"Branderburger Tor\" (Puerta de Brandeburgo), que se ha convertido en el símbolo de la ciudad, o explore los restos del Muro de Berlín y el Checkpoint Charlie. ','https://www.europcar.es/oficinas/alemania/berlin')");
+
+
+        //berlin(taxi)
+        //dato 1: descripcion dato2: telefono
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+") " +
+                "values('berlin', 'transporte', 'taxi', 'Taxi Berlin', 'Somos una empresa de servicios moderna y permitimos diferentes maneras de reservar su taxi. Recientemente, tenemos una aplicación de taxi. Esto funciona en muchas ciudades de Europa.', '49 30 – 20 20 20')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+") " +
+                "values('berlin', 'transporte', 'taxi', 'Würfelfunk', 'El objetivo de ambos lados de nuestros clientes - de operación de taxi y de pasajeros - satisfacer para ofrecer tanto una fidelidad de imagen para nuestra empresa es monitoreada constantemente. Estado de la gestión de los recursos humanos de arte y la atención al cliente, con el menor jerarquía como sea posible, garantizar una estancia agradable y relajada juntos.', '+49 30 – 21 01 01')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+", "+CN_dato2+") " +
+                "values('berlin', 'transporte', 'taxi', 'Quality Taxi', 'Más calidad al precio normal de un taxi. Nuestro estándar garantiza un servicio consistente de alta calidad desde el principio. Un servicio amable, competente y rápido al mismo tiempo, durante la toma de pedidos a través del teléfono, así como un servicio perfecto en el taxi.', '+49 30 – 26 300 0')");
+
+
+        //berlin(transporte publico)
+        //dato 1: descripcion
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                "values('berlin', 'transporte', 'trans_publico', 'Tranvías', 'El tranvía fue el medio de transporte más desarrollado y utilizado en Berlín Este durante la Guerra Fría. Actualmente es un transporte bastante utilizado y se ha extendido ligeramente por la ciudad.')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                "values('berlin', 'transporte', 'trans_publico', 'Autobuses', 'Lo que comenzó siendo una red de cinco líneas en las que 120 caballos tiraban de los autobuses, se ha convertido en una extensa red de 150 líneas.')");
+
+        //berlin(trenes)
+        //dato 1: descripcion
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                "values('berlin', 'transporte', 'trenes', 'Berlín (S-Bahn)', 'El S-Bahn es un sistema de transporte urbano formado por trenes metropolitanos que circulan a lo largo de 15 líneas, recorriendo la práctica totalidad de la ciudad de Berlín. Serían el equivalente a los trenes de cercanías de Madrid.')");
+
+        db.execSQL("INSERT INTO "+TABLE_NAME4+" ("+ID_ciudad3+", "+CN_categoria+", "+CN_sub_cat+",  "+CN_nombre+", "+CN_dato1+") " +
+                "values('berlin', 'transporte', 'trenes', 'Berlín (U-Bahn)', 'El metro de Berlín (U-Bahn) comenzó a construirse en el año 1902 y cuenta con una larga y ajetreada historia. Durante la I y II Guerra Mundial, su construcción tuvo que ser detenida y las instalaciones sufrieron importantes daños que fueron subsanados posteriormente. Más tarde, durante la división de la ciudad, la red de metro también se vio dividida, dejando algunas estaciones fantasma en la zona intermedia entre Berlín Este y Berlín Oeste.')");
+
+
+
+    }
 }
