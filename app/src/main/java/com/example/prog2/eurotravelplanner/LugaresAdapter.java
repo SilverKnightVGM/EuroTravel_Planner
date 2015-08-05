@@ -16,13 +16,17 @@ import java.util.List;
 public class LugaresAdapter extends BaseExpandableListAdapter{
 
     private Context ctx;
+    private String subdivision;
+    String categoria;
     private HashMap<String, List<String>> lista_lugares;
     private List<String> lugares_detalles;
 
-    public LugaresAdapter(Context ctx, HashMap<String, List<String>> lista_lugares, List<String> lugares_detalles ){
+    public LugaresAdapter(Context ctx, HashMap<String, List<String>> lista_lugares, List<String> lugares_detalles, String categoria, String subdivision ){
         this.ctx=ctx;
         this.lista_lugares = lista_lugares;
         this.lugares_detalles = lugares_detalles;
+        this.categoria=categoria;
+        this.subdivision = subdivision;
     }
 
 
@@ -79,25 +83,134 @@ public class LugaresAdapter extends BaseExpandableListAdapter{
                              View convertView, ViewGroup parentview) {
         String child_title = (String) getChild(parent, child);
 
-        if(convertView==null){
+        if (convertView == null) {
             LayoutInflater inflator = (LayoutInflater) ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflator.inflate(R.layout.template_listview_expandible,parentview, false);
+            convertView = inflator.inflate(R.layout.template_listview_expandible, parentview, false);
 
         }
         TextView textView = (TextView) convertView.findViewById(R.id.textView2);
         textView.setText(child_title);
         TextView textViewTitulo = (TextView) convertView.findViewById(R.id.textViewTitulo);
-        switch(child){
-            case 0:
-                textViewTitulo.setText("Direccion");
-                break;
-            case 1:
-                textViewTitulo.setText("Telefono");
-                break;
-            case 2:
-                textViewTitulo.setText("Horario");
-            break;
 
+        if(categoria.equals("Transporte")){
+            if(subdivision.equals("Renta de Autos")) {
+                switch (child) {
+                    case 0:
+                        textViewTitulo.setText("Ubicaicon");
+                        break;
+                    case 1:
+                        textViewTitulo.setText("Descripcion");
+                        break;
+                    case 2:
+                        textViewTitulo.setText("Link");
+                        break;
+                }
+            }else if(subdivision.equals("Taxi")){
+                switch (child) {
+                    case 0:
+                        textViewTitulo.setText("Descripcion");
+                        break;
+                    case 1:
+                        textViewTitulo.setText("Telefono");
+                        break;
+
+                }
+            }else{
+                switch (child) {
+                    case 0:
+                        textViewTitulo.setText("Descripcion");
+                        break;
+                }
+            }
+        }
+        if (categoria.equals("Gastronomía")) {
+            if(subdivision.equals("Comida Típicas")) {
+                switch (child) {
+                    case 0:
+                        textViewTitulo.setText("Descripcion");
+                        break;
+
+                }
+            }else{
+                switch (child) {
+                    case 0:
+                        textViewTitulo.setText("Direccion");
+                        break;
+                    case 1:
+                        textViewTitulo.setText("Telefono");
+                        break;
+                    case 2:
+                        textViewTitulo.setText("Horario");
+                        break;
+                }
+            }
+         }
+        if(categoria.equals("Hospedaje")){
+
+            switch (child) {
+                case 0:
+                    textViewTitulo.setText("Direccion");
+                    break;
+                case 1:
+                    textViewTitulo.setText("Telefono");
+                    break;
+                case 2:
+                    textViewTitulo.setText("Rating");
+                    break;
+
+
+            }
+
+        }
+        if(categoria.equals("Entretenimiento")){
+
+            switch (child) {
+                case 0:
+                    textViewTitulo.setText("Direccion");
+                    break;
+                case 1:
+                    textViewTitulo.setText("Telefono");
+                    break;
+                case 2:
+                    textViewTitulo.setText("Rating");
+                    break;
+
+
+            }
+
+        }
+        if(categoria.equals("Lugares de interés")){
+
+            switch (child) {
+                case 0:
+                    textViewTitulo.setText("Direccion");
+                    break;
+                case 1:
+                    textViewTitulo.setText("Telefono");
+                    break;
+                case 2:
+                    textViewTitulo.setText("Rating");
+                    break;
+
+
+            }
+
+        }
+        if(categoria.equals("Compras")){
+
+            switch (child) {
+                case 0:
+                    textViewTitulo.setText("Direccion");
+                    break;
+                case 1:
+                    textViewTitulo.setText("Telefono");
+                    break;
+                case 2:
+                    textViewTitulo.setText("Rating");
+                    break;
+
+
+            }
 
         }
 

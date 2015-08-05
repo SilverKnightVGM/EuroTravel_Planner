@@ -81,7 +81,7 @@ public class gallery extends ActionBarActivity {
         lista_lugares = getInfo();//Obtiene el HashMap creado en la clase DataProvider
         //lista_lugares = DataProvider.getInfo(ciudad, categoria, subdivicion);//Obtiene el HashMap creado en la clase DataProvider
         lugares_detalles = new ArrayList<String>(lista_lugares.keySet());//Inicia la lista de descripciones a partir de lo que contiene el HashMap
-        adapter = new LugaresAdapter(this, lista_lugares, lugares_detalles);
+        adapter = new LugaresAdapter(this, lista_lugares, lugares_detalles, categoria, subdivicion);
         exp_list.setAdapter(adapter);
 
         exp_list.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
