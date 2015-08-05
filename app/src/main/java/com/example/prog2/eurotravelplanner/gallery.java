@@ -142,7 +142,62 @@ public class gallery extends ActionBarActivity {
 
                     }
                 }
+                if (categori.equals(getString(R.string.text_transporte))) {
+                    if (subdivicio.equals("Renta de Autos")) {
+                        if (childPosition == 2) {
+                            web(opcion,data);
+                        }
 
+                        if (childPosition == 0) {
+                            ubicarDireccion(opcion,data);
+                        }
+
+                    }
+                    if (subdivicio.equals("Taxi")) {
+                        if (childPosition == 1) {
+                            LlamarDialog(data);
+                        }
+
+                    }
+                }
+
+                if (categori.equals(getString(R.string.text_entretenimiento))) {
+                    if (subdivicio.equals("Bares") || subdivicio.equals("Discotecas") || subdivicio.equals("Clubes") || subdivicio.equals("Parques de Diversión")) {
+                        if (childPosition == 1) {
+                            LlamarDialog(data);
+                        }
+
+                        if (childPosition == 0) {
+                            ubicarDireccion(opcion, data);
+                        }
+
+                    }
+                }
+
+                if (categori.equals(getString(R.string.text_lugarInteres))) {
+                    if (subdivicio.equals("Lugares Historicos") || subdivicio.equals("Museos") || subdivicio.equals("Tour por la ciudad") || subdivicio.equals("Playas")) {
+                        if (childPosition == 1) {
+                            LlamarDialog(data);
+                        }
+
+                        if (childPosition == 0) {
+                            ubicarDireccion(opcion, data);
+                        }
+
+                    }
+                }
+
+                if (categori.equals(getString(R.string.text_compras))) {
+
+                        if (childPosition == 1) {
+                            LlamarDialog(data);
+                        }
+
+                        if (childPosition == 0) {
+                            ubicarDireccion(opcion, data);
+                        }
+
+                }
 
                 return true;
             }
@@ -183,7 +238,7 @@ public class gallery extends ActionBarActivity {
 
         dialogBuilder = new AlertDialog.Builder(this);
 
-        dialogBuilder.setTitle("Desea ubicar dirección de :" + opcion);
+        dialogBuilder.setTitle("Desea ubicar dirección de: " + opcion);
         dialogBuilder.setPositiveButton("Ubicar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -210,7 +265,7 @@ public class gallery extends ActionBarActivity {
 
         dialogBuilder = new AlertDialog.Builder(this);
 
-        dialogBuilder.setTitle("Desea buscar sitio web de: "+ opcion);
+        dialogBuilder.setTitle("Desea buscar sitio web de: " + opcion);
         dialogBuilder.setPositiveButton("Buscar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
