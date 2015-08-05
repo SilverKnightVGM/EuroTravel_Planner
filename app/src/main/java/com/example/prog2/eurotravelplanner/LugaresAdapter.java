@@ -123,6 +123,7 @@ public class LugaresAdapter extends BaseExpandableListAdapter{
                 }
             }
         }
+        //
         if (categoria.equals("Gastronomía")) {
             if(subdivision.equals("Comida Típicas")) {
                 switch (child) {
