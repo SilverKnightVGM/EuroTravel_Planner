@@ -1363,27 +1363,27 @@ public class gallery extends ActionBarActivity {
 
                 if(subdivicion.equals("Taxi")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'taxi'";
-                    Integer[] p_camp = {R.drawable.callacab_lond_v,R.drawable.combcab_lond_v,R.drawable.dialacab_lond_v};
+                    Integer[] p_camp = {R.drawable.combcab_lond_v,R.drawable.dialacab_lond_v,R.drawable.callacab_lond_v};
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
                 }
 
                 if(subdivicion.equals("Renta de Autos")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'renta_autos'";
 
-                    Integer[] p_camp = {R.drawable.renta_autos_enterprise,R.drawable.renta_autos_hertz,R.drawable.renta_autos_avis};
+                    Integer[] p_camp = {R.drawable.renta_autos_avis,R.drawable.renta_autos_enterprise,R.drawable.renta_autos_hertz};
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
                 }
                 if(subdivicion.equals("Transporte Publico")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'trans_publico'";
 
-                    Integer[] p_camp = {R.drawable.autobus_lond_v,R.drawable.bici_lond_v};
+                    Integer[] p_camp = {R.drawable.bici_lond_v,R.drawable.autobus_lond_v};
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
 
                 }
                 if(subdivicion.equals("Trenes")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'trenes'";
 
-                    Integer[] p_camp = {R.drawable.bakerloo_lond_v,R.drawable.centralline_lond_v,R.drawable.circleline_lond_v  };
+                    Integer[] p_camp = {R.drawable.centralline_lond_v,R.drawable.circleline_lond_v ,R.drawable.bakerloo_lond_v };
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
                 }
 
@@ -1393,23 +1393,23 @@ public class gallery extends ActionBarActivity {
 
                 if(subdivicion.equals("Restaurantes")){
                     helper.where3+=" AND "+helper.CN_sub_cat+"='restaurantes'";
-                    Integer[] p_camp = {R.drawable.restaurant_londres_canvas_v,R.drawable.restaurant_londres_theledbury_v,R.drawable.restaurant_londres_gordonramsay_v,R.drawable.restaurant_londres_thefivefields_v,R.drawable.restaurant_londres_legavroche_v };
+                    Integer[] p_camp = {R.drawable.restaurant_londres_theledbury_v,R.drawable.restaurant_londres_legavroche_v,R.drawable.restaurant_londres_gordonramsay_v,R.drawable.restaurant_londres_canvas_v,R.drawable.restaurant_londres_thefivefields_v };
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
                 }
                 if(subdivicion.equals("Pasteleria y Panaderia")){
                     helper.where3+=" AND "+helper.CN_sub_cat+"='pasteleria'";
-                    Integer[] p_camp = {R.drawable.pasteleria_londres_benscookies_v,R.drawable.pasteleria_londres_bricklanebeigelbakery_v,R.drawable.pasteleria_londres_palmcourt_v,R.drawable.pasteleria_londres_exmouthcoffee_v,R.drawable.pasteleria_londres_juiceandpublic_v};
+                    Integer[] p_camp = {R.drawable.pasteleria_londres_juiceandpublic_v,R.drawable.pasteleria_londres_exmouthcoffee_v,R.drawable.pasteleria_londres_palmcourt_v,R.drawable.pasteleria_londres_benscookies_v,R.drawable.pasteleria_londres_bricklanebeigelbakery_v};
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
 
                 }
                 if(subdivicion.equals("Comida Rapida")){
                     helper.where3+=" AND "+helper.CN_sub_cat+"='comida_rapida'";
-                    Integer[] p_camp = {R.drawable.comidarapida_londres_caffecrema_v,R.drawable.comidarapida_londres_monmouth_v,R.drawable.comidarapida_londres_littlefrankie_v,R.drawable.comidarapida_londres_apostrophe_v,R.drawable.comidarapida_londres_theclarence_v };
+                    Integer[] p_camp = {R.drawable.comidarapida_londres_monmouth_v,R.drawable.comidarapida_londres_caffecrema_v,R.drawable.comidarapida_londres_apostrophe_v,R.drawable.comidarapida_londres_theclarence_v,R.drawable.comidarapida_londres_littlefrankie_v };
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
                 }
                 if(subdivicion.equals("Comida Típicas")){
                     helper.where3+=" AND "+helper.CN_sub_cat+"='comida_tipica'";
-                    Integer[] p_camp = {R.drawable.comidatipica_londres_fishandships_v,R.drawable.comidatipica_londres_wellingtonbeef_v,R.drawable.comidatipica_londres_yorkshire_v,R.drawable.comidatipica_londres_roastbeef_v,R.drawable.afternoontea_v };
+                    Integer[] p_camp = {R.drawable.comidatipica_londres_fishandships_v,R.drawable.afternoontea_v,R.drawable.comidatipica_londres_wellingtonbeef_v,R.drawable.comidatipica_londres_yorkshire_v,R.drawable.comidatipica_londres_roastbeef_v };
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
                 }
 
@@ -1444,7 +1444,7 @@ public class gallery extends ActionBarActivity {
 
                 if(subdivicion.equals("Bares")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'bares'";
-                    Integer[] p_bar = {R.drawable.bares_londres_artesian,R.drawable.bares_londres_gordons_wine_bar};
+                    Integer[] p_bar = {R.drawable.bares_londres_gordons_wine_bar,R.drawable.bares_londres_artesian};
 
                     gallery.setAdapter(new ImageAdapter(this,p_bar));
 
@@ -1486,7 +1486,7 @@ public class gallery extends ActionBarActivity {
                 }
                 if(subdivicion.equals("Museos")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'museos'";
-                    Integer[] p_parque = {R.drawable.museos_londres_the_national_gallery,R.drawable.museos_londres_the_british_museum};
+                    Integer[] p_parque = {R.drawable.museos_londres_the_british_museum,R.drawable.museos_londres_the_national_gallery};
 
                     gallery.setAdapter(new ImageAdapter(this,p_parque));
 
@@ -1505,7 +1505,7 @@ public class gallery extends ActionBarActivity {
 
             if (categoria.equals(getString(R.string.text_compras))){
                 helper.where3 += " AND "+helper.CN_categoria+" = 'compras'";
-                Integer[] p_parque = {R.drawable.compras_londres_westfield_london,R.drawable.compras_londres_whiteleys};
+                Integer[] p_parque = {R.drawable.compras_londres_whiteleys,R.drawable.compras_londres_westfield_london};
 
                 gallery.setAdapter(new ImageAdapter(this,p_parque));
 
