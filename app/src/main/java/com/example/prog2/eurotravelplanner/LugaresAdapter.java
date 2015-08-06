@@ -1,4 +1,5 @@
 package com.example.prog2.eurotravelplanner;
+
 import android.content.Context;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
@@ -13,7 +14,7 @@ import java.util.List;
 /**
  * Created by HellenFranchesca on 22/07/2015.
  */
-public class LugaresAdapter extends BaseExpandableListAdapter{
+public class LugaresAdapter extends BaseExpandableListAdapter {
 
     private Context ctx;
     private String subdivision;
@@ -25,15 +26,15 @@ public class LugaresAdapter extends BaseExpandableListAdapter{
     private String comida_tipicas;
 
     public LugaresAdapter(Context ctx, HashMap<String, List<String>> lista_lugares, List<String> lugares_detalles,
-                          String categoria, String subdivision, String gastronomia, String lugares_interes, String comida_tipicas ){
-        this.ctx=ctx;
+                          String categoria, String subdivision, String gastronomia, String lugares_interes, String comida_tipicas) {
+        this.ctx = ctx;
         this.lista_lugares = lista_lugares;
         this.lugares_detalles = lugares_detalles;
-        this.categoria=categoria;
+        this.categoria = categoria;
         this.subdivision = subdivision;
         this.gastronomia = gastronomia;
         this.lugares_interes = lugares_interes;
-        this.comida_tipicas=comida_tipicas;
+        this.comida_tipicas = comida_tipicas;
     }
 
 
@@ -75,7 +76,7 @@ public class LugaresAdapter extends BaseExpandableListAdapter{
     @Override
     public View getGroupView(int parent, boolean isExpanded, View convertView, ViewGroup parentView) {
         String group_title = (String) getGroup(parent);
-        if(convertView == null){
+        if (convertView == null) {
             LayoutInflater inflator = (LayoutInflater) ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflator.inflate(R.layout.parent_template_listview_expandible, parentView, false);
         }
@@ -101,8 +102,8 @@ public class LugaresAdapter extends BaseExpandableListAdapter{
         textView.setText(child_title);
         TextView textViewTitulo = (TextView) convertView.findViewById(R.id.textViewTitulo);
 
-        if(categoria.equals("Transporte")){
-            if(subdivision.equals("Renta de Autos")) {
+        if (categoria.equals("Transporte")) {
+            if (subdivision.equals("Renta de Autos")) {
                 switch (child) {
                     case 0:
                         textViewTitulo.setText("Ubicación");
@@ -114,7 +115,7 @@ public class LugaresAdapter extends BaseExpandableListAdapter{
                         textViewTitulo.setText("Link");
                         break;
                 }
-            }else if(subdivision.equals("Taxi")){
+            } else if (subdivision.equals("Taxi")) {
                 switch (child) {
                     case 0:
                         textViewTitulo.setText("Descripción");
@@ -124,25 +125,42 @@ public class LugaresAdapter extends BaseExpandableListAdapter{
                         break;
 
                 }
-            }else{
+            } else {
                 switch (child) {
                     case 0:
                         textViewTitulo.setText("Descripción");
                         break;
                 }
             }
-        }else if (categoria.equals(gastronomia)) {
+        }
+        //
+        if (categoria.equals("Gastronomía")) {
+            if (subdivision.equals("Comida Típicas")) {
+            } else if (categoria.equals(gastronomia)) {
 
 
+                if (subdivision.equals(comida_tipicas)) {
+                    switch (child) {
+                        case 0:
+                            textViewTitulo.setText("Descripción");
+                            break;
 
-            if(subdivision.equals(comida_tipicas)) {
-                switch (child) {
-                    case 0:
-                        textViewTitulo.setText("Descripción");
-                        break;
-
+                    }
+                } else {
+                    switch (child) {
+                        case 0:
+                            textViewTitulo.setText("Dirección");
+                            break;
+                        case 1:
+                            textViewTitulo.setText("Teléfono");
+                            break;
+                        case 2:
+                            textViewTitulo.setText("Horario");
+                            break;
+                    }
                 }
-            }else{
+            } else {
+
                 switch (child) {
                     case 0:
                         textViewTitulo.setText("Dirección");
@@ -151,30 +169,15 @@ public class LugaresAdapter extends BaseExpandableListAdapter{
                         textViewTitulo.setText("Teléfono");
                         break;
                     case 2:
-                        textViewTitulo.setText("Horario");
+                        textViewTitulo.setText("Rating");
                         break;
+
+
                 }
-            }
-         }else{
-
-            switch (child) {
-                case 0:
-                    textViewTitulo.setText("Dirección");
-                    break;
-                case 1:
-                    textViewTitulo.setText("Teléfono");
-                    break;
-                case 2:
-                    textViewTitulo.setText("Rating");
-                    break;
-
 
             }
 
         }
-
-
-
         return convertView;
 
     }

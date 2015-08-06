@@ -1023,7 +1023,7 @@ public class gallery extends ActionBarActivity {
                 if(subdivicion.equals("Taxi")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'taxi'";
 
-                    Integer[] p_tipica = {R.drawable.consorziomotoscafivenezia_v, R.drawable.radiotaxi_venecia_v,R.drawable.taxi_venecia_venezia_taxi};
+                    Integer[] p_tipica = { R.drawable.radiotaxi_venecia_v,R.drawable.taxi_venecia_venezia_taxi,R.drawable.consorziomotoscafivenezia_v};
 
                     gallery.setAdapter(new ImageAdapter(this,p_tipica));
                 }
@@ -1031,14 +1031,14 @@ public class gallery extends ActionBarActivity {
                 if(subdivicion.equals("Renta de Autos")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'renta_autos'";
 
-                    Integer[] p_tipica = {R.drawable.renta_autos_avis,R.drawable.renta_autos_hertz,R.drawable.renta_autos_budget};
+                    Integer[] p_tipica = {R.drawable.renta_autos_budget,R.drawable.renta_autos_avis,R.drawable.renta_autos_hertz};
 
                     gallery.setAdapter(new ImageAdapter(this,p_tipica));
                 }
                 if(subdivicion.equals("Transporte Publico")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'trans_publico'";
 
-                    Integer[] p_tipica = {R.drawable.transporte_venecia_vaporetto_v, R.drawable.transporte_venecia_gondola_v, R.drawable.transporte_venecia_traghetto_v, R.drawable.transporte_venecia_autobus_v};
+                    Integer[] p_tipica = {R.drawable.transporte_venecia_traghetto_v,R.drawable.transporte_venecia_vaporetto_v,R.drawable.transporte_venecia_autobus_v, R.drawable.transporte_venecia_gondola_v};
 
                     gallery.setAdapter(new ImageAdapter(this,p_tipica));
 
@@ -1116,21 +1116,21 @@ public class gallery extends ActionBarActivity {
 
                 if(subdivicion.equals("Bares")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'bares'";
-                    Integer[] p_camp = {R.drawable.bares_venecia_all_arco,R.drawable.bares_venecia_osteria_antico_dolo};
+                    Integer[] p_camp = {R.drawable.bares_venecia_osteria_antico_dolo,R.drawable.bares_venecia_all_arco};
 
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
 
                 }
                 if(subdivicion.equals("Discotecas")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'discotecas'";
-                    Integer[] p_camp = {R.drawable.discotecas_venecia_piccolo_mondo_music_dance,R.drawable.discotecas_venecia_sound_garden};
+                    Integer[] p_camp = {R.drawable.discotecas_venecia_sound_garden,R.drawable.discotecas_venecia_piccolo_mondo_music_dance};
 
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
 
                 }
                 if(subdivicion.equals("Clubes")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'clubes'";
-                    Integer[] p_camp = {R.drawable.club_venecia_bacaro_jazz,R.drawable.club_venecia_paradiso_perdutto};
+                    Integer[] p_camp = {R.drawable.club_venecia_paradiso_perdutto,R.drawable.club_venecia_bacaro_jazz};
 
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
 
@@ -1172,7 +1172,7 @@ public class gallery extends ActionBarActivity {
                 }
                 if(subdivicion.equals("Tour por la ciudad")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'tour_ciudad'";
-                    Integer[] p_camp = {R.drawable.tour_venecia_seevenice,R.drawable.tour_venecia_venice_photo_walk};
+                    Integer[] p_camp = {R.drawable.tour_venecia_venice_photo_walk,R.drawable.tour_venecia_seevenice};
 
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
 
@@ -1181,7 +1181,7 @@ public class gallery extends ActionBarActivity {
 
             if (categoria.equals(getString(R.string.text_compras))){
                 helper.where3 += " AND "+helper.CN_categoria+" = 'compras'";
-                Integer[] p_camp = {R.drawable.compras_venecia_ca_macana,R.drawable.compras_venecia_raggio_veneziano};
+                Integer[] p_camp = {R.drawable.compras_venecia_raggio_veneziano,R.drawable.compras_venecia_ca_macana};
 
                 gallery.setAdapter(new ImageAdapter(this,p_camp));
 
@@ -1398,7 +1398,7 @@ public class gallery extends ActionBarActivity {
                 }
                 if(subdivicion.equals("Pasteleria y Panaderia")){
                     helper.where3+=" AND "+helper.CN_sub_cat+"='pasteleria'";
-                    Integer[] p_camp = {R.drawable.pasteleria_londres_benscookies_v,R.drawable.pasteleria_londres_BrickLaneBeigelBakery_v,R.drawable.pasteleria_londres_palmcourt_v,R.drawable.pasteleria_londres_exmouthcoffee_v,R.drawable.pasteleria_londres_juiceandpublic_v};
+                    Integer[] p_camp = {R.drawable.pasteleria_londres_benscookies_v,R.drawable.pasteleria_londres_bricklanebeigelbakery_v,R.drawable.pasteleria_londres_palmcourt_v,R.drawable.pasteleria_londres_exmouthcoffee_v,R.drawable.pasteleria_londres_juiceandpublic_v};
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
 
                 }
