@@ -132,10 +132,7 @@ public class LugaresAdapter extends BaseExpandableListAdapter {
                         break;
                 }
             }
-        }
-        //
-        if (categoria.equals("Gastronomía")) {
-            if (subdivision.equals("Comida Típicas")) {
+
             } else if (categoria.equals(gastronomia)) {
 
 
@@ -177,7 +174,7 @@ public class LugaresAdapter extends BaseExpandableListAdapter {
 
             }
 
-        }
+
         return convertView;
 
     }

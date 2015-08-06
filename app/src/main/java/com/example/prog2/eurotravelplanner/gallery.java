@@ -506,7 +506,7 @@ public class gallery extends ActionBarActivity {
                 if(subdivicion.equals("Taxi")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'taxi'";
 
-                    Integer[] image = {R.drawable.taxis_paris_taxis_g_siete, R.drawable.taxis_paris_alpha_taxis,R.drawable.taxis_paris_les_taxis_bleus};
+                    Integer[] image = {R.drawable.taxis_paris_les_taxis_bleus, R.drawable.taxis_paris_alpha_taxis,R.drawable.taxis_paris_taxis_g_siete };
 
                     gallery.setAdapter(new ImageAdapter(this,image));
 
@@ -515,14 +515,14 @@ public class gallery extends ActionBarActivity {
                 if(subdivicion.equals("Renta de Autos")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'renta_autos'";
 
-                    Integer[] image = {R.drawable.renta_autos_europcar, R.drawable.renta_autos_budget,R.drawable.renta_autos_hertz,R.drawable.renta_autos_sixt};
+                    Integer[] image = {R.drawable.renta_autos_hertz, R.drawable.renta_autos_sixt,  R.drawable.renta_autos_budget, R.drawable.renta_autos_europcar};
 
                     gallery.setAdapter(new ImageAdapter(this,image));
                 }
                 if(subdivicion.equals("Transporte Publico")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'trans_publico'";
 
-                    Integer[] image = {R.drawable.transporte_publico_paris_buses, R.drawable.transporte_publico_paris_funicular,R.drawable.transporte_publico_paris_tranvias};
+                    Integer[] image = {R.drawable.transporte_publico_paris_buses, R.drawable.transporte_publico_paris_tranvias, R.drawable.transporte_publico_paris_funicular};
 
                     gallery.setAdapter(new ImageAdapter(this,image));
 
@@ -530,7 +530,7 @@ public class gallery extends ActionBarActivity {
                 if(subdivicion.equals("Trenes")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'trenes'";
 
-                    Integer[] image = {R.drawable.trenes_paris_gare_du_nord, R.drawable.trenes_paris_gare_de_l_est,R.drawable.trenes_paris_gare_de_lyon,R.drawable.trenes_paris_gare_d_austerlitz};
+                    Integer[] image = {R.drawable.trenes_paris_gare_de_l_est, R.drawable.trenes_paris_gare_du_nord, R.drawable.trenes_paris_gare_d_austerlitz, R.drawable.trenes_paris_gare_de_lyon};
 
                     gallery.setAdapter(new ImageAdapter(this,image));
                 }
@@ -542,14 +542,15 @@ public class gallery extends ActionBarActivity {
                 if(subdivicion.equals("Restaurantes")){
 
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'restaurantes'";
-                    Integer[] image = {R.drawable.restaurant_paris_cobea, R.drawable.restaurant_paris_bistrot_chez_france,R.drawable.restaurant_paris_epicure,R.drawable.restaurant_paris_lassommoirr,R.drawable.restaurante_paris_seb_on,R.drawable.restaurant_paris_roomies,R.drawable.resturant_paris_pur_jean_francois_rouquette};
+                    Integer[] image = {R.drawable.restaurant_paris_bistrot_chez_france, R.drawable.restaurant_paris_cobea, R.drawable.restaurant_paris_epicure, R.drawable.restaurante_paris_seb_on, R.drawable.restaurant_paris_roomies, R.drawable.restaurant_paris_lassommoirr,R.drawable.resturant_paris_pur_jean_francois_rouquette};
 
                     gallery.setAdapter(new ImageAdapter(this,image));
 
                 }
                 if(subdivicion.equals("Pasteleria y Panaderia")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'pasteleria'";
-                    Integer[] image = {R.drawable.pasteleria_paris_berties_cupcakery,R.drawable.pasteleria_paris_patisserie_stohrer,R.drawable.pasteleria_paris_le_saotico,R.drawable.pasteleria_paris_pierre_herme,R.drawable.pasteleria_paris_ble_sucre};
+                    Integer[] image = {R.drawable.pasteleria_paris_le_saotico, R.drawable.pasteleria_paris_pierre_herme, R.drawable.pasteleria_paris_ble_sucre,
+                                       R.drawable.pasteleria_paris_berties_cupcakery, R.drawable.pasteleria_paris_patisserie_stohrer};
 
                     gallery.setAdapter(new ImageAdapter(this,image));
 
@@ -557,13 +558,15 @@ public class gallery extends ActionBarActivity {
                 }
                 if(subdivicion.equals("Comida Rapida")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'comida_rapida'";
-                    Integer[] image = {R.drawable.comidarapida_paris_cafe_des_musees,R.drawable.comidarapida_paris_pret_a_manger,R.drawable.comidarapida_paris_cojean,R.drawable.comidarapida_paris_vandermeersch,R.drawable.comidarapida_paris_lentredgeu};
+                    Integer[] image = {R.drawable.comidarapida_paris_cojean, R.drawable.comidarapida_paris_lentredgeu,R.drawable.comidarapida_paris_vandermeersch,
+                                       R.drawable.comidarapida_paris_cafe_des_musees, R.drawable.comidarapida_paris_pret_a_manger,};
 
                     gallery.setAdapter(new ImageAdapter(this,image));
                 }
                 if(subdivicion.equals("Comida Típicas")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'comida_tipica'";
-                    Integer[] image = {R.drawable.platostipicos_paris_soupe_a_loignon,R.drawable.platostipicos_paris_coq_au_vin,R.drawable.platostipicos_paris_ratatouille,R.drawable.platostipicos_paris_escargo,R.drawable.platostipicos_paris_canard_a_lorange};
+                    Integer[] image = {R.drawable.platostipicos_paris_coq_au_vin,R.drawable.platostipicos_paris_ratatouille,R.drawable.platostipicos_paris_escargo,
+                                       R.drawable.platostipicos_paris_soupe_a_loignon, R.drawable.platostipicos_paris_canard_a_lorange};
 
                     gallery.setAdapter(new ImageAdapter(this,image));
 
@@ -582,14 +585,14 @@ public class gallery extends ActionBarActivity {
                 }
                 if(subdivicion.equals("Hostel")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'hosteles'";
-                    Integer[] p_hostel = {R.drawable.hostel_paris_avalon_paris_hotel,R.drawable.hostel_paris_hotel_boissiere,R.drawable.hostel_paris_hotel_rocroy};
+                    Integer[] p_hostel = {R.drawable.hostel_paris_hotel_boissiere, R.drawable.hostel_paris_hotel_rocroy, R.drawable.hostel_paris_avalon_paris_hotel};
 
                     gallery.setAdapter(new ImageAdapter(this,p_hostel));
 
                 }
                 if(subdivicion.equals("Lugares de Acampar")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'lugar_acampar'";
-                    Integer[] p_camp = {R.drawable.acampar_paris_huttopia_versailles,R.drawable.acampar_paris_camping_indigo_paris_bois_boulogne,R.drawable.acampar_paris_camping_international_maisons_laffitte};
+                    Integer[] p_camp = {R.drawable.acampar_paris_camping_indigo_paris_bois_boulogne,R.drawable.acampar_paris_huttopia_versailles,R.drawable.acampar_paris_camping_international_maisons_laffitte};
 
                      gallery.setAdapter(new ImageAdapter(this,p_camp));
 
@@ -615,7 +618,7 @@ public class gallery extends ActionBarActivity {
                 }
                 if(subdivicion.equals("Clubes")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'clubes'";
-                    Integer[] p_camp = {R.drawable.clubes_paris_batofar,R.drawable.clubes_paris_le_truskel};
+                    Integer[] p_camp = {R.drawable.clubes_paris_le_truskel, R.drawable.clubes_paris_batofar};
 
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
 
@@ -635,7 +638,7 @@ public class gallery extends ActionBarActivity {
 
                 if(subdivicion.equals("Lugares Historicos")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'lugar_historico'";
-                    Integer[] p_camp = {R.drawable.lugar_historico_paris_torre_eiffel,R.drawable.lugar_historico_paris_catedral_de_notre_dame,R.drawable.lugar_historico_paris_arco_de_triunfo_de_paris};
+                    Integer[] p_camp = {R.drawable.lugar_historico_paris_arco_de_triunfo_de_paris,R.drawable.lugar_historico_paris_catedral_de_notre_dame,R.drawable.lugar_historico_paris_torre_eiffel,};
 
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
 
@@ -652,7 +655,7 @@ public class gallery extends ActionBarActivity {
                 }
                 if(subdivicion.equals("Tour por la ciudad")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'tour_ciudad'";
-                    Integer[] p_camp = {R.drawable.tour_paris_l_open_tour,R.drawable.tour_paris_foxity};
+                    Integer[] p_camp = {R.drawable.tour_paris_foxity,R.drawable.tour_paris_l_open_tour};
 
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
 
@@ -661,7 +664,8 @@ public class gallery extends ActionBarActivity {
 
             if (categoria.equals(getString(R.string.text_compras))){
                 helper.where3 += " AND "+helper.CN_categoria+" = 'compras'";
-                Integer[] p_camp = {R.drawable.compras_paris_la_galerie_du_carrousel_du_louvre,R.drawable.compras_paris_passy_plaza,R.drawable.compras_paris_hermes,R.drawable.compras_paris_chanel_cambon};
+                Integer[] p_camp = {R.drawable.compras_paris_hermes,R.drawable.compras_paris_passy_plaza,R.drawable.compras_paris_la_galerie_du_carrousel_du_louvre,
+                        R.drawable.compras_paris_chanel_cambon};
 
                 gallery.setAdapter(new ImageAdapter(this,p_camp));
 
@@ -852,7 +856,7 @@ public class gallery extends ActionBarActivity {
                 if(subdivicion.equals("Taxi")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'taxi'";
 
-                    Integer[] image = {R.drawable.taxi_roma_pronto_taxi, R.drawable.taxi_roma_la_capitale_taxi,R.drawable.taxi_roma_samarcanda_taxi};
+                    Integer[] image = {R.drawable.taxi_roma_samarcanda_taxi, R.drawable.taxi_roma_la_capitale_taxi,R.drawable.taxi_roma_pronto_taxi};
 
                     gallery.setAdapter(new ImageAdapter(this,image));
                 }
@@ -860,7 +864,7 @@ public class gallery extends ActionBarActivity {
                 if(subdivicion.equals("Renta de Autos")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'renta_autos'";
 
-                    Integer[] image = {R.drawable.renta_autos_hertz, R.drawable.renta_autos_avis,R.drawable.renta_autos_europcar};
+                    Integer[] image = {R.drawable.renta_autos_avis,R.drawable.renta_autos_hertz, R.drawable.renta_autos_europcar};
 
                     gallery.setAdapter(new ImageAdapter(this,image));
                 }
@@ -875,7 +879,7 @@ public class gallery extends ActionBarActivity {
                 if(subdivicion.equals("Trenes")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'trenes'";
 
-                    Integer[] image = {R.drawable.trenes_roma_linea_a_naranja, R.drawable.trenes_roma_linea_b_azul,R.drawable.trenes_roma_trenes_suburbanos};
+                    Integer[] image = {R.drawable.trenes_roma_trenes_suburbanos,R.drawable.trenes_roma_linea_a_naranja, R.drawable.trenes_roma_linea_b_azul};
 
                     gallery.setAdapter(new ImageAdapter(this,image));
                 }
@@ -886,14 +890,15 @@ public class gallery extends ActionBarActivity {
 
                 if(subdivicion.equals("Restaurantes")){
                     helper.where3+=" AND "+helper.CN_sub_cat+"='restaurantes'";
-                    Integer[] p_rest = {R.drawable.restaurante_roma_tamburellodi_pulcinella, R.drawable.restaurante_roma_vicinibistrot, R.drawable.restaurante_roma_lla_porta_del_principe};
+                    Integer[] p_rest = {R.drawable.restaurante_roma_tamburellodi_pulcinella, R.drawable.restaurante_roma_vicinibistrot,
+                                        R.drawable.restaurante_roma_lla_porta_del_principe};
 
                     gallery.setAdapter(new ImageAdapter(this,p_rest));
 
                 }
                 if(subdivicion.equals("Pasteleria y Panaderia")){
                     helper.where3+=" AND "+helper.CN_sub_cat+"='pasteleria'";
-                    Integer[] p_past = {R.drawable.reposteria_roma_panzerotti_friends, R.drawable.reposteria_roma_biscottificio_lnnocenti, R.drawable.reposteria_roma_opulentia};
+                    Integer[] p_past = {R.drawable.reposteria_roma_opulentia,R.drawable.reposteria_roma_panzerotti_friends, R.drawable.reposteria_roma_biscottificio_lnnocenti};
 
                     gallery.setAdapter(new ImageAdapter(this,p_past));
 
@@ -907,7 +912,8 @@ public class gallery extends ActionBarActivity {
                 }
                 if(subdivicion.equals("Comida Típicas")){
                     helper.where3+=" AND "+helper.CN_sub_cat+"='comida_tipica'";
-                    Integer[] p_tipica = {R.drawable.comida_tipica_roma_panini, R.drawable.comida_tipica_roma_tomato_bruschetta_with_ricotta_and, R.drawable.comida_tipica_roma_tartufonegro, R.drawable.comida_tipica_roma_bucainiall_amatriciana};
+                    Integer[] p_tipica = {R.drawable.comida_tipica_roma_panini, R.drawable.comida_tipica_roma_tartufonegro,
+                                          R.drawable.comida_tipica_roma_bucainiall_amatriciana,R.drawable.comida_tipica_roma_tomato_bruschetta_with_ricotta_and};
 
                     gallery.setAdapter(new ImageAdapter(this,p_tipica));
 
@@ -946,7 +952,7 @@ public class gallery extends ActionBarActivity {
 
                 if(subdivicion.equals("Bares")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'bares'";
-                    Integer[] p_camp = {R.drawable.bares_roma_wine_and_food_tasting_roscioli,R.drawable.bares_roma_cul_de_sac_wine_bar};
+                    Integer[] p_camp = {R.drawable.bares_roma_cul_de_sac_wine_bar,R.drawable.bares_roma_wine_and_food_tasting_roscioli};
 
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
 
@@ -960,7 +966,7 @@ public class gallery extends ActionBarActivity {
                 }
                 if(subdivicion.equals("Clubes")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'clubes'";
-                    Integer[] p_camp = {R.drawable.clubes_roma_ice_club,R.drawable.clubes_roma_colors_club,R.drawable.clubes_roma_bebop_jazz_club};
+                    Integer[] p_camp = {R.drawable.clubes_roma_ice_club,R.drawable.clubes_roma_bebop_jazz_club,R.drawable.clubes_roma_colors_club};
 
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
 
@@ -987,7 +993,7 @@ public class gallery extends ActionBarActivity {
                 }
                 if(subdivicion.equals("Museos")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'museos'";
-                    Integer[] p_camp = {R.drawable.museos_roma_museos_vaticanos,R.drawable.museos_roma_museo_nacional_etrusco};
+                    Integer[] p_camp = {R.drawable.museos_roma_museo_nacional_etrusco,R.drawable.museos_roma_museos_vaticanos};
 
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
 
@@ -997,7 +1003,7 @@ public class gallery extends ActionBarActivity {
                 }
                 if(subdivicion.equals("Tour por la ciudad")){
                     helper.where3 += " AND "+helper.CN_sub_cat+" = 'tour_ciudad'";
-                    Integer[] p_camp = {R.drawable.tour_roma_new_rome_free_tour,R.drawable.tour_roma_rome_segway_tours};
+                    Integer[] p_camp = {R.drawable.tour_roma_rome_segway_tours,R.drawable.tour_roma_new_rome_free_tour,};
 
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
 
@@ -1006,7 +1012,7 @@ public class gallery extends ActionBarActivity {
 
             if (categoria.equals(getString(R.string.text_compras))){
                 helper.where3 += " AND "+helper.CN_categoria+" = 'compras'";
-                Integer[] p_camp = {R.drawable.compras_roma_stone_island_roma,R.drawable.compras_roma_subdued};
+                Integer[] p_camp = {R.drawable.compras_roma_subdued,R.drawable.compras_roma_stone_island_roma};
 
                 gallery.setAdapter(new ImageAdapter(this,p_camp));
 
@@ -1398,7 +1404,7 @@ public class gallery extends ActionBarActivity {
                 }
                 if(subdivicion.equals("Pasteleria y Panaderia")){
                     helper.where3+=" AND "+helper.CN_sub_cat+"='pasteleria'";
-                    Integer[] p_camp = {R.drawable.pasteleria_londres_juiceandpublic_v,R.drawable.pasteleria_londres_exmouthcoffee_v,R.drawable.pasteleria_londres_palmcourt_v,R.drawable.pasteleria_londres_benscookies_v,R.drawable.pasteleria_londres_bricklanebeigelbakery_v};
+                    Integer[] p_camp = {R.drawable.pasteleria_londres_juiceandpublic_v,R.drawable.pasteleria_londres_exmouthcoffee_v,R.drawable.pasteleria_londres_palmcourt_v,R.drawable.pasteleria_londres_benscookies_v,R.drawable.pasteleria_londres_brick_lanebeigelbakery};
                     gallery.setAdapter(new ImageAdapter(this,p_camp));
 
                 }
