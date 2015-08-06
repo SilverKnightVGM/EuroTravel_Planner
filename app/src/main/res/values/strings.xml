@@ -22,12 +22,12 @@
     <string name="text_transporte">Transporte</string>
     <string name="text_hospedaje">Hospedaje</string>
     <string name="text_gastronomia">Gastronomía</string>
-    <string name="text_comida_tipicas">Comida Típicas</string>
+    <string name="text_comida_tipicas" translatable="false">Comida Típicas</string>
     <string name="text_entretenimiento">Entretenimiento</string>
     <string name="text_lugarInteres">Lugares de interés</string>
     <string name="text_compras">Compras</string>
     <string name="string_welcome">Welcome, </string>
-    <string-array name="monedas">
+    <string-array name="monedas" translatable="false">
         <item>Peso Dominicano(DOP)</item>
         <item>Dolares Estadounidense(USD)</item>
         <item>Euro(EUR)</item>
