@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.prog2.eurotravelplanner" >
+    package="com.eurotravel.prog2.eurotravelplanner" >
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".FacebookInit"
+        android:name="com.eurotravel.prog2.eurotravelplanner.FacebookInit"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -16,7 +16,7 @@
             />
 
         <activity
-            android:name=".MainActivity"
+            android:name="com.eurotravel.prog2.eurotravelplanner.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="userPortrait">
             <intent-filter>
@@ -27,35 +27,35 @@
         </activity>
 
         <activity
-            android:name=".Destinos"
+            android:name="com.eurotravel.prog2.eurotravelplanner.Destinos"
             android:label="@string/title_activity_destinos"
             android:screenOrientation="userPortrait">
         </activity>
 
         <activity
-            android:name=".Opciones"
+            android:name="com.eurotravel.prog2.eurotravelplanner.Opciones"
             android:label="@string/title_activity_opciones" >
         </activity>
 
         <activity
-            android:name=".subdiviciones_opciones"
+            android:name="com.eurotravel.prog2.eurotravelplanner.subdiviciones_opciones"
             android:label="@string/title_activity_subdiviciones_opciones" >
         </activity>
 
         <activity
-            android:name=".DatosGenerales"
+            android:name="com.eurotravel.prog2.eurotravelplanner.DatosGenerales"
             android:label="@string/title_activity_datosGenerales" >
         </activity>
 
         <activity
-            android:name=".CalculadoraPopUp"
+            android:name="com.eurotravel.prog2.eurotravelplanner.CalculadoraPopUp"
             android:label="@string/title_activity_calculadora"
             android:screenOrientation="userPortrait"
             android:theme="@style/AppTheme.CustomTheme" >
         </activity>
 
         <activity
-            android:name=".gallery"
+            android:name="com.eurotravel.prog2.eurotravelplanner.gallery"
             android:label="@string/title_activity_gallery"
             android:screenOrientation="userPortrait">
         </activity>

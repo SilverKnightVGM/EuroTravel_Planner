@@ -40,7 +40,7 @@
     <fragment
         android:layout_width="480dp"
         android:layout_height="wrap_content"
-        android:name="com.example.prog2.eurotravelplanner.FacebookFragment"
+        android:name="com.eurotravel.prog2.eurotravelplanner.FacebookFragment"
         android:id="@+id/fragment"
         android:layout_above="@+id/btnlogin"
         android:layout_centerHorizontal="true"

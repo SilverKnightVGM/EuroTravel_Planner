@@ -1,4 +1,4 @@
-package com.example.prog2.eurotravelplanner;
+package com.eurotravel.prog2.eurotravelplanner;
 
 /**
  * Created by HellenFranchesca on 30/06/2015.

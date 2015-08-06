@@ -1,4 +1,4 @@
-package com.example.prog2.eurotravelplanner;
+package com.eurotravel.prog2.eurotravelplanner;
 
 import android.content.Context;
 import android.database.Cursor;

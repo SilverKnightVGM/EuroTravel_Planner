@@ -1,4 +1,4 @@
-package com.example.prog2.eurotravelplanner;
+package com.eurotravel.prog2.eurotravelplanner;
 
 import android.app.Application;
 import android.content.pm.PackageInfo;
@@ -29,7 +29,7 @@ public class FacebookInit extends Application{
      */
     public void printKeyHash() {
         try {
-            PackageInfo info = getPackageManager().getPackageInfo("com.example.prog2.eurotravelplanner", PackageManager.GET_SIGNATURES);
+            PackageInfo info = getPackageManager().getPackageInfo("com.eurotravel.prog2.eurotravelplanner", PackageManager.GET_SIGNATURES);
             for (Signature signature : info.signatures) {
                 MessageDigest md = MessageDigest.getInstance("SHA");
                 md.update(signature.toByteArray());

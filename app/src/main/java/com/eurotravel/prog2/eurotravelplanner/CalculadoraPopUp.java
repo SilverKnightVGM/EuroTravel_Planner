@@ -1,4 +1,4 @@
-package com.example.prog2.eurotravelplanner;
+package com.eurotravel.prog2.eurotravelplanner;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -8,12 +8,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 public class CalculadoraPopUp extends Activity {
 

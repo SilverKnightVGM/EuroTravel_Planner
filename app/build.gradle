@@ -5,7 +5,7 @@ android {
     buildToolsVersion "22.0.1"
 
     defaultConfig {
-        applicationId "com.example.prog2.eurotravelplanner"
+        applicationId "com.eurotravel.prog2.eurotravelplanner"
         minSdkVersion 15
         targetSdkVersion 22
         versionCode 1
